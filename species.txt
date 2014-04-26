@@ -1,0 +1,718 @@
+001|Bulbasaur|Seed Pokémon|poison|grass|Plant|Monster|
+002|Ivysaur|Seed Pokémon|poison|grass|Plant|Monster|
+003|Venusaur|Seed Pokémon|poison|grass|Plant|Monster|
+004|Charmander|Lizard Pokémon|fire||Dragon|Monster|
+005|Charmeleon|Flame Pokémon|fire||Dragon|Monster|
+006|Charizard|Flame Pokémon|flying|fire|Dragon|Monster|
+007|Squirtle|Tiny Turtle Pokémon|water||Water1|Monster|
+008|Wartortle|Turtle Pokémon|water||Water1|Monster|
+009|Blastoise|Shellfish Pokémon|water||Water1|Monster|
+010|Caterpie|Worm Pokémon|bug||Bug||
+011|Metapod|Cocoon Pokémon|bug||Bug||
+012|Butterfree|Butterfly Pokémon|flying|bug|Bug||
+013|Weedle|Hairy Bug Pokémon|poison|bug|Bug||
+014|Kakuna|Cocoon Pokémon|poison|bug|Bug||
+015|Beedrill|Poison Bee Pokémon|poison|bug|Bug||
+016|Pidgey|Tiny Bird Pokémon|normal|flying|Flying||
+017|Pidgeotto|Bird Pokémon|normal|flying|Flying||
+018|Pidgeot|Bird Pokémon|normal|flying|Flying||
+019|Rattata|Mouse Pokémon|normal||Ground||
+020|Raticate|Mouse Pokémon|normal||Ground||
+021|Spearow|Tiny Bird Pokémon|normal|flying|Flying||
+022|Fearow|Beak Pokémon|normal|flying|Flying||
+023|Ekans|Snake Pokémon|poison||Dragon|Ground|
+024|Arbok|Cobra Pokémon|poison||Dragon|Ground|
+025|Pikachu|Mouse Pokémon|electric||Fairy|Ground|
+026|Raichu|Mouse Pokémon|electric||Fairy|Ground|
+027|Sandshrew|Mouse Pokémon|ground||Ground||
+028|Sandslash|Mouse Pokémon|ground||Ground||
+029|Nidoran♀|Poison Pin Pokémon|poison||Ground|Monster|
+030|Nidorina|Poison Pin Pokémon|poison||Undiscovered||
+031|Nidoqueen|Drill Pokémon|poison|ground|Undiscovered||
+032|Nidoran♂|Poison Pin Pokémon|poison||Ground|Monster|
+033|Nidorino|Poison Pin Pokémon|poison||Ground|Monster|
+034|Nidoking|Drill Pokémon|poison|ground|Ground|Monster|
+035|Clefairy|Fairy Pokémon|fairy||Fairy||
+036|Clefable|Fairy Pokémon|fairy||Fairy||
+037|Vulpix|Fox Pokémon|fire||Ground||
+038|Ninetales|Fox Pokémon|fire||Ground||
+039|Jigglypuff|Balloon Pokémon|normal|fairy|Fairy||
+040|Wigglytuff|Balloon Pokémon|normal|fairy|Fairy||
+041|Zubat|Bat Pokémon|flying|poison|Flying||
+042|Golbat|Bat Pokémon|flying|poison|Flying||
+043|Oddish|Weed Pokémon|poison|grass|Plant||
+044|Gloom|Weed Pokémon|poison|grass|Plant||
+045|Vileplume|Flower Pokémon|poison|grass|Plant||
+046|Paras|Mushroom Pokémon|bug|grass|Plant|Bug|
+047|Parasect|Mushroom Pokémon|bug|grass|Plant|Bug|
+048|Venonat|Insect Pokémon|poison|bug|Bug||
+049|Venomoth|Poison Moth Pokémon|poison|bug|Bug||
+050|Diglett|Mole Pokémon|ground||Ground||
+051|Dugtrio|Mole Pokémon|ground||Ground||
+052|Meowth|Scratch Cat Pokémon|normal||Ground||
+053|Persian|Classy Cat Pokémon|normal||Ground||
+054|Psyduck|Duck Pokémon|water||Ground|Water1|
+055|Golduck|Duck Pokémon|water||Ground|Water1|
+056|Mankey|Pig Monkey Pokémon|fighting||Ground||
+057|Primeape|Pig Monkey Pokémon|fighting||Ground||
+058|Growlithe|Puppy Pokémon|fire||Ground||
+059|Arcanine|Legendary Pokémon|fire||Ground||
+060|Poliwag|Tadpole Pokémon|water||Water1||
+061|Poliwhirl|Tadpole Pokémon|water||Water1||
+062|Poliwrath|Tadpole Pokémon|fighting|water|Water1||
+063|Abra|Psi Pokémon|psychic||Human-like||
+064|Kadabra|Psi Pokémon|psychic||Human-like||
+065|Alakazam|Psi Pokémon|psychic||Human-like||
+066|Machop|Superpower Pokémon|fighting||Human-like||
+067|Machoke|Superpower Pokémon|fighting||Human-like||
+068|Machamp|Superpower Pokémon|fighting||Human-like||
+069|Bellsprout|Flower Pokémon|poison|grass|Plant||
+070|Weepinbell|Flycatcher Pokémon|poison|grass|Plant||
+071|Victreebel|Flycatcher Pokémon|poison|grass|Plant||
+072|Tentacool|Jellyfish Pokémon|poison|water|Water3||
+073|Tentacruel|Jellyfish Pokémon|poison|water|Water3||
+074|Geodude|Rock Pokémon|ground|rock|Mineral||
+075|Graveler|Rock Pokémon|ground|rock|Mineral||
+076|Golem|Megaton Pokémon|ground|rock|Mineral||
+077|Ponyta|Fire Horse Pokémon|fire||Ground||
+078|Rapidash|Fire Horse Pokémon|fire||Ground||
+079|Slowpoke|Dopey Pokémon|water|psychic|Water1|Monster|
+080|Slowbro|Hermit Crab Pokémon|water|psychic|Water1|Monster|
+081|Magnemite|Magnet Pokémon|steel|electric|Mineral||
+082|Magneton|Magnet Pokémon|steel|electric|Mineral||
+083|Farfetch'd|Wild Duck Pokémon|normal|flying|Ground|Flying|
+084|Doduo|Twin Bird Pokémon|normal|flying|Flying||
+085|Dodrio|Triple Bird Pokémon|normal|flying|Flying||
+086|Seel|Sea Lion Pokémon|water||Ground|Water1|
+087|Dewgong|Sea Lion Pokémon|water|ice|Ground|Water1|
+088|Grimer|Sludge Pokémon|poison||Indeterminate||
+089|Muk|Sludge Pokémon|poison||Indeterminate||
+090|Shellder|Bivalve Pokémon|water||Water3||
+091|Cloyster|Bivalve Pokémon|water|ice|Water3||
+092|Gastly|Gas Pokémon|poison|ghost|Indeterminate||
+093|Haunter|Gas Pokémon|poison|ghost|Indeterminate||
+094|Gengar|Shadow Pokémon|poison|ghost|Indeterminate||
+095|Onix|Rock Snake Pokémon|ground|rock|Mineral||
+096|Drowzee|Hypnosis Pokémon|psychic||Human-like||
+097|Hypno|Hypnosis Pokémon|psychic||Human-like||
+098|Krabby|River Crab Pokémon|water||Water3||
+099|Kingler|Pincer Pokémon|water||Water3||
+100|Voltorb|Ball Pokémon|electric||Mineral||
+101|Electrode|Ball Pokémon|electric||Mineral||
+102|Exeggcute|Egg Pokémon|grass|psychic|Plant||
+103|Exeggutor|Coconut Pokémon|grass|psychic|Plant||
+104|Cubone|Lonely Pokémon|ground||Monster||
+105|Marowak|Bone Keeper Pokémon|ground||Monster||
+106|Hitmonlee|Kicking Pokémon|fighting||Human-like||
+107|Hitmonchan|Punching Pokémon|fighting||Human-like||
+108|Lickitung|Licking Pokémon|normal||Monster||
+109|Koffing|Poison Gas Pokémon|poison||Indeterminate||
+110|Weezing|Poison Gas Pokémon|poison||Indeterminate||
+111|Rhyhorn|Spikes Pokémon|ground|rock|Ground|Monster|
+112|Rhydon|Drill Pokémon|ground|rock|Ground|Monster|
+113|Chansey|Egg Pokémon|normal||Fairy||
+114|Tangela|Vine Pokémon|grass||Plant||
+115|Kangaskhan|Parent Pokémon|normal||Monster||
+116|Horsea|Dragon Pokémon|water||Dragon|Water1|
+117|Seadra|Dragon Pokémon|water||Dragon|Water1|
+118|Goldeen|Goldfish Pokémon|water||Water2||
+119|Seaking|Goldfish Pokémon|water||Water2||
+120|Staryu|Star Shape Pokémon|water||Water3||
+121|Starmie|Mysterious Pokémon|water|psychic|Water3||
+122|Mr. Mime|Barrier Pokémon|fairy|psychic|Human-like||
+123|Scyther|Mantis Pokémon|flying|bug|Bug||
+124|Jynx|Human Shape Pokémon|ice|psychic|Human-like||
+125|Electabuzz|Electric Pokémon|electric||Human-like||
+126|Magmar|Spitfire Pokémon|fire||Human-like||
+127|Pinsir|Stag Beetle Pokémon|bug||Bug||
+128|Tauros|Wild Bull Pokémon|normal||Ground||
+129|Magikarp|Fish Pokémon|water||Dragon|Water2|
+130|Gyarados|Atrocious Pokémon|flying|water|Dragon|Water2|
+131|Lapras|Transport Pokémon|water|ice|Water1|Monster|
+132|Ditto|Transform Pokémon|normal||Ditto||
+133|Eevee|Evolution Pokémon|normal||Ground||
+134|Vaporeon|Bubble Jet Pokémon|water||Ground||
+135|Jolteon|Lightning Pokémon|electric||Ground||
+136|Flareon|Flame Pokémon|fire||Ground||
+137|Porygon|Virtual Pokémon|normal||Mineral||
+138|Omanyte|Spiral Pokémon|rock|water|Water3|Water1|
+139|Omastar|Spiral Pokémon|rock|water|Water3|Water1|
+140|Kabuto|Shellfish Pokémon|rock|water|Water3|Water1|
+141|Kabutops|Shellfish Pokémon|rock|water|Water3|Water1|
+142|Aerodactyl|Fossil Pokémon|flying|rock|Flying||
+143|Snorlax|Sleeping Pokémon|normal||Monster||
+144|Articuno|Freeze Pokémon|flying|ice|Undiscovered||
+145|Zapdos|Electric Pokémon|flying|electric|Undiscovered||
+146|Moltres|Flame Pokémon|flying|fire|Undiscovered||
+147|Dratini|Dragon Pokémon|dragon||Dragon|Water1|
+148|Dragonair|Dragon Pokémon|dragon||Dragon|Water1|
+149|Dragonite|Dragon Pokémon|flying|dragon|Dragon|Water1|
+150|Mewtwo|Genetic Pokémon|psychic||Undiscovered||
+151|Mew|New Species Pokémon|psychic||Undiscovered||
+152|Chikorita|Leaf Pokémon|grass||Plant|Monster|
+153|Bayleef|Leaf Pokémon|grass||Plant|Monster|
+154|Meganium|Herb Pokémon|grass||Plant|Monster|
+155|Cyndaquil|Fire Mouse Pokémon|fire||Ground||
+156|Quilava|Volcano Pokémon|fire||Ground||
+157|Typhlosion|Volcano Pokémon|fire||Ground||
+158|Totodile|Big Jaw Pokémon|water||Water1|Monster|
+159|Croconaw|Big Jaw Pokémon|water||Water1|Monster|
+160|Feraligatr|Big Jaw Pokémon|water||Water1|Monster|
+161|Sentret|Scout Pokémon|normal||Ground||
+162|Furret|Long Body Pokémon|normal||Ground||
+163|Hoothoot|Owl Pokémon|normal|flying|Flying||
+164|Noctowl|Owl Pokémon|normal|flying|Flying||
+165|Ledyba|Five Star Pokémon|flying|bug|Bug||
+166|Ledian|Five Star Pokémon|flying|bug|Bug||
+167|Spinarak|String Spit Pokémon|poison|bug|Bug||
+168|Ariados|Long Leg Pokémon|poison|bug|Bug||
+169|Crobat|Bat Pokémon|flying|poison|Flying||
+170|Chinchou|Angler Pokémon|water|electric|Water2||
+171|Lanturn|Light Pokémon|water|electric|Water2||
+172|Pichu|Tiny Mouse Pokémon|electric||Undiscovered||
+173|Cleffa|Star Shape Pokémon|fairy||Undiscovered||
+174|Igglybuff|Balloon Pokémon|normal|fairy|Undiscovered||
+175|Togepi|Spike Ball Pokémon|fairy||Undiscovered||
+176|Togetic|Happiness Pokémon|flying|fairy|Fairy|Flying|
+177|Natu|Tiny Bird Pokémon|flying|psychic|Flying||
+178|Xatu|Mystic Pokémon|flying|psychic|Flying||
+179|Mareep|Wool Pokémon|electric||Ground|Monster|
+180|Flaaffy|Wool Pokémon|electric||Ground|Monster|
+181|Ampharos|Light Pokémon|electric||Ground|Monster|
+182|Bellossom|Flower Pokémon|grass||Plant||
+183|Marill|Aqua Mouse Pokémon|water|fairy|Fairy|Water1|
+184|Azumarill|Aqua Rabbit Pokémon|water|fairy|Fairy|Water1|
+185|Sudowoodo|Imitation Pokémon|rock||Mineral||
+186|Politoed|Frog Pokémon|water||Water1||
+187|Hoppip|Cottonweed Pokémon|flying|grass|Plant|Fairy|
+188|Skiploom|Cottonweed Pokémon|flying|grass|Plant|Fairy|
+189|Jumpluff|Cottonweed Pokémon|flying|grass|Plant|Fairy|
+190|Aipom|Long Tail Pokémon|normal||Ground||
+191|Sunkern|Seed Pokémon|grass||Plant||
+192|Sunflora|Sun Pokémon|grass||Plant||
+193|Yanma|Clear Wing Pokémon|flying|bug|Bug||
+194|Wooper|Water Fish Pokémon|ground|water|Ground|Water1|
+195|Quagsire|Water Fish Pokémon|ground|water|Ground|Water1|
+196|Espeon|Sun Pokémon|psychic||Ground||
+197|Umbreon|Moonlight Pokémon|dark||Ground||
+198|Murkrow|Darkness Pokémon|flying|dark|Flying||
+199|Slowking|Royal Pokémon|water|psychic|Water1|Monster|
+200|Misdreavus|Screech Pokémon|ghost||Indeterminate||
+201|Unown|Symbol Pokémon|psychic||Undiscovered||
+202|Wobbuffet|Patient Pokémon|psychic||Indeterminate||
+203|Girafarig|Long Neck Pokémon|normal|psychic|Ground||
+204|Pineco|Bagworm Pokémon|bug||Bug||
+205|Forretress|Bagworm Pokémon|bug|steel|Bug||
+206|Dunsparce|Land Snake Pokémon|normal||Ground||
+207|Gligar|Fly Scorpion Pokémon|flying|ground|Bug||
+208|Steelix|Iron Snake Pokémon|ground|steel|Mineral||
+209|Snubbull|Fairy Pokémon|fairy||Fairy|Ground|
+210|Granbull|Fairy Pokémon|fairy||Fairy|Ground|
+211|Qwilfish|Balloon Pokémon|poison|water|Water2||
+212|Scizor|Pincer Pokémon|bug|steel|Bug||
+213|Shuckle|Mold Pokémon|rock|bug|Bug||
+214|Heracross|Single Horn Pokémon|fighting|bug|Bug||
+215|Sneasel|Sharp Claw Pokémon|ice|dark|Ground||
+216|Teddiursa|Little Bear Pokémon|normal||Ground||
+217|Ursaring|Hibernator Pokémon|normal||Ground||
+218|Slugma|Lava Pokémon|fire||Indeterminate||
+219|Magcargo|Lava Pokémon|rock|fire|Indeterminate||
+220|Swinub|Pig Pokémon|ground|ice|Ground||
+221|Piloswine|Swine Pokémon|ground|ice|Ground||
+222|Corsola|Coral Pokémon|rock|water|Water3|Water1|
+223|Remoraid|Jet Pokémon|water||Water2|Water1|
+224|Octillery|Jet Pokémon|water||Water2|Water1|
+225|Delibird|Delivery Pokémon|flying|ice|Ground|Water1|
+226|Mantine|Kite Pokémon|flying|water|Water1||
+227|Skarmory|Armor Bird Pokémon|flying|steel|Flying||
+228|Houndour|Dark Pokémon|fire|dark|Ground||
+229|Houndoom|Dark Pokémon|fire|dark|Ground||
+230|Kingdra|Dragon Pokémon|water|dragon|Dragon|Water1|
+231|Phanpy|Long Nose Pokémon|ground||Ground||
+232|Donphan|Armor Pokémon|ground||Ground||
+233|Porygon2|Virtual Pokémon|normal||Mineral||
+234|Stantler|Big Horn Pokémon|normal||Ground||
+235|Smeargle|Painter Pokémon|normal||Ground||
+236|Tyrogue|Scuffle Pokémon|fighting||Undiscovered||
+237|Hitmontop|Handstand Pokémon|fighting||Human-like||
+238|Smoochum|Kiss Pokémon|ice|psychic|Undiscovered||
+239|Elekid|Electric Pokémon|electric||Undiscovered||
+240|Magby|Live Coal Pokémon|fire||Undiscovered||
+241|Miltank|Milk Cow Pokémon|normal||Ground||
+242|Blissey|Happiness Pokémon|normal||Fairy||
+243|Raikou|Thunder Pokémon|electric||Undiscovered||
+244|Entei|Volcano Pokémon|fire||Undiscovered||
+245|Suicune|Aurora Pokémon|water||Undiscovered||
+246|Larvitar|Rock Skin Pokémon|ground|rock|Monster||
+247|Pupitar|Hard Shell Pokémon|ground|rock|Monster||
+248|Tyranitar|Armor Pokémon|rock|dark|Monster||
+249|Lugia|Diving Pokémon|flying|psychic|Undiscovered||
+250|Ho-Oh|Rainbow Pokémon|flying|fire|Undiscovered||
+251|Celebi|Time Travel Pokémon|grass|psychic|Undiscovered||
+252|Treecko|Wood Gecko Pokémon|grass||Dragon|Monster|
+253|Grovyle|Wood Gecko Pokémon|grass||Dragon|Monster|
+254|Sceptile|Forest Pokémon|grass||Dragon|Monster|
+255|Torchic|Chick Pokémon|fire||Ground||
+256|Combusken|Young Fowl Pokémon|fighting|fire|Ground||
+257|Blaziken|Blaze Pokémon|fighting|fire|Ground||
+258|Mudkip|Mud Fish Pokémon|water||Water1|Monster|
+259|Marshtomp|Mud Fish Pokémon|ground|water|Water1|Monster|
+260|Swampert|Mud Fish Pokémon|ground|water|Water1|Monster|
+261|Poochyena|Bite Pokémon|dark||Ground||
+262|Mightyena|Bite Pokémon|dark||Ground||
+263|Zigzagoon|Tiny Raccoon Pokémon|normal||Ground||                                                                                         
+264|Linoone|Rushing Pokémon|normal||Ground||
+265|Wurmple|Worm Pokémon|bug||Bug||
+266|Silcoon|Cocoon Pokémon|bug||Bug||
+267|Beautifly|Butterfly Pokémon|flying|bug|Bug||
+268|Cascoon|Cocoon Pokémon|bug||Bug||
+269|Dustox|Poison Moth Pokémon|poison|bug|Bug||
+270|Lotad|Water Weed Pokémon|water|grass|Plant|Water1|
+271|Lombre|Jolly Pokémon|water|grass|Plant|Water1|
+272|Ludicolo|Carefree Pokémon|water|grass|Plant|Water1|
+273|Seedot|Acorn Pokémon|grass||Plant|Ground|
+274|Nuzleaf|Wily Pokémon|grass|dark|Plant|Ground|
+275|Shiftry|Wicked Pokémon|grass|dark|Plant|Ground|
+276|Taillow|Tiny Swallow Pokémon|normal|flying|Flying||
+277|Swellow|Swallow Pokémon|normal|flying|Flying||
+278|Wingull|Seagull Pokémon|flying|water|Flying|Water1|
+279|Pelipper|Water Bird Pokémon|flying|water|Flying|Water1|
+280|Ralts|Feeling Pokémon|fairy|psychic|Indeterminate||
+281|Kirlia|Emotion Pokémon|fairy|psychic|Indeterminate||
+282|Gardevoir|Embrace Pokémon|fairy|psychic|Indeterminate||
+283|Surskit|Pond Skater Pokémon|bug|water|Bug|Water1|
+284|Masquerain|Eyeball Pokémon|flying|bug|Bug|Water1|
+285|Shroomish|Mushroom Pokémon|grass||Plant|Fairy|
+286|Breloom|Mushroom Pokémon|fighting|grass|Plant|Fairy|
+287|Slakoth|Slacker Pokémon|normal||Ground||
+288|Vigoroth|Wild Monkey Pokémon|normal||Ground||
+289|Slaking|Lazy Pokémon|normal||Ground||
+290|Nincada|Trainee Pokémon|ground|bug|Bug||
+291|Ninjask|Ninja Pokémon|flying|bug|Bug||
+292|Shedinja|Shed Pokémon|bug|ghost|Mineral||
+293|Whismur|Whisper Pokémon|normal||Ground|Monster|
+294|Loudred|Big Voice Pokémon|normal||Ground|Monster|
+295|Exploud|Loud Noise Pokémon|normal||Ground|Monster|
+296|Makuhita|Guts Pokémon|fighting||Human-like||
+297|Hariyama|Arm Thrust Pokémon|fighting||Human-like||
+298|Azurill|Polka Dot Pokémon|normal|fairy|Undiscovered||
+299|Nosepass|Compass Pokémon|rock||Mineral||
+300|Skitty|Kitten Pokémon|normal||Fairy|Ground|
+301|Delcatty|Prim Pokémon|normal||Fairy|Ground|
+302|Sableye|Darkness Pokémon|ghost|dark|Human-like||
+303|Mawile|Deceiver Pokémon|steel|fairy|Fairy|Ground|
+304|Aron|Iron Armor Pokémon|rock|steel|Monster||
+305|Lairon|Iron Armor Pokémon|rock|steel|Monster||
+306|Aggron|Iron Armor Pokémon|rock|steel|Monster||
+307|Meditite|Meditate Pokémon|fighting|psychic|Human-like||
+308|Medicham|Meditate Pokémon|fighting|psychic|Human-like||
+309|Electrike|Lightning Pokémon|electric||Ground||
+310|Manectric|Discharge Pokémon|electric||Ground||
+311|Plusle|Cheering Pokémon|electric||Fairy||
+312|Minun|Cheering Pokémon|electric||Fairy||
+313|Volbeat|Firefly Pokémon|bug||Human-like|Bug|
+314|Illumise|Firefly Pokémon|bug||Human-like|Bug|
+315|Roselia|Thorn Pokémon|poison|grass|Plant|Fairy|
+316|Gulpin|Stomach Pokémon|poison||Indeterminate||
+317|Swalot|Poison Bag Pokémon|poison||Indeterminate||
+318|Carvanha|Savage Pokémon|water|dark|Water2||
+319|Sharpedo|Brutal Pokémon|water|dark|Water2||
+320|Wailmer|Ball Whale Pokémon|water||Water2|Ground|
+321|Wailord|Float Whale Pokémon|water||Water2|Ground|
+322|Numel|Numb Pokémon|ground|fire|Ground||
+323|Camerupt|Eruption Pokémon|ground|fire|Ground||
+324|Torkoal|Coal Pokémon|fire||Ground||
+325|Spoink|Bounce Pokémon|psychic||Ground||
+326|Grumpig|Manipulate Pokémon|psychic||Ground||
+327|Spinda|Spot Panda Pokémon|normal||Human-like|Ground|
+328|Trapinch|Ant Pit Pokémon|ground||Bug||
+329|Vibrava|Vibration Pokémon|ground|dragon|Bug||
+330|Flygon|Mystic Pokémon|ground|dragon|Bug||
+331|Cacnea|Cactus Pokémon|grass||Human-like|Plant|
+332|Cacturne|Scarecrow Pokémon|grass|dark|Human-like|Plant|
+333|Swablu|Cotton Bird Pokémon|normal|flying|Dragon|Flying|
+334|Altaria|Humming Pokémon|flying|dragon|Dragon|Flying|
+335|Zangoose|Cat Ferret Pokémon|normal||Ground||
+336|Seviper|Fang Snake Pokémon|poison||Dragon|Ground|
+337|Lunatone|Meteorite Pokémon|rock|psychic|Mineral||
+338|Solrock|Meteorite Pokémon|rock|psychic|Mineral||
+339|Barboach|Whiskers Pokémon|ground|water|Water2||
+340|Whiscash|Whiskers Pokémon|ground|water|Water2||
+341|Corphish|Ruffian Pokémon|water||Water1|Water3|
+342|Crawdaunt|Rogue Pokémon|water|dark|Water1|Water3|
+343|Baltoy|Clay Doll Pokémon|ground|psychic|Mineral||
+344|Claydol|Clay Doll Pokémon|ground|psychic|Mineral||
+345|Lileep|Sea Lily Pokémon|rock|grass|Water3||
+346|Cradily|Barnacle Pokémon|rock|grass|Water3||
+347|Anorith|Old Shrimp Pokémon|rock|bug|Water3||
+348|Armaldo|Plate Pokémon|rock|bug|Water3||
+349|Feebas|Fish Pokémon|water||Water1|Dragon|
+350|Milotic|Tender Pokémon|water||Water1|Dragon|
+351|Castform|Weather Pokémon|normal||Fairy|Indeterminate|
+352|Kecleon|Color Swap Pokémon|normal||Ground||
+353|Shuppet|Puppet Pokémon|ghost||Indeterminate||
+354|Banette|Marionette Pokémon|ghost||Indeterminate||
+355|Duskull|Requiem Pokémon|ghost||Indeterminate||
+356|Dusclops|Beckon Pokémon|ghost||Indeterminate||
+357|Tropius|Fruit Pokémon|flying|grass|Monster|Plant|
+358|Chimecho|Wind Chime Pokémon|psychic||Indeterminate||
+359|Absol|Disaster Pokémon|dark||Ground||
+360|Wynaut|Bright Pokémon|psychic||Undiscovered||
+361|Snorunt|Snow Hat Pokémon|ice||Fairy|Mineral|
+362|Glalie|Face Pokémon|ice||Fairy|Mineral|
+363|Spheal|Clap Pokémon|water|ice|Water1|Ground|
+364|Sealeo|Ball Roll Pokémon|water|ice|Water1|Ground|
+365|Walrein|Ice Break Pokémon|water|ice|Water1|Ground|
+366|Clamperl|Bivalve Pokémon|water||Water1||
+367|Huntail|Deep Sea Pokémon|water||Water1||
+368|Gorebyss|South Sea Pokémon|water||Water1||
+369|Relicanth|Longevity Pokémon|rock|water|Water1|Water2|
+370|Luvdisc|Rendezvous Pokémon|water||Water2||
+371|Bagon|Rock Head Pokémon|dragon||Dragon||
+372|Shelgon|Endurance Pokémon|dragon||Dragon||
+373|Salamence|Dragon Pokémon|flying|dragon|Dragon||
+374|Beldum|Iron Ball Pokémon|steel|psychic|Mineral||
+375|Metang|Iron Claw Pokémon|steel|psychic|Mineral||
+376|Metagross|Iron Leg Pokémon|steel|psychic|Mineral||
+377|Regirock|Rock Peak Pokémon|rock||Undiscovered||
+378|Regice|Iceberg Pokémon|ice||Undiscovered||
+379|Registeel|Iron Pokémon|steel||Undiscovered||
+380|Latias|Eon Pokémon|dragon|psychic|Undiscovered||
+381|Latios|Eon Pokémon|dragon|psychic|Undiscovered||
+382|Kyogre|Sea Basin Pokémon|water||Undiscovered||
+383|Groudon|Continent Pokémon|ground||Undiscovered||
+384|Rayquaza|Sky High Pokémon|flying|dragon|Undiscovered||
+385|Jirachi|Wish Pokémon|steel|psychic|Undiscovered||
+386|Deoxys|DNA Pokémon|psychic||Undiscovered||
+387|Turtwig|Tiny Leaf Pokémon|grass||Monster|Plant|
+388|Grotle|Grove Pokémon|grass||Monster|Plant|
+389|Torterra|Continent Pokémon|ground|grass|Monster|Plant|
+390|Chimchar|Chimp Pokémon|fire||Ground|Human-like|
+391|Monferno|Playful Pokémon|fighting|fire|Ground|Human-like|
+392|Infernape|Flame Pokémon|fighting|fire|Ground|Human-like|
+393|Piplup|Penguin Pokémon|water||Water1|Ground|
+394|Prinplup|Penguin Pokémon|water||Water1|Ground|
+395|Empoleon|Emperor Pokémon|steel|water|Water1|Ground|
+396|Starly|Starling Pokémon|normal|flying|Flying||
+397|Staravia|Starling Pokémon|normal|flying|Flying||
+398|Staraptor|Predator Pokémon|normal|flying|Flying||
+399|Bidoof|Plump Mouse Pokémon|normal||Water1|Ground|
+400|Bibarel|Beaver Pokémon|normal|water|Water1|Ground|
+401|Kricketot|Cricket Pokémon|bug||Bug||
+402|Kricketune|Cricket Pokémon|bug||Bug||
+403|Shinx|Flash Pokémon|electric||Ground||
+404|Luxio|Spark Pokémon|electric||Ground||
+405|Luxray|Gleam Eyes Pokémon|electric||Ground||
+406|Budew|Bud Pokémon|poison|grass|Undiscovered||
+407|Roserade|Bouquet Pokémon|poison|grass|Fairy|Plant|
+408|Cranidos|Head Butt Pokémon|rock||Monster||
+409|Rampardos|Head Butt Pokémon|rock||Monster||
+410|Shieldon|Shield Pokémon|rock|steel|Monster||
+411|Bastiodon|Shield Pokémon|rock|steel|Monster||
+412|Burmy|Bagworm Pokémon|bug||Bug||
+413|Wormadam|Bagworm Pokémon|bug|grass|Bug||
+414|Mothim|Moth Pokémon|flying|bug|Bug||
+415|Combee|Tiny Bee Pokémon|flying|bug|Bug||
+416|Vespiquen|Beehive Pokémon|flying|bug|Bug||
+417|Pachirisu|EleSquirrel Pokémon|electric||Ground|Fairy|
+418|Buizel|Sea Weasel Pokémon|water||Water1|Ground|
+419|Floatzel|Sea Weasel Pokémon|water||Water1|Ground|
+420|Cherubi|Cherry Pokémon|grass||Fairy|Plant|
+421|Cherrim|Blossom Pokémon|grass||Fairy|Plant|
+422|Shellos|Sea Slug Pokémon|water||Water1|Indeterminate|
+423|Gastrodon|Sea Slug Pokémon|ground|water|Water1|Indeterminate|
+424|Ambipom|Long Tail Pokémon|normal||Ground||
+425|Drifloon|Balloon Pokémon|flying|ghost|Indeterminate||
+426|Drifblim|Blimp Pokémon|flying|ghost|Indeterminate||
+427|Buneary|Rabbit Pokémon|normal||Ground|Human-like|
+428|Lopunny|Rabbit Pokémon|normal||Ground|Human-like|
+429|Mismagius|Magical Pokémon|ghost||Indeterminate||
+430|Honchkrow|Big Boss Pokémon|flying|dark|Flying||
+431|Glameow|Catty Pokémon|normal||Ground||
+432|Purugly|Tiger Cat Pokémon|normal||Ground||
+433|Chingling|Bell Pokémon|psychic||Undiscovered||
+434|Stunky|Skunk Pokémon|poison|dark|Ground||
+435|Skuntank|Skunk Pokémon|poison|dark|Ground||
+436|Bronzor|Bronze Pokémon|steel|psychic|Mineral||
+437|Bronzong|Bronze Bell Pokémon|steel|psychic|Mineral||
+438|Bonsly|Bonsai Pokémon|rock||Undiscovered||
+439|Mime Jr.|Mime Pokémon|fairy|psychic|Undiscovered||
+440|Happiny|Playhouse Pokémon|normal||Undiscovered||
+441|Chatot|Music Note Pokémon|normal|flying|Flying||
+442|Spiritomb|Forbidden Pokémon|ghost|dark|Indeterminate||
+443|Gible|Land Shark Pokémon|ground|dragon|Monster|Dragon|
+444|Gabite|Cave Pokémon|ground|dragon|Monster|Dragon|
+445|Garchomp|Mach Pokémon|ground|dragon|Monster|Dragon|
+446|Munchlax|Big Eater Pokémon|normal||Undiscovered||
+447|Riolu|Emanation Pokémon|fighting||Undiscovered||
+448|Lucario|Aura Pokémon|fighting|steel|Ground|Human-like|
+449|Hippopotas|Hippo Pokémon|ground||Ground||
+450|Hippowdon|Heavyweight Pokémon|ground||Ground||
+451|Skorupi|Scorpion Pokémon|poison|bug|Bug|Water3|
+452|Drapion|Ogre Scorpion Pokémon|poison|dark|Bug|Water3|
+453|Croagunk|Toxic Mouth Pokémon|fighting|poison|Human-like||
+454|Toxicroak|Toxic Mouth Pokémon|fighting|poison|Human-like||
+455|Carnivine|Bug Catcher Pokémon|grass||Plant||
+456|Finneon|Wing Fish Pokémon|water||Water2||
+457|Lumineon|Neon Pokémon|water||Water2||
+458|Mantyke|Kite Pokémon|flying|water|Undiscovered||
+459|Snover|Frost Tree Pokémon|grass|ice|Monster|Plant|
+460|Abomasnow|Frost Tree Pokémon|grass|ice|Monster|Plant|
+461|Weavile|Sharp Claw Pokémon|ice|dark|Ground||
+462|Magnezone|Magnet Area Pokémon|steel|electric|Mineral||
+463|Lickilicky|Licking Pokémon|normal||Monster||
+464|Rhyperior|Drill Pokémon|ground|rock|Monster|Ground|
+465|Tangrowth|Vine Pokémon|grass||Plant||
+466|Electivire|Thunderbolt Pokémon|electric||Human-like||                                                                                   
+467|Magmortar|Blast Pokémon|fire||Human-like||
+468|Togekiss|Jubilee Pokémon|flying|fairy|Flying|Fairy|
+469|Yanmega|Ogre Darner Pokémon|flying|bug|Bug||
+470|Leafeon|Verdant Pokémon|grass||Ground||
+471|Glaceon|Fresh Snow Pokémon|ice||Ground||
+472|Gliscor|Fang Scorpion Pokémon|flying|ground|Bug||
+473|Mamoswine|Twin Tusk Pokémon|ground|ice|Ground||
+474|Porygon-Z|Virtual Pokémon|normal||Mineral||
+475|Gallade|Blade Pokémon|fighting|psychic|Indeterminate||
+476|Probopass|Compass Pokémon|rock|steel|Mineral||
+477|Dusknoir|Gripper Pokémon|ghost||Indeterminate||
+478|Froslass|Snow Land Pokémon|ghost|ice|Fairy|Mineral|
+479|Rotom|Plasma Pokémon|ghost|electric|Indeterminate||
+480|Uxie|Knowledge Pokémon|psychic||Undiscovered||
+481|Mesprit|Emotion Pokémon|psychic||Undiscovered||
+482|Azelf|Willpower Pokémon|psychic||Undiscovered||
+483|Dialga|Temporal Pokémon|steel|dragon|Undiscovered||
+484|Palkia|Spatial Pokémon|water|dragon|Undiscovered||
+485|Heatran|Lava Dome Pokémon|steel|fire|Undiscovered||
+486|Regigigas|Colossal Pokémon|normal||Undiscovered||
+487|Giratina|Renegade Pokémon|ghost|dragon|Undiscovered||
+488|Cresselia|Lunar Pokémon|psychic||Undiscovered||
+489|Phione|Sea Drifter Pokémon|water||Water1|Fairy|
+490|Manaphy|Seafaring Pokémon|water||Water1|Fairy|
+491|Darkrai|Pitch-Black Pokémon|dark||Undiscovered||
+492|Shaymin|Gratitude Pokémon|grass||Undiscovered||
+493|Arceus|Alpha Pokémon|normal||Undiscovered||
+494|Victini|Victory Pokémon|fire|psychic|Undiscovered||
+495|Snivy|Grass Snake Pokémon|grass||Ground|Plant|
+496|Servine|Grass Snake Pokémon|grass||Ground|Plant|
+497|Serperior|Regal Pokémon|grass||Ground|Plant|
+498|Tepig|Fire Pig Pokémon|fire||Ground||
+499|Pignite|Fire Pig Pokémon|fighting|fire|Ground||
+500|Emboar|Mega Fire Pig Pokémon|fighting|fire|Ground||
+501|Oshawott|Sea Otter Pokémon|water||Ground||
+502|Dewott|Discipline Pokémon|water||Ground||
+503|Samurott|Formidable Pokémon|water||Ground||
+504|Patrat|Scout Pokémon|normal||Ground||
+505|Watchog|Lookout Pokémon|normal||Ground||
+506|Lillipup|Puppy Pokémon|normal||Ground||
+507|Herdier|Loyal Dog Pokémon|normal||Ground||
+508|Stoutland|Big-Hearted Pokémon|normal||Ground||
+509|Purrloin|Devious Pokémon|dark||Ground||
+510|Liepard|Cruel Pokémon|dark||Ground||
+511|Pansage|Grass Monkey Pokémon|grass||Ground||
+512|Simisage|Thorn Monkey Pokémon|grass||Ground||
+513|Pansear|High Temp Pokémon|fire||Ground||
+514|Simisear|Ember Pokémon|fire||Ground||
+515|Panpour|Spray Pokémon|water||Ground||
+516|Simipour|Geyser Pokémon|water||Ground||
+517|Munna|Dream Eater Pokémon|psychic||Ground||
+518|Musharna|Drowsing Pokémon|psychic||Ground||
+519|Pidove|Tiny Pigeon Pokémon|normal|flying|Flying||
+520|Tranquill|Wild Pigeon Pokémon|normal|flying|Flying||
+521|Unfezant|Proud Pokémon|normal|flying|Flying||
+522|Blitzle|Electrified Pokémon|electric||Ground||
+523|Zebstrika|Thunderbolt Pokémon|electric||Ground||
+524|Roggenrola|Mantle Pokémon|rock||Mineral||
+525|Boldore|Ore Pokémon|rock||Mineral||
+526|Gigalith|Compressed Pokémon|rock||Mineral||
+527|Woobat|Bat Pokémon|flying|psychic|Flying|Ground|
+528|Swoobat|Courting Pokémon|flying|psychic|Flying|Ground|
+529|Drilbur|Mole Pokémon|ground||Ground||
+530|Excadrill|Subterrene Pokémon|ground|steel|Ground||
+531|Audino|Hearing Pokémon|normal||Fairy||
+532|Timburr|Muscular Pokémon|fighting||Human-like||
+533|Gurdurr|Muscular Pokémon|fighting||Human-like||
+534|Conkeldurr|Muscular Pokémon|fighting||Human-like||
+535|Tympole|Tadpole Pokémon|water||Water1||
+536|Palpitoad|Vibration Pokémon|ground|water|Water1||
+537|Seismitoad|Vibration Pokémon|ground|water|Water1||
+538|Throh|Judo Pokémon|fighting||Human-like||
+539|Sawk|Karate Pokémon|fighting||Human-like||
+540|Sewaddle|Sewing Pokémon|bug|grass|Bug||
+541|Swadloon|Leaf-Wrapped Pokémon|bug|grass|Bug||
+542|Leavanny|Nurturing Pokémon|bug|grass|Bug||
+543|Venipede|Centipede Pokémon|poison|bug|Bug||
+544|Whirlipede|Curlipede Pokémon|poison|bug|Bug||
+545|Scolipede|Megapede Pokémon|poison|bug|Bug||
+546|Cottonee|Cotton Puff Pokémon|grass|fairy|Fairy|Plant|
+547|Whimsicott|Windveiled Pokémon|grass|fairy|Fairy|Plant|
+548|Petilil|Bulb Pokémon|grass||Plant||
+549|Lilligant|Flowering Pokémon|grass||Plant||
+550|Basculin|Hostile Pokémon|water||Water2||
+551|Sandile|Desert Croc Pokémon|ground|dark|Ground||
+552|Krokorok|Desert Croc Pokémon|ground|dark|Ground||
+553|Krookodile|Intimidation Pokémon|ground|dark|Ground||                                                                                     
+554|Darumaka|Zen Charm Pokémon|fire||Ground||
+555|Darmanitan|Blazing Pokémon|fire||Ground||
+556|Maractus|Cactus Pokémon|grass||Plant||
+557|Dwebble|Rock Inn Pokémon|rock|bug|Bug|Mineral|
+558|Crustle|Stone Home Pokémon|rock|bug|Bug|Mineral|
+559|Scraggy|Shedding Pokémon|fighting|dark|Ground|Dragon|
+560|Scrafty|Hoodlum Pokémon|fighting|dark|Ground|Dragon|
+561|Sigilyph|Avianoid Pokémon|flying|psychic|Flying||
+562|Yamask|Spirit Pokémon|ghost||Mineral|Indeterminate|
+563|Cofagrigus|Coffin Pokémon|ghost||Mineral|Indeterminate|
+564|Tirtouga|Prototurtle Pokémon|rock|water|Water1|Water3|
+565|Carracosta|Prototurtle Pokémon|rock|water|Water1|Water3|                                                                                
+566|Archen|First Bird Pokémon|flying|rock|Flying|Water3|
+567|Archeops|First Bird Pokémon|flying|rock|Flying|Water3|
+568|Trubbish|Trash Bag Pokémon|poison||Mineral||
+569|Garbodor|Trash Heap Pokémon|poison||Mineral||
+570|Zorua|Tricky Fox Pokémon|dark||Ground||
+571|Zoroark|Illusion Fox Pokémon|dark||Ground||
+572|Minccino|Chinchilla Pokémon|normal||Ground||
+573|Cinccino|Scarf Pokémon|normal||Ground||
+574|Gothita|Fixation Pokémon|psychic||Human-like||
+575|Gothorita|Manipulate Pokémon|psychic||Human-like||
+576|Gothitelle|Astral Body Pokémon|psychic||Human-like||                                                                                    
+577|Solosis|Cell Pokémon|psychic||Indeterminate||
+578|Duosion|Mitosis Pokémon|psychic||Indeterminate||
+579|Reuniclus|Multiplying Pokémon|psychic||Indeterminate||
+580|Ducklett|Water Bird Pokémon|flying|water|Water1|Flying|
+581|Swanna|White Bird Pokémon|flying|water|Water1|Flying|
+582|Vanillite|Fresh Snow Pokémon|ice||Mineral||
+583|Vanillish|Icy Snow Pokémon|ice||Mineral||
+584|Vanilluxe|Snowstorm Pokémon|ice||Mineral||
+585|Deerling|Season Pokémon|normal|grass|Ground||
+586|Sawsbuck|Season Pokémon|normal|grass|Ground||
+587|Emolga|Sky Squirrel Pokémon|flying|electric|Ground||
+588|Karrablast|Clamping Pokémon|bug||Bug||
+589|Escavalier|Cavalry Pokémon|bug|steel|Bug||
+590|Foongus|Mushroom Pokémon|poison|grass|Plant||
+591|Amoonguss|Mushroom Pokémon|poison|grass|Plant||
+592|Frillish|Floating Pokémon|ghost|water|Indeterminate||
+593|Jellicent|Floating Pokémon|ghost|water|Indeterminate||
+594|Alomomola|Caring Pokémon|water||Water1|Water2|
+595|Joltik|Attaching Pokémon|bug|electric|Bug||
+596|Galvantula|EleSpider Pokémon|bug|electric|Bug||
+597|Ferroseed|Thorn Seed Pokémon|steel|grass|Plant|Mineral|
+598|Ferrothorn|Thorn Pod Pokémon|steel|grass|Plant|Mineral|
+599|Klink|Gear Pokémon|steel||Mineral||
+600|Klang|Gear Pokémon|steel||Mineral||
+601|Klinklang|Gear Pokémon|steel||Mineral||
+602|Tynamo|EleFish Pokémon|electric||Indeterminate||
+603|Eelektrik|EleFish Pokémon|electric||Indeterminate||
+604|Eelektross|EleFish Pokémon|electric||Indeterminate||
+605|Elgyem|Cerebral Pokémon|psychic||Human-like||
+606|Beheeyem|Cerebral Pokémon|psychic||Human-like||
+607|Litwick|Candle Pokémon|ghost|fire|Indeterminate||
+608|Lampent|Lamp Pokémon|ghost|fire|Indeterminate||
+609|Chandelure|Luring Pokémon|ghost|fire|Indeterminate||
+610|Axew|Tusk Pokémon|dragon||Monster|Dragon|
+611|Fraxure|Axe Jaw Pokémon|dragon||Monster|Dragon|
+612|Haxorus|Axe Jaw Pokémon|dragon||Monster|Dragon|
+613|Cubchoo|Chill Pokémon|ice||Ground||
+614|Beartic|Freezing Pokémon|ice||Ground||
+615|Cryogonal|Crystallizing Pokémon|ice||Mineral||                                                                                           
+616|Shelmet|Snail Pokémon|bug||Bug||
+617|Accelgor|Shell Out Pokémon|bug||Bug||
+618|Stunfisk|Trap Pokémon|ground|electric|Water1|Indeterminate|
+619|Mienfoo|Martial Arts Pokémon|fighting||Ground|Human-like|
+620|Mienshao|Martial Arts Pokémon|fighting||Ground|Human-like|
+621|Druddigon|Cave Pokémon|dragon||Monster|Dragon|
+622|Golett|Automaton Pokémon|ground|ghost|Mineral||
+623|Golurk|Automaton Pokémon|ground|ghost|Mineral||
+624|Pawniard|Sharp Blade Pokémon|steel|dark|Human-like||
+625|Bisharp|Sharp Sword Pokémon|steel|dark|Human-like||
+626|Bouffalant|Bash Buffalo Pokémon|normal||Ground||
+627|Rufflet|Eaglet Pokémon|normal|flying|Flying||
+628|Braviary|Valiant Pokémon|normal|flying|Flying||
+629|Vullaby|Diapered Pokémon|flying|dark|Flying||
+630|Mandibuzz|Bone Vulture Pokémon|flying|dark|Flying||
+631|Heatmor|Anteater Pokémon|fire||Ground||
+632|Durant|Iron Ant Pokémon|bug|steel|Bug||
+633|Deino|Irate Pokémon|dragon|dark|Dragon||
+634|Zweilous|Hostile Pokémon|dragon|dark|Dragon||
+635|Hydreigon|Brutal Pokémon|dragon|dark|Dragon||
+636|Larvesta|Torch Pokémon|bug|fire|Bug||
+637|Volcarona|Sun Pokémon|bug|fire|Bug||
+638|Cobalion|Iron Will Pokémon|fighting|steel|Undiscovered||
+639|Terrakion|Cavern Pokémon|fighting|rock|Undiscovered||
+640|Virizion|Grassland Pokémon|fighting|grass|Undiscovered||
+641|Tornadus|Cyclone Pokémon|flying||Undiscovered||
+642|Thundurus|Bolt Strike Pokémon|flying|electric|Undiscovered||
+643|Reshiram|Vast White Pokémon|fire|dragon|Undiscovered||
+644|Zekrom|Deep Black Pokémon|electric|dragon|Undiscovered||
+645|Landorus|Abundant Pokémon|flying|ground|Undiscovered||
+646|Kyurem|Boundary Pokémon|ice|dragon|Undiscovered||
+647|Keldeo|Colt Pokémon|fighting|water|Undiscovered||
+648|Meloetta|Melody Pokémon|normal|psychic|Undiscovered||
+649|Genesect|Paleozoic Pokémon|bug|steel|Undiscovered||
+650|Chespin|Spiny Nut Pokémon|grass||Ground||
+651|Quilladin|Spiny Armor Pokémon|grass||Ground||
+652|Chesnaught|Spiny Armor Pokémon|fighting|grass|Ground||
+653|Fennekin|Fox Pokémon|fire||Ground||
+654|Braixen|Fox Pokémon|fire||Ground||
+655|Delphox|Fox Pokémon|fire|psychic|Ground||
+656|Froakie|Bubble Frog Pokémon|water||Water1||
+657|Frogadier|Bubble Frog Pokémon|water||Water1||
+658|Greninja|Ninja Pokémon|water|dark|Water1||
+659|Bunnelby|Digging Pokémon|normal||Ground||
+660|Diggersby|Digging Pokémon|normal|ground|Ground||
+661|Fletchling|Tiny Robin Pokémon|normal|flying|Flying||
+662|Fletchinder|Ember Pokémon|flying|fire|Flying||
+663|Talonflame|Scorching Pokémon|flying|fire|Flying||
+664|Scatterbug|Scatterdust Pokémon|bug||Bug||
+665|Spewpa|Scatterdust Pokémon|bug||Bug||
+666|Vivillon|Scale Pokémon|flying|bug|Bug||
+667|Litleo|Lion Cub Pokémon|normal|fire|Ground||
+668|Pyroar|Royal Pokémon|normal|fire|Ground||
+669|Flabébé|Single Bloom Pokémon|fairy||Fairy||
+670|Floette|Single Bloom Pokémon|fairy||Fairy||
+671|Florges|Garden Pokémon|fairy||Fairy||
+672|Skiddo|Mount Pokémon|grass||Ground||
+673|Gogoat|Mount Pokémon|grass||Ground||
+674|Pancham|Playful Pokémon|fighting||Ground|Human-like|
+675|Pangoro|Daunting Pokémon|fighting|dark|Ground|Human-like|
+676|Furfrou|Poodle Pokémon|normal||Ground||
+677|Espurr|Restraint Pokémon|psychic||Ground||
+678|Meowstic|Constraint Pokémon|psychic||Ground||
+679|Honedge|Sword Pokémon|ghost|steel|Mineral||
+680|Doublade|Sword Pokémon|ghost|steel|Mineral||
+681|Aegislash|Royal Sword Pokémon|ghost|steel|Mineral||
+682|Spritzee|Perfume Pokémon|fairy||Fairy||
+683|Aromatisse|Fragrance Pokémon|fairy||Fairy||
+684|Swirlix|Cotton Candy Pokémon|fairy||Fairy||
+685|Slurpuff|Meringue Pokémon|fairy||Fairy||
+686|Inkay|Revolving Pokémon|dark|psychic|Water1|Water2|
+687|Malamar|Overturning Pokémon|dark|psychic|Water1|Water2|
+688|Binacle|Two-Handed Pokémon|rock|water|Water3||
+689|Barbaracle|Collective Pokémon|rock|water|Water3||
+690|Skrelp|Mock Kelp Pokémon|poison|water|Water1|Dragon|
+691|Dragalge|Mock Kelp Pokémon|poison|dragon|Water1|Dragon|
+692|Clauncher|Water Gun Pokémon|water||Water1|Water3|
+693|Clawitzer|Howitzer Pokémon|water||Water1|Water3|
+694|Helioptile|Generator Pokémon|normal|electric|Monster|Dragon|
+695|Heliolisk|Generator Pokémon|normal|electric|Monster|Dragon|
+696|Tyrunt|Royal Heir Pokémon|rock|dragon|Monster|Dragon|
+697|Tyrantrum|Despot Pokémon|rock|dragon|Monster|Dragon|
+698|Amaura|Tundra Pokémon|rock|ice|Monster||
+699|Aurorus|Tundra Pokémon|rock|ice|Monster||
+700|Sylveon|Intertwining Pokémon|fairy||Ground||
+701|Hawlucha|Wrestling Pokémon|fighting|flying|Human-like||
+702|Dedenne|Antenna Pokémon|electric|fairy|Ground|Fairy|
+703|Carbink|Jewel Pokémon|rock|fairy|Fairy|Mineral|
+704|Goomy|Soft Tissue Pokémon|dragon||Dragon||
+705|Sliggoo|Soft Tissue Pokémon|dragon||Dragon||
+706|Goodra|Dragon Pokémon|dragon||Dragon||
+707|Klefki|Key Ring Pokémon|steel|fairy|Mineral||
+708|Phantump|Stump Pokémon|ghost|grass|Plant|Indeterminate|
+709|Trevenant|Elder Tree Pokémon|ghost|grass|Plant|Indeterminate|
+710|Pumpkaboo|Pumpkin Pokémon|ghost|grass|Indeterminate||
+711|Gourgeist|Pumpkin Pokémon|ghost|grass|Indeterminate||
+712|Bergmite|Ice Chunk Pokémon|ice||Monster||
+713|Avalugg|Iceberg Pokémon|ice||Monster||
+714|Noibat|Sound Wave Pokémon|flying|dragon|Flying||
+715|Noivern|Sound Wave Pokémon|flying|dragon|Flying||
+716|Xerneas|Life Pokémon|fairy||Undiscovered||
+717|Yveltal|Destruction Pokémon|flying|dark|Undiscovered||
+718|Zygarde|Order Pokémon|ground|dragon|Undiscovered||
