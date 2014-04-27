@@ -7,7 +7,7 @@
 <body>
 	//action is name of result page
     <form action="search_result.php" method="GET">
-        *ID#: <input type="number" name="ID" min="0" max="99999"/><br>
+        *ID\#: <input type="number" name="ID" min="0" max="99999"/><br>
 		Nickname: <input type="text" name="nickname" /><br>
 		Male:<input type="radio" name="male" />
 		Female:<input type="radio" name="female" />
