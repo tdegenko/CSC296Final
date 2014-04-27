@@ -18,13 +18,16 @@ class Pokemon{
 
     //from pokemon
     private $ID, $originalTrainer, $nickname, $gender, $lvl, $trainerName, 
-    $happiness, $ability, $nature, $shiny,  $HP, $attack, $defense, $specialAttack, $specialDefense, $speed, $accuracy, $evasion, $pokeball, $genIn, $genCaught;
+    $happiness, $ability, $nature, $shiny,  $HP, $attack, $defense, $specialAttack, $specialDefense, $speed, $accuracy, $evasion, $pokeball, $genIn, $genCaught, $itemName;
 
+    //from knows
+    private $moveName1, $moveName2, $moveName3, $moveName4;
+    
     //from species
     private $pokedex, $name, $genus, $type1, $type2, $egg_group1, $egg_group2;
 
     static private $public_attrs=["nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion", "genIn"];
-    static private $rattrs=["pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion","pokeball","genIn","genCaught"];
+    static private $rattrs=["pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4"];
     
     //generic getter/setter method
     function __call($method, $params){
