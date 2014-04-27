@@ -9,9 +9,9 @@
     <form action="search_result.php" method="GET">
         *ID: <input type="number" name="ID" min="0" max="99999"/><br>
 		Nickname: <input type="text" name="nickname" /><br>
-		Male:<input type="radio" name="male" />
-		Female:<input type="radio" name="female" />
-		neither:<input type="radio" name="neither" /><br>
+		Male:<input type="radio" name="gender" value='male'/>
+		Female:<input type="radio" name="gender" value='female'/>
+		neither:<input type="radio" name="gender" value='neither'/><br>
 		Level: <input type="number" name="level" min="1" max="100"/><br>
 		Happiness: <input type="range" name="happiness" min="0" max="255" step="50"/><br>
 		Ability: <input type="text" name="ability" /><br>
@@ -30,7 +30,7 @@
 		Current Trainer Name: <input type="text" name="trainerName" /><br>
 		Pokedex number: <input type="number" name="pokedex" min="1" max="720"/><br>
         <input type="submit" value="Search" /><br>
-		//<input type="button" value="Delete">
+		//<input type="button" value="Delete" onclick="/*insert delete function here*/">
 		*required field
     </form>
 </body>
