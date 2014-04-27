@@ -9,7 +9,7 @@ require_once 'dbsetup.php';
 class user{
     //from user
     private $name, $address, $contact;
-    private $public_attrs=["name","address", "contact"];
+    static private $public_attrs=["name","address", "contact"];
     
     //generic getter/setter method
     function __call($method, $params){
@@ -18,7 +18,7 @@ class user{
             return $this->$var;
         }
         if(strncasecmp($method,"set",3)==0){
-            if(in_array($var,$public_attrs) and count($params)==1){
+            if(in_array($var,self::$public_attrs) and count($params)==1){
                 try{
                     $this->$var=$params[0];
                     $sql =  "UPDATE user
