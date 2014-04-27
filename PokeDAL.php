@@ -22,6 +22,7 @@ class Pokemon{
     private $pokedex, $name, $genus, $type1, $type2, $egg_group1, $egg_group2;
 
     static private $public_attrs=["nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion", "genIn"];
+    static private $rattrs=["ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion","pokeball","genIn","genCaught"];
     
     //generic getter/setter method
     function __call($method, $params){
@@ -67,28 +68,12 @@ class Pokemon{
             $any=false;
             $params=array();
             foreach ($attrs as $key=>$value){
-                if($key=="name"){
+                if(in_array($key,self::$rattrs)){
                     if($any){
-                        $where.="AND ";
+                        $where.=" AND ";
                     }
-                    $where.="name=:name ";
-                    $params[":name"]=$value;
-                    $any=true;
-                }
-                if($key=="genIn"){
-                    if($any){
-                        $where.="AND ";
-                    }
-                    $where.="genIn=:genIn ";
-                    $params[":genIn"]=$value;
-                    $any=true;
-                }
-                if($key=="genCaught"){
-                    if($any){
-                        $where.="AND ";
-                    }
-                    $where.="genCaught=:genCaught ";
-                    $params[":genCaught"]=$value;
+                    $where.=$key."=:".$key;
+                    $params[":".$key]=$value;
                     $any=true;
                 }
             }
