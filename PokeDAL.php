@@ -21,11 +21,36 @@ class Pokemon{
     //from species
     private $pokedex, $name, $genus, $type1, $type2, $egg_group1, $egg_group2;
 
-    //generic getter method
+    private $public_attrs=["nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion", "genIn"];
+    
+    //generic getter/setter method
     function __call($method, $params){
         $var = substr($method,3);
         if(strncasecmp($method,"get",3)==0){
             return $this->$var;
+        }
+        if(strncasecmp($method,"set",3)==0){
+            if(in_array($var,$public_atttrs) and count($params)=1){
+                try{
+                    $this->$var=$params[0];
+                    $sql =  "UPDATE pokemon
+                             SET :attr=:val
+                             WHERE originalTrainer=:ot AND ID=:id;"  
+                    $stmt = $db->prepare($sql);
+                    $params = array(
+                        ":attr" => $var,
+                        ":val"  => $this->$var,
+                        ":ot"   => $this->originalTrainer,
+                        ":id"   => $this->ID
+                    );
+                    $stmt->execute($params);
+                }catch(PDOException $ex) {
+                    echo("Could not update requested pokemon.\n");
+                }
+                
+            }else{
+                return -1;
+            }
         }
     }
     
