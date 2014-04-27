@@ -30,12 +30,12 @@ class Pokemon{
             return $this->$var;
         }
         if(strncasecmp($method,"set",3)==0){
-            if(in_array($var,$public_atttrs) and count($params)=1){
+            if(in_array($var,$public_attrs) and count($params)==1){
                 try{
                     $this->$var=$params[0];
                     $sql =  "UPDATE pokemon
                              SET :attr=:val
-                             WHERE originalTrainer=:ot AND ID=:id;"  
+                             WHERE originalTrainer=:ot AND ID=:id;"; 
                     $stmt = $db->prepare($sql);
                     $params = array(
                         ":attr" => $var,
@@ -106,6 +106,55 @@ class Pokemon{
     }
     
     
+}
+class Moves{
+    private $name, $element, $typ, $pwr, $accuracy, $PP, $contest;
+    private $rattrs=["name", "element", "typ", "pwr", "accuracy", "PP", "contest"];
+    
+    //generic getter/setter method
+    function __call($method, $params){
+        $var = substr($method,3);
+        if(strncasecmp($method,"get",3)==0){
+            return $this->$var;
+        }
+    }
+    
+    //a more generic approach: pass an array of attributes
+    //and add conditions to the query based on these attributes
+    static public function findByAttrs($attrs){
+        try{
+            global $db;
+    
+            
+            $sql = "SELECT * FROM ";
+            $sql .= "moves";
+            $where="WHERE ";
+            $any=false;
+            $params=array();
+            foreach ($attrs as $key=>$value){
+                if(in_array($key,$rattrs)){
+                    if($any){
+                        $where.="AND ";
+                    }
+                    $where.=$key."=:".$key;
+                    $params[":".$key]=$value;
+                    $any=true;
+                }
+            }
+            $where.=";";
+            
+            if ($any) {
+                $sql.=$where;
+            }
+            echo $sql;
+            $stmt = $db->prepare($sql);
+            $stmt->execute($params);
+            return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
+        }catch(PDOException $ex) {
+            echo("Could not find requested pokemon.\n");
+        }
+    }
+
 }
 //$tmp=pokemon::findByPokename("Ho-Oh")[0];
 //$tmp=pokemon::findByAttrs(array("name"=>"Ho-Oh"))[0];
