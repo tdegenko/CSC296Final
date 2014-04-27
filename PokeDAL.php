@@ -149,7 +149,7 @@ class Moves{
             echo $sql;
             $stmt = $db->prepare($sql);
             $stmt->execute($params);
-            return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
+            return $stmt->fetchAll(PDO::FETCH_CLASS, "Moves");
         }catch(PDOException $ex) {
             echo("Could not find requested pokemon.\n");
         }
