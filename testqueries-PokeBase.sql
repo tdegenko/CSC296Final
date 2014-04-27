@@ -4,9 +4,9 @@
 * in gen 2
 */
 SELECT * FROM
-	((SELECT pokedex FROM species
-	WHERE name = "Mewtwo") JOIN
-	pokemon ON pokedex)
+    ((SELECT pokedex FROM species
+    WHERE name = "Mewtwo") JOIN
+    pokemon ON pokedex)
 WHERE genCaught = 1 AND genIn = 2;
 
 /*
@@ -24,8 +24,8 @@ OR moveName4 = "Surf");
 *is in gen 3
 */
 SELECT * FROM pokemon JOIN 
-	(SELECT pokedex FROM species WHERE egg_group1 = e1 OR egg_group1 = e2
-	OR egg_group2 = e1 OR egg_group2 = e2 IN
-	(SELECT egg_group1 AS e1, egg_group2 AS e2 FROM species WHERE name = "Bidoof"))
+    (SELECT pokedex FROM species WHERE egg_group1 = e1 OR egg_group1 = e2
+    OR egg_group2 = e1 OR egg_group2 = e2 IN
+    (SELECT egg_group1 AS e1, egg_group2 AS e2 FROM species WHERE name = "Bidoof"))
 ON pokedex
 WHERE genIn = 3;
