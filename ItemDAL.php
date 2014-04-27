@@ -12,8 +12,6 @@ class Item{
 
     //from Item
     private $name, $effect;
-
-    static private $rattrs=["name","effect"];
     
     //generic getter
      function __call($method, $params){
