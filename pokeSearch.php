@@ -7,7 +7,7 @@
 <body>
 	//action is name of result page
     <form action="search_result.php" method="GET">
-        *ID\#: <input type="number" name="ID" min="0" max="99999"/><br>
+        *ID: <input type="number" name="ID" min="0" max="99999"/><br>
 		Nickname: <input type="text" name="nickname" /><br>
 		Male:<input type="radio" name="male" />
 		Female:<input type="radio" name="female" />
@@ -28,7 +28,7 @@
 		Generation game stored in: <input type="number" name="genIn" min="1" max="6"/><br>
 		Gerneration Caught in: <input type="number" name="genCaught" min="1" max="6"/><br>
 		Current Trainer Name: <input type="text" name="trainerName" /><br>
-		Pokedex#: <input type="number" name="pokedex" min="1" max="720"/><br>
+		Pokedex number: <input type="number" name="pokedex" min="1" max="720"/><br>
         <input type="submit" value="Search" /><br>
 		//<input type="button" value="Delete">
 		*required field
