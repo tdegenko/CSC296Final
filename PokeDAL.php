@@ -64,8 +64,8 @@ class Pokemon{
             global $db;
     
             
-            $sql = "SELECT * FROM ";
-            $sql .= "pokemon JOIN species ";
+            $sql = "SELECT sel.*, moveName1,moveName2,moveName3,moveName4 FROM (SELECT * FROM (SELECT pokemon.*,name,genus,type1,type2,egg_group1,egg_group2 FROM ";
+            $sql .= "pokemon JOIN species on pokemon.pokedex=species.pokedex) AS inst ";
             $where="WHERE ";
             $any=false;
             $params=array();
@@ -79,11 +79,11 @@ class Pokemon{
                     $any=true;
                 }
             }
-            $where.=";";
             
             if ($any) {
                 $sql.=$where;
             }
+            $sql.=") AS sel JOIN knows ON sel.ID=knows.pokemonID AND sel.originalTrainer=knows.originalTrainer;";
             $stmt = $db->prepare($sql);
             $stmt->execute($params);
             return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
@@ -91,8 +91,6 @@ class Pokemon{
             echo("Could not find requested pokemon.\n");
         }
     }
-    
-    
 }
 //$tmp=pokemon::findByPokename("Ho-Oh")[0];
 //$tmp=pokemon::findByAttrs(array("name"=>"Ho-Oh"))[0];
