@@ -21,7 +21,7 @@ class Pokemon{
     //from species
     private $pokedex, $name, $genus, $type1, $type2, $egg_group1, $egg_group2;
 
-    private $public_attrs=["nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion", "genIn"];
+    static private $public_attrs=["nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion", "genIn"];
     
     //generic getter/setter method
     function __call($method, $params){
@@ -30,7 +30,7 @@ class Pokemon{
             return $this->$var;
         }
         if(strncasecmp($method,"set",3)==0){
-            if(in_array($var,$public_attrs) and count($params)==1){
+            if(in_array($var,self::$public_attrs) and count($params)==1){
                 try{
                     $this->$var=$params[0];
                     $sql =  "UPDATE pokemon
@@ -109,7 +109,7 @@ class Pokemon{
 }
 class Moves{
     private $name, $element, $typ, $pwr, $accuracy, $PP, $contest;
-    private $rattrs=["name", "element", "typ", "pwr", "accuracy", "PP", "contest"];
+    static private $rattrs=["name", "element", "typ", "pwr", "accuracy", "PP", "contest"];
     
     //generic getter/setter method
     function __call($method, $params){
@@ -127,14 +127,14 @@ class Moves{
     
             
             $sql = "SELECT * FROM ";
-            $sql .= "moves";
+            $sql .= "moves ";
             $where="WHERE ";
             $any=false;
             $params=array();
             foreach ($attrs as $key=>$value){
-                if(in_array($key,$rattrs)){
+                if(in_array($key,self::$rattrs)){
                     if($any){
-                        $where.="AND ";
+                        $where.=" AND ";
                     }
                     $where.=$key."=:".$key;
                     $params[":".$key]=$value;
@@ -146,7 +146,6 @@ class Moves{
             if ($any) {
                 $sql.=$where;
             }
-            echo $sql;
             $stmt = $db->prepare($sql);
             $stmt->execute($params);
             return $stmt->fetchAll(PDO::FETCH_CLASS, "Moves");
@@ -154,7 +153,6 @@ class Moves{
             echo("Could not find requested pokemon.\n");
         }
     }
-
 }
 //$tmp=pokemon::findByPokename("Ho-Oh")[0];
 //$tmp=pokemon::findByAttrs(array("name"=>"Ho-Oh"))[0];
