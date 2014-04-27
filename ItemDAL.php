@@ -11,12 +11,18 @@ require_once 'dbsetup.php';
 class Item{
 
     //from Item
-    private $Name, $Effect;
+    private $name, $effect;
 
-
+    static private $rattrs=["name","effect"];
     
     //generic getter
-    
+     function __call($method, $params){
+        $var = substr($method,3);
+        if(strncasecmp($method,"get",3)==0){
+            return $this->$var;
+        }
+    }
+	
     //a more generic approach: pass an array of attributes
     //and add conditions to the query based on these attributes
     static public function findByName($attrs){
