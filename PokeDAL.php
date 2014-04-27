@@ -29,20 +29,6 @@ class Pokemon{
         }
     }
     
-    //like the function for assignment 1: returns an array of pokemon objects
-    //through a query by name
-    static public function findByPokename($pName){
-
-        global $db;
-    
-        $sql = "SELECT * FROM ";
-        $sql .= "pokemon JOIN species WHERE name = :pName;";
-        $stmt = $db->prepare($sql);
-        $params = array(":pName" => $pName);
-        $stmt->execute($params);
-        return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
-    }
-    
     //a more generic approach: pass an array of attributes
     //and add conditions to the query based on these attributes
     static public function findByAttrs($attrs){
