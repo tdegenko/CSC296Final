@@ -20,3 +20,6 @@ $genIn=$_GET['genIn'];
 $genCaught=$_GET['genCaught'];
 $trainerName=$_GET['trainerName'];
 $pokedexNumber=$_GET['pokedex'];
+
+$tmp=pokemon::findByAttrs(array("nickname"=>$nickname,"gender"=$gender,"lvl"=$lvl,"happiness"=$happiness,"ability"=$ability,"nature"=$nature,"shiny"=$shiny,"HP"=$HP,"attack"=$attack,"defense"=$defense,"specialAttack"=$specialAttack,"specialDefense"=$specialDefense,"speed"=$speed,"originalTrainer"=$originalTrainer,"pokeball"=$pokeball,"genIn"=$genIn,"genCaught"=$genCaught,"trainerName"=$trainerName,"pokedexNumber"=$pokedexNumber))[0];
+print_r($tmp);
