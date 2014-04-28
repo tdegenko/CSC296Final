@@ -123,7 +123,7 @@ class Pokemon{
             $where="WHERE ";
             $any=false;
             foreach ($attrs as $key=>$value){
-                if(in_array($key,self::$rattrs) and (in_array($key,self::$move_rattrs))){
+                if(in_array($key,self::$rattrs) and (in_array($key,self::$move_rattrs)) and (!is_null($value))){
                     echo $key."=>".$value."\n";
                     if($any){
                         $where.=" AND ";
