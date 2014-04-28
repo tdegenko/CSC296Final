@@ -78,12 +78,40 @@ class Pokemon{
             $any=false;
             $params=array();
             foreach ($attrs as $key=>$value){
-                if(in_array($key,self::$rattrs and !(in_array($key,self::$move_rattrs) or in_array($key,self::$type_rattrs) or in_array($key,self::$egg_rattrs)))){
+                if(in_array($key,self::$rattrs) and !(in_array($key,self::$move_rattrs))){
                     if($any){
                         $where.=" AND ";
                     }
-                    $where.=$key."=:".$key;
-                    $params[":".$key]=$value;
+                    if(in_array($key,self::$type_rattrs)){
+                        $where.="(";
+                        $first=true;
+                        foreach(self::$type_rattrs as $rkey){
+                            if(!$first){
+                                $where.=" OR ";
+                            }else{
+                                $first=false;
+                            }
+                            $where.=$rkey."=:".$key;
+                            $params[":".$key]=$value;
+                        }
+                        $where.=")";
+                    }elseif(in_array($key,self::$egg_rattrs)){
+                        $where.="(";
+                        $first=true;
+                        foreach(self::$egg_rattrs as $rkey){
+                            if(!$first){
+                                $where.=" OR ";
+                            }else{
+                                $first=false;
+                            }
+                            $where.=$rkey."=:".$key;
+                            $params[":".$key]=$value;
+                        }
+                        $where.=")";
+                    }else{
+                        $where.=$key."=:".$key;
+                        $params[":".$key]=$value;
+                    }
                     $any=true;
                 }
             }
@@ -94,9 +122,9 @@ class Pokemon{
             $sql.=") AS sel JOIN knows ON sel.ID=knows.pokemonID AND sel.originalTrainer=knows.originalTrainer ";
             $where="WHERE ";
             $any=false;
-            $params=array();
             foreach ($attrs as $key=>$value){
-                if(in_array($key,self::$rattrs)){
+                if(in_array($key,self::$rattrs) and (in_array($key,self::$move_rattrs))){
+                    echo $key."=>".$value."\n";
                     if($any){
                         $where.=" AND ";
                     }
@@ -121,7 +149,6 @@ class Pokemon{
             if ($any) {
                 $sql.=$where;
             }
-
             $stmt = $db->prepare($sql);
             $stmt->execute($params);
             return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");

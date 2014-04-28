@@ -6,7 +6,14 @@
 </head>
 <body>
 	//action is name of result page
+    static private $rattrs=["egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4"];
     <form action="search_result.php" method="GET">
+		<label for="pokedex">Pokedex number</label>
+			<input type="number" name="pokedex" min="1" max="720"/><br>
+		<label for="type1">Type</label>
+			<input type="text" name="type1" /><br>
+		<label for="nickname">Type</label>
+			<input type="text" name="type2" /><br>
         <label for="number">*ID</label>
 			<input type="number" name="ID" min="0" max="99999"/><br>
 		<label for="nickname">Nickname</label>
@@ -49,8 +56,6 @@
 			<input type="number" name="genCaught" min="1" max="6"/><br>
 		<label for="trainerName">Current Trainer Name</label>
 			<input type="text" name="trainerName" /><br>
-		<label for="pokedex">Pokedex number</label>
-			<input type="number" name="pokedex" min="1" max="720"/><br>
 		<label for="moveName1">Move</label>
 			<input type="text" name="moveName1"/><br>
 		<label for="moveName2">Move</label>
@@ -59,6 +64,10 @@
 			<input type="text" name="moveName3"/><br>
 		<label for="moveName4">Move</label>
 			<input type="text" name="moveName4"/><br>
+		<label for="egg_group1">Egg Group</label>
+			<input egg_group="text" name="egg_group1" /><br>
+		<label for="nickname">Egg Group</label>
+			<input egg_group="text" name="egg_group2" /><br>
         <input type="submit" value="Search" /><br>
 		//<input type="button" value="Delete" onclick="/*insert delete function here*/">
 		*required field
