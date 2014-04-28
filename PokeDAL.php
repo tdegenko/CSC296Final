@@ -28,6 +28,9 @@ class Pokemon{
 
     static private $public_attrs=["nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion", "genIn"];
     static private $rattrs=["pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4"];
+    static private $type_rattrs=["type1","type2"];
+    static private $egg_rattrs=["egg_group1","egg_group2"];
+    static private $move_rattrs=["moveName1","moveName2","moveName3","moveName4"];
     
     //generic getter/setter method
     function __call($method, $params){
@@ -59,7 +62,9 @@ class Pokemon{
             }
         }
     }
-    
+    static public function getRAttrs(){
+        return self::$rattrs;
+    }
     //a more generic approach: pass an array of attributes
     //and add conditions to the query based on these attributes
     static public function findByAttrs($attrs){
@@ -73,7 +78,7 @@ class Pokemon{
             $any=false;
             $params=array();
             foreach ($attrs as $key=>$value){
-                if(in_array($key,self::$rattrs)){
+                if(in_array($key,self::$rattrs and !(in_array($key,self::$move_rattrs) or in_array($key,self::$type_rattrs) or in_array($key,self::$egg_rattrs)))){
                     if($any){
                         $where.=" AND ";
                     }
@@ -86,7 +91,37 @@ class Pokemon{
             if ($any) {
                 $sql.=$where;
             }
-            $sql.=") AS sel JOIN knows ON sel.ID=knows.pokemonID AND sel.originalTrainer=knows.originalTrainer;";
+            $sql.=") AS sel JOIN knows ON sel.ID=knows.pokemonID AND sel.originalTrainer=knows.originalTrainer ";
+            $where="WHERE ";
+            $any=false;
+            $params=array();
+            foreach ($attrs as $key=>$value){
+                if(in_array($key,self::$rattrs)){
+                    if($any){
+                        $where.=" AND ";
+                    }
+                    if(in_array($key,self::$move_rattrs)){
+                        $where.="(";
+                        $first=true;
+                        foreach(self::$move_rattrs as $rkey){
+                            if(!$first){
+                                $where.=" OR ";
+                            }else{
+                                $first=false;
+                            }
+                            $where.=$rkey."=:".$key;
+                            $params[":".$key]=$value;
+                        }
+                        $where.=")";
+                    }
+                    $any=true;
+                }
+            }
+            
+            if ($any) {
+                $sql.=$where;
+            }
+
             $stmt = $db->prepare($sql);
             $stmt->execute($params);
             return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
