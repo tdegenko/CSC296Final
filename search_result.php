@@ -46,28 +46,25 @@ function printPoke($pok){
     echo '<table>';
     // print column headers
     echo '<tr>' .
-    '<td width=200><b>Name</b></td>' .
+    '<td width=150><b>Name</b></td>' .
     '<td width=75><b>PokedexNum</b></td>' .
+    '<td width=75><b>Type</b></td>' .
     '<td width=75><b>EggGroup1</b></td>' .
     '<td width=75><b>EggGroup2</b></td>' .
     '<td width=75><b>ID</b></td>' .
     '<td width=75><b>originalTrainer</b></td>' .
-    '<td width=75 colspan=4><b>Moves</b></td>' .
     '<td width=75><b>Item</b></td>' .
     '</tr>';
     
     echo "<tr>" .
-    "<td>{$pok->getname()}</td>" .
-    "<td>{$pok->getpokedex()}</td>" .
-    "<td>{$pok->getegg_group1()}</td>" .
-    "<td>{$pok->getegg_group2()}</td>" .
-    "<td>{$pok->getID()}</td>" .
-    "<td>{$pok->getoriginalTrainer()}</td>" .
-    "<td>{$pok->getmoveName1()}</td>" .
-    "<td>{$pok->getmoveName2()}</td>" .
-    "<td>{$pok->getmoveName3()}</td>" .
-    "<td>{$pok->getmoveName4()}</td>" .
-    "<td>{$pok->getitemName()}</td>" .
+    "<td >{$pok->getname()}</td>" .
+    "<td >{$pok->getpokedex()}</td>" .
+    "<td >{$pok->gettype1()} {$pok->gettype2()}</td>" .
+    "<td >{$pok->getegg_group1()}</td>" .
+    "<td >{$pok->getegg_group2()}</td>" .
+    "<td >{$pok->getID()}</td>" .
+    "<td >{$pok->getoriginalTrainer()}</td>" .
+    "<td >{$pok->getitemName()}</td>" .
     "</tr>";
     echo '</table>';
     $itm=item::findByName(array("name"=>$pok->getitemName()));
@@ -102,19 +99,19 @@ function printPoke($pok){
     }
     echo '<table>'.
     '<tr>'.
-        '<td colspan=2>Item</td>'.
+        '<td colspan=2 width=1000px >Item</td>'.
         '<td colspan=7>Moves</td>'.
     '</tr>'.
     '<tr>'.
-        '<td col>Name</td>'.
-        '<td col>Effect</td>'.
-        '<td col>Name</td>'.
-        '<td col>Element</td>'.
-        '<td col>Type</td>'.
-        '<td col>Power</td>'.
-        '<td col>Accuracy</td>'.
-        '<td col>PP</td>'.
-        '<td col>Contest Effect</td>'.
+        '<td width=25>Name</td>'.
+        '<td width=100>Effect</td>'.
+        '<td width=75>Name</td>'.
+        '<td width=75>Element</td>'.
+        '<td width=75>Type</td>'.
+        '<td width=75>Power</td>'.
+        '<td width=75>Accuracy</td>'.
+        '<td width=75>PP</td>'.
+        '<td width=75>Contest Effect</td>'.
     '</tr>'.
     '<tr>';
     if(is_null($itm)){
