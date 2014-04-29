@@ -69,7 +69,6 @@
 		<label for="nickname">Egg Group</label>
 			<input egg_group="text" name="egg_group2" /><br>
         <input type="submit" value="Search" /><br>
-		//<input type="button" value="Delete" onclick="/*insert delete function here*/">
 		*required field
     </form>
 </body>
