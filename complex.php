@@ -26,7 +26,7 @@
     try {
         echo '<p>Looking for all pokemon originally owned by Giovanni and for his information</p>';
         $results = pokemon::findByAttrs(array("originalTrainer"=>"Giovanni"));
-		$result2 = users::findByAttrs(array("name"=>"Giovanni"));
+		$result2 = users::findByName("Giovanni");
         echo '<p>' . count($results) . ' results found.</p>';
 		echo '<table>';
 		echo '<tr>' .
