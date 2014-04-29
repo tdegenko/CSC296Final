@@ -1,4 +1,6 @@
 -- PokeTrade for CS296
+--remember name on betaweb is cdiaz3
+--remember to drop old tables (request)
 USE poketrader;
 
 DROP TABLE IF EXISTS pokemon;
@@ -18,8 +20,8 @@ CREATE TABLE pokemon (
 	specialAttack INTEGER,
 	specialDefense INTEGER,
 	speed INTEGER,
-	accuracy INTEGER,
-	evasion INTEGER,
+	accuracy INTEGER, -- not on schema, should be removed here too?
+	evasion INTEGER, -- also not on schema...
 	originalTrainer CHAR(10),
 	pokeball CHAR(15),
 	genIn INTEGER,
@@ -30,33 +32,15 @@ CREATE TABLE pokemon (
 	PRIMARY KEY (ID, originalTrainer)
 );
 
-DROP TABLE IF EXISTS request;
+DROP TABLE IF EXISTS requests;
 
-CREATE TABLE request (
+CREATE TABLE requests (
 	ID INTEGER,
-	pokemonID INTEGER,
-	nickname CHAR(10),
-	gender CHAR(1),
-	lvl INTEGER,
-	happiness INTEGER,
-	ability CHAR(15),
-	nature CHAR(15),
-	shiny CHAR(1),
-	HP INTEGER,
-	attack INTEGER,
-	defense INTEGER,
-	specialAttack INTEGER,
-	specialDefense INTEGER,
-	speed INTEGER,
-	accuracy INTEGER,
-	evasion INTEGER,
 	originalTrainer CHAR(10),
-	pokeball CHAR(15),
-	genIn INTEGER,
-	genCaught INTEGER,
 	trainerName CHAR(10),
-	pokedex INTEGER,
-	PRIMARY KEY (ID)
+	dateCreated DATE,
+	status CHAR(32),
+	PRIMARY KEY (ID, originalTrainer, trainerName)
 );
 
 DROP TABLE IF EXISTS items;
@@ -133,13 +117,13 @@ CREATE TABLE knows AS
 ALTER TABLE knows ADD requestID INTEGER;
 */
 CREATE TABLE knows(
-	pokemonID INTEGER,
-	requestID INTEGER,
+	ID INTEGER,
 	originalTrainer CHAR(10),
 	moveName1 CHAR(15),
 	moveName2 CHAR(15),
 	moveName3 CHAR(15),
-	moveName4 CHAR(15)
+	moveName4 CHAR(15),
+	PRIMARY KEY(ID, originalTrainer)
 );
 	
 
