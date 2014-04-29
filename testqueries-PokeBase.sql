@@ -3,7 +3,7 @@
 * Query a: looking for a Mewtwo caught in gen 1, but currently
 * in gen 2
 */
-<<<<<<< HEAD
+
 SELECT *
 FROM (
 	(SELECT pokedex
@@ -12,15 +12,6 @@ FROM (
 	JOIN
 	pokemon ON pokemon.pokedex)
 WHERE genCaught = 1 AND genIn = 2;
-=======
-SELECT * 
-FROM (
-     (SELECT pokedex FROM species
-    	WHERE name = "Mewtwo") AS pokedex
-		JOIN pokemon ON pokemon.pokedex) 
-		WHERE genCaught = 1 
-		AND   genIn = 2;
->>>>>>> d54e2c2aaf0188480b5357cab031109b81651a2d
 
 /*
 *Query b: looking for a dark type pokemon that knows Surf
@@ -43,35 +34,13 @@ JOIN (
 	OR moveName2 =  "Surf"
 	OR moveName3 =  "Surf"
 	OR moveName4 =  "Surf"
-<<<<<<< HEAD
-) AS moves
-=======
 ) AS moves;
->>>>>>> 6a1d2c3d52aa19ad6dcd2eacf98dfa01a66bc1bf
+
 
 /*
 *Query c: looking for a pokemon that can mate with Bidoof and
 *is in gen 3
 */
-<<<<<<< HEAD
-SELECT * FROM pokemon JOIN  ON pokedex
-	 WHERE genIn = 3
-    (SELECT pokedex 
-     FROM species 
-     WHERE egg_group1 = "e1" 
-     OR egg_group1 = "e2"
-     OR egg_group2 = "e1" 
-     OR egg_group2 = "e2") 
-    
-     IN
-    
-    (SELECT egg_group1 AS e1, egg_group2 AS e2 
-     FROM species 
-     WHERE name = "Bidoof"))
-	 
-	
-
-=======
 
 SELECT *
 FROM (
@@ -86,4 +55,3 @@ FROM (
 		)
 	)
 WHERE genIn = 3;
->>>>>>> 6a1d2c3d52aa19ad6dcd2eacf98dfa01a66bc1bf

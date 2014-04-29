@@ -1,12 +1,7 @@
 -- PokeTrade for CS296
-<<<<<<< HEAD
-CREATE DATABASE IF NOT EXISTS cdiaz3;
-USE cdiaz3;
-=======
 --remember name on betaweb is cdiaz3
 --remember to drop old tables (request)
 USE poketrader;
->>>>>>> 6a1d2c3d52aa19ad6dcd2eacf98dfa01a66bc1bf
 
 DROP TABLE IF EXISTS pokemon;
 
