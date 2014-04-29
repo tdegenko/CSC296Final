@@ -20,8 +20,6 @@ CREATE TABLE pokemon (
 	specialAttack INTEGER,
 	specialDefense INTEGER,
 	speed INTEGER,
-	accuracy INTEGER, -- not on schema, should be removed here too?
-	evasion INTEGER, -- also not on schema...
 	originalTrainer CHAR(10),
 	pokeball CHAR(15),
 	genIn INTEGER,
@@ -135,8 +133,8 @@ CREATE TABLE knows(
 -- Mewtwo
 INSERT INTO pokemon(
 	ID, nickname, gender, lvl, happiness, ability, nature, shiny, HP, attack, defense, specialAttack,
-	specialDefense, speed, accuracy, evasion, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
-	VALUES (00000, "Bob", "N", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, 100, 100, "Giovanni", "Master Ball", 2, 1, "Us", 150,"Eject Button");
+	specialDefense, speed, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
+	VALUES (00000, "Bob", "N", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, "Giovanni", "Master Ball", 2, 1, "Us", 150,"Eject Button");
 
 INSERT INTO knows(
 	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
@@ -145,8 +143,8 @@ INSERT INTO knows(
 -- random Bidoof
 INSERT INTO pokemon(
 	ID, nickname, gender, lvl, happiness, ability, nature, shiny, HP, attack, defense, specialAttack,
-	specialDefense, speed, accuracy, evasion, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
-	VALUES (00001, "Mike", "F", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, 100, 100, "MikeyMike", "Master Ball", 2, 1, "Us", 399,"Eject Button");
+	specialDefense, speed, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
+	VALUES (00001, "Mike", "F", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, "MikeyMike", "Master Ball", 3, 1, "Us", 399,"Eject Button");
 
 INSERT INTO knows(
 	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
@@ -155,8 +153,8 @@ INSERT INTO knows(
 -- an umbreon
 INSERT INTO pokemon(
 	ID, nickname, gender, lvl, happiness, ability, nature, shiny, HP, attack, defense, specialAttack,
-	specialDefense, speed, accuracy, evasion, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
-	VALUES (00002, "Umbie", "F", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, 100, 100, "MikeyMike", "Master Ball", 2, 1, "SomeDood", 197,"Eject Button");
+	specialDefense, speed, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
+	VALUES (00002, "Umbie", "F", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, "MikeyMike", "Master Ball", 2, 1, "SomeDood", 197,"Eject Button");
 
 INSERT INTO knows(
 	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)

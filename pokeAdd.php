@@ -1,12 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Search for a pokemon!</title>
+    <title>Add a pokemon!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-	//action is name of result page
-    <form action="search_result.php" method="GET">
+    <form action="add_pokemon.php" method="POST">
 		<label for="pokedex">Pokedex number</label>
 			<input type="number" name="pokedex" min="1" max="720"/><br>
 		<label for="type1">Type</label>
@@ -67,7 +66,7 @@
 			<input egg_group="text" name="egg_group1" /><br>
 		<label for="nickname">Egg Group</label>
 			<input egg_group="text" name="egg_group2" /><br>
-        <input type="submit" value="Search" /><br>
+        <input type="submit" value="Add" /><br>
 		*required field
     </form>
 </body>
