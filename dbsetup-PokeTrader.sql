@@ -156,8 +156,8 @@ INSERT INTO knows(
 INSERT INTO pokemon(
 	ID, nickname, gender, lvl, happiness, ability, nature, shiny, HP, attack, defense, specialAttack,
 	specialDefense, speed, accuracy, evasion, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
-	VALUES (00001, "Umbie", "F", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, 100, 100, "MikeyMike", "Master Ball", 2, 1, "SomeDood", 197,"Eject Button");
+	VALUES (00002, "Umbie", "F", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, 100, 100, "MikeyMike", "Master Ball", 2, 1, "SomeDood", 197,"Eject Button");
 
 INSERT INTO knows(
 	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
-	VALUES (00001, "MikeyMike", "Surf", "Psystrike", "Me First","Confusion");
+	VALUES (00002, "MikeyMike", "Surf", "Psystrike", "Me First","Confusion");
