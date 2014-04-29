@@ -18,13 +18,19 @@ class Pokemon{
 
     //from pokemon
     private $ID, $originalTrainer, $nickname, $gender, $lvl, $trainerName, 
-    $happiness, $ability, $nature, $shiny,  $HP, $attack, $defense, $specialAttack, $specialDefense, $speed, $accuracy, $evasion, $pokeball, $genIn, $genCaught;
+    $happiness, $ability, $nature, $shiny,  $HP, $attack, $defense, $specialAttack, $specialDefense, $speed, $accuracy, $evasion, $pokeball, $genIn, $genCaught, $itemName;
 
+    //from knows
+    private $moveName1, $moveName2, $moveName3, $moveName4;
+    
     //from species
     private $pokedex, $name, $genus, $type1, $type2, $egg_group1, $egg_group2;
 
     static private $public_attrs=["nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion", "genIn"];
-    static private $rattrs=["pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion","pokeball","genIn","genCaught"];
+    static private $rattrs=["pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4"];
+    static private $type_rattrs=["type1","type2"];
+    static private $egg_rattrs=["egg_group1","egg_group2"];
+    static private $move_rattrs=["moveName1","moveName2","moveName3","moveName4"];
     
     //generic getter/setter method
     function __call($method, $params){
@@ -56,7 +62,9 @@ class Pokemon{
             }
         }
     }
-    
+    static public function getRAttrs(){
+        return self::$rattrs;
+    }
     //a more generic approach: pass an array of attributes
     //and add conditions to the query based on these attributes
     static public function findByAttrs($attrs){
@@ -64,22 +72,79 @@ class Pokemon{
             global $db;
     
             
-            $sql = "SELECT * FROM ";
-            $sql .= "pokemon JOIN species ";
+            $sql = "SELECT sel.*, moveName1,moveName2,moveName3,moveName4 FROM (SELECT * FROM (SELECT pokemon.*,name,genus,type1,type2,egg_group1,egg_group2 FROM ";
+            $sql .= "pokemon JOIN species on pokemon.pokedex=species.pokedex) AS inst ";
             $where="WHERE ";
             $any=false;
             $params=array();
             foreach ($attrs as $key=>$value){
-                if(in_array($key,self::$rattrs)){
+                if(in_array($key,self::$rattrs) and !(in_array($key,self::$move_rattrs))){
                     if($any){
                         $where.=" AND ";
                     }
-                    $where.=$key."=:".$key;
-                    $params[":".$key]=$value;
+                    if(in_array($key,self::$type_rattrs)){
+                        $where.="(";
+                        $first=true;
+                        foreach(self::$type_rattrs as $rkey){
+                            if(!$first){
+                                $where.=" OR ";
+                            }else{
+                                $first=false;
+                            }
+                            $where.=$rkey."=:".$key;
+                            $params[":".$key]=$value;
+                        }
+                        $where.=")";
+                    }elseif(in_array($key,self::$egg_rattrs)){
+                        $where.="(";
+                        $first=true;
+                        foreach(self::$egg_rattrs as $rkey){
+                            if(!$first){
+                                $where.=" OR ";
+                            }else{
+                                $first=false;
+                            }
+                            $where.=$rkey."=:".$key;
+                            $params[":".$key]=$value;
+                        }
+                        $where.=")";
+                    }else{
+                        $where.=$key."=:".$key;
+                        $params[":".$key]=$value;
+                    }
                     $any=true;
                 }
             }
-            $where.=";";
+            
+            if ($any) {
+                $sql.=$where;
+            }
+            $sql.=") AS sel JOIN knows ON sel.ID=knows.pokemonID AND sel.originalTrainer=knows.originalTrainer ";
+            $where="WHERE ";
+            $any=false;
+            foreach ($attrs as $key=>$value){
+                if(in_array($key,self::$rattrs) and (in_array($key,self::$move_rattrs)) and (!is_null($value)) and $value !="" ){
+                    echo $key."=>".$value."\n";
+                    if($any){
+                        $where.=" AND ";
+                    }
+                    if(in_array($key,self::$move_rattrs)){
+                        $where.="(";
+                        $first=true;
+                        foreach(self::$move_rattrs as $rkey){
+                            if(!$first){
+                                $where.=" OR ";
+                            }else{
+                                $first=false;
+                            }
+                            $where.=$rkey."=:".$key;
+                            $params[":".$key]=$value;
+                        }
+                        $where.=")";
+                    }
+                    $any=true;
+                }
+            }
             
             if ($any) {
                 $sql.=$where;
@@ -91,8 +156,6 @@ class Pokemon{
             echo("Could not find requested pokemon.\n");
         }
     }
-    
-    
 }
 //$tmp=pokemon::findByPokename("Ho-Oh")[0];
 //$tmp=pokemon::findByAttrs(array("name"=>"Ho-Oh"))[0];

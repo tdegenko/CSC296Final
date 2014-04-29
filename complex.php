@@ -1,10 +1,10 @@
 <?php
-// index.php - tests the Pokemon DAL
+// complex.php - tests a more complex query on the Pokemon DAL
 ?>
 
 <html>
     <head>
-    <title>PokeTrader</title>
+    <title>User Info</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style>
         table{
@@ -17,15 +17,30 @@
     </head>
 
     <body>
-    <h2>Pokemon Test</h2>
+    <h2>User Test</h2>
 
     <?php
     require_once 'PokeDAL.php';
+	require_once 'UserDAL.php';
 
     try {
-        echo '<p>Looking for a Mewtwo that was caught in Gen 1 and is in Gen 2...</p>';
-        $results = pokemon::findByAttrs(array("name"=>"Mewtwo", "genCaught" => 1, "genIn" => 2));
+        echo '<p>Looking for all pokemon originally owned by Giovanni and for his information</p>';
+        $results = pokemon::findByAttrs(array("originalTrainer"=>"Giovanni"));
+		$result2 = users::findByName("Giovanni");
         echo '<p>' . count($results) . ' results found.</p>';
+		echo '<table>';
+		echo '<tr>' .
+        '<td width=200><b>Name</b></td>' .
+        '<td width=75><b>Address</b></td>' .
+        '<td width=75><b>Contact Info</b></td>' .
+        '</tr>';
+		
+		echo "<tr>" .
+        "<td>{$result2->getname()}</td>" .
+        "<td>{$result2->getaddress()}</td>" .
+        "<td>{$result2->getcontact()}</td>" .
+        "</tr>";
+		
         echo '<table>';
         // print column headers
         echo '<tr>' .

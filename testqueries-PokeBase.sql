@@ -32,12 +32,17 @@ JOIN (
 	OR moveName2 =  "Surf"
 	OR moveName3 =  "Surf"
 	OR moveName4 =  "Surf"
+<<<<<<< HEAD
 ) AS moves
+=======
+) AS moves;
+>>>>>>> 6a1d2c3d52aa19ad6dcd2eacf98dfa01a66bc1bf
 
 /*
 *Query c: looking for a pokemon that can mate with Bidoof and
 *is in gen 3
 */
+<<<<<<< HEAD
 SELECT * FROM pokemon JOIN  ON pokedex
 	 WHERE genIn = 3
     (SELECT pokedex 
@@ -55,3 +60,19 @@ SELECT * FROM pokemon JOIN  ON pokedex
 	 
 	
 
+=======
+
+SELECT *
+FROM (
+	pokemon
+	JOIN(
+		(SELECT egg_group1, egg_group2
+		FROM species
+		where name = "Bidoof") AS bidoof
+		JOIN species ON (species.egg_group1 = bidoof.egg_group1 or 
+		species.egg_group1 = bidoof.egg_group2 or species.egg_group2 = bidoof.egg_group1
+		or species.egg_group2 = bidoof.egg_group2)
+		)
+	)
+WHERE genIn = 3;
+>>>>>>> 6a1d2c3d52aa19ad6dcd2eacf98dfa01a66bc1bf

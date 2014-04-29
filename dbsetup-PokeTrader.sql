@@ -1,6 +1,12 @@
 -- PokeTrade for CS296
+<<<<<<< HEAD
 CREATE DATABASE IF NOT EXISTS cdiaz3;
 USE cdiaz3;
+=======
+--remember name on betaweb is cdiaz3
+--remember to drop old tables (request)
+USE poketrader;
+>>>>>>> 6a1d2c3d52aa19ad6dcd2eacf98dfa01a66bc1bf
 
 DROP TABLE IF EXISTS pokemon;
 
@@ -19,44 +25,27 @@ CREATE TABLE pokemon (
 	specialAttack INTEGER,
 	specialDefense INTEGER,
 	speed INTEGER,
-	accuracy INTEGER,
-	evasion INTEGER,
+	accuracy INTEGER, -- not on schema, should be removed here too?
+	evasion INTEGER, -- also not on schema...
 	originalTrainer CHAR(10),
 	pokeball CHAR(15),
 	genIn INTEGER,
 	genCaught INTEGER,
 	trainerName CHAR(10),
 	pokedex INTEGER,
+	itemName CHAR(15),
 	PRIMARY KEY (ID, originalTrainer)
 );
 
-DROP TABLE IF EXISTS request;
+DROP TABLE IF EXISTS requests;
 
-CREATE TABLE request (
+CREATE TABLE requests (
 	ID INTEGER,
-	pokemonID INTEGER,
-	nickname CHAR(10),
-	gender CHAR(1),
-	lvl INTEGER,
-	happiness INTEGER,
-	ability CHAR(15),
-	nature CHAR(15),
-	shiny CHAR(1),
-	HP INTEGER,
-	attack INTEGER,
-	defense INTEGER,
-	specialAttack INTEGER,
-	specialDefense INTEGER,
-	speed INTEGER,
-	accuracy INTEGER,
-	evasion INTEGER,
 	originalTrainer CHAR(10),
-	pokeball CHAR(15),
-	genIn INTEGER,
-	genCaught INTEGER,
 	trainerName CHAR(10),
-	pokedex INTEGER,
-	PRIMARY KEY (ID)
+	dateCreated DATE,
+	status CHAR(32),
+	PRIMARY KEY (ID, originalTrainer, trainerName)
 );
 
 DROP TABLE IF EXISTS items;
@@ -133,26 +122,15 @@ CREATE TABLE knows AS
 ALTER TABLE knows ADD requestID INTEGER;
 */
 CREATE TABLE knows(
-	pokemonID INTEGER,
-	requestID INTEGER,
+	ID INTEGER,
 	originalTrainer CHAR(10),
 	moveName1 CHAR(15),
 	moveName2 CHAR(15),
 	moveName3 CHAR(15),
-	moveName4 CHAR(15)
+	moveName4 CHAR(15),
+	PRIMARY KEY(ID, originalTrainer)
 );
 	
-
-DROP TABLE IF EXISTS heldby;
-
-CREATE TABLE heldby(
-	pokemonID INTEGER,
-	requestID INTEGER,
-	originalTrainer CHAR(10),
-	itemName CHAR(15)
-);
-
-
 
 
 /*
@@ -162,5 +140,9 @@ CREATE TABLE heldby(
 
 INSERT INTO pokemon(
 	ID, nickname, gender, lvl, happiness, ability, nature, shiny, HP, attack, defense, specialAttack,
-	specialDefense, speed, accuracy, evasion, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex)
-	VALUES (00000, "Bob", "N", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, 100, 100, "Giovanni", "Master Ball", 2, 1, "Us", 150);
+	specialDefense, speed, accuracy, evasion, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
+	VALUES (00000, "Bob", "N", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, 100, 100, "Giovanni", "Master Ball", 2, 1, "Us", 150,"Eject Button");
+
+INSERT INTO knows(
+	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
+	VALUES (00000, "Giovanni", "Future Sight", "Psystrike", "Me First","Confusion");

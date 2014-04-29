@@ -29,7 +29,7 @@ class Item{
     
             
             $sql = "SELECT * FROM ";
-            $sql .= "item ";
+            $sql .= "items ";
             $where="WHERE ";
             $any=false;
             $params=array();
