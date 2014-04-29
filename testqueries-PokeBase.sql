@@ -3,10 +3,14 @@
 * Query a: looking for a Mewtwo caught in gen 1, but currently
 * in gen 2
 */
-SELECT * FROM
-    ((SELECT pokedex FROM species
-    WHERE name = "Mewtwo") JOIN
-    pokemon ON pokedex)
+
+SELECT *
+FROM (
+	(SELECT pokedex
+	FROM species
+	WHERE name = "Mewtwo") AS pokedex
+	JOIN
+	pokemon ON pokemon.pokedex = pokedex.pokedex)
 WHERE genCaught = 1 AND genIn = 2;
 
 /*
@@ -31,6 +35,7 @@ JOIN (
 	OR moveName3 =  "Surf"
 	OR moveName4 =  "Surf"
 ) AS moves;
+
 
 /*
 *Query c: looking for a pokemon that can mate with Bidoof and

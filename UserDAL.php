@@ -28,7 +28,7 @@ class user{
                     $params = array(
                         ":attr" => $var,
                         ":val"  => $this->$var,
-                        ":n"   => $this->name,
+                        ":n"   => $this->$name,
                     );
                     $stmt->execute($params);
                 }catch(PDOException $ex) {
