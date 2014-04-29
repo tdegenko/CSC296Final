@@ -28,8 +28,8 @@ class Pokemon{
     //from species
     private $pokedex, $name, $genus, $type1, $type2, $egg_group1, $egg_group2;
 
-    static private $public_attrs=["nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion", "genIn"];
-    static private $rattrs=["pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4"];
+    static private $public_attrs=["nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","genIn"];
+    static private $rattrs=["pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4"];
     static private $type_rattrs=["type1","type2"];
     static private $egg_rattrs=["egg_group1","egg_group2"];
     static private $move_rattrs=["moveName1","moveName2","moveName3","moveName4"];
@@ -64,7 +64,11 @@ class Pokemon{
             }
         }
     }
-    static public function getRAttrs(){
+    static public function getAttrs(){
+        return self::$aattrs;
+    }
+	
+	static public function getRAttrs(){
         return self::$rattrs;
     }
     //constructs a new pokemon and trys to write it to the DB. if it succeds returns the pokemon otherwise returns false;

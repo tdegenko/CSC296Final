@@ -35,6 +35,8 @@ function mapToAttrs($in){
         if(!is_null($value) and $value != ""){
             if(in_array($key,Pokemon::getRAttrs())){
                 $atts[$key]=$value;
+				if(in_array($key,Pokemon::getAttrs()))
+					pkmn->set$key($value);
             }
         }
     }
@@ -63,7 +65,7 @@ function changePoke($pok){
     "<td >{$pok->getegg_group2()}</td>" .
     "<td >{$pok->getID()}</td>" .
     "<td >{$pok->getoriginalTrainer()}</td>" .
-    "<td >{$pok->setitemName()}</td>" .
+    "<td >{$pok->setitemName($_GET["item"])}</td>" .
     "</tr>";
     echo '</table>';
     $itm=item::findByName(array("name"=>$pok->getitemName()));
