@@ -69,6 +69,9 @@ class Pokemon{
     }
     //constructs a new pokemon and trys to write it to the DB. if it succeds returns the pokemon otherwise returns false;
     function __construct($attrs){
+        if(!isset($attrs)){
+            return;
+        }
         try{
             global $db;
             foreach ($attrs as $key=>$value){
@@ -137,7 +140,7 @@ class Pokemon{
     
             
             $sql = "SELECT sel.*, moveName1,moveName2,moveName3,moveName4 FROM (SELECT * FROM (SELECT pokemon.*,name,genus,type1,type2,egg_group1,egg_group2 FROM ";
-            $sql .= "pokemon JOIN species on pokemon.pokedex=species.pokedex) AS inst ";
+            $sql .= "pokemon LEFT JOIN species on pokemon.pokedex=species.pokedex) AS inst ";
             $where="WHERE ";
             $any=false;
             $params=array();
@@ -213,9 +216,10 @@ class Pokemon{
             if ($any) {
                 $sql.=$where;
             }
+            echo "\n\n".$sql."\n\n";
             $stmt = $db->prepare($sql);
             $stmt->execute($params);
-            return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
+            return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon",[NULL]);
         }catch(PDOException $ex) {
             echo("Could not find requested pokemon.\n");
         }
