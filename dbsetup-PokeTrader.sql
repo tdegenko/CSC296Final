@@ -1,4 +1,5 @@
 -- PokeTrade for CS296
+CREATE DATABASE IF NOT EXISTS cdiaz3;
 USE cdiaz3;
 
 DROP TABLE IF EXISTS pokemon;
