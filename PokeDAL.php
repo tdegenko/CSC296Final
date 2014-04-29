@@ -191,7 +191,6 @@ class Pokemon{
             $any=false;
             foreach ($attrs as $key=>$value){
                 if(in_array($key,self::$rattrs) and (in_array($key,self::$move_rattrs)) and (!is_null($value)) and $value !=""){
-                    echo $key."=>".$value."\n";
                     if($any){
                         $where.=" AND ";
                     }
@@ -216,7 +215,6 @@ class Pokemon{
             if ($any) {
                 $sql.=$where;
             }
-            echo "\n\n".$sql."\n\n";
             $stmt = $db->prepare($sql);
             $stmt->execute($params);
             return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon",[NULL]);
