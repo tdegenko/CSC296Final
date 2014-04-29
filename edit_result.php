@@ -24,7 +24,6 @@ $pkmn=Pokemon::findByAttrs(array("ID"=>$_GET["ID"],"originalTrainer"=>$_GET["ori
 <?php
 foreach($pkmn as $poke){
 	changePoke($poke);
-    printPoke($poke);
 }
 ?>
     </body>
@@ -42,7 +41,7 @@ function mapToAttrs($in){
     return $atts;
 }
 
-function printPoke($pok){
+function changePoke($pok){
     echo '<table>';
     // print column headers
     echo '<tr>' .
@@ -176,7 +175,7 @@ function printPoke($pok){
     '</table>';
 }
 
-function printPoke($pok){
+
     echo '<table>';
     // print column headers
     echo '<tr>' .
