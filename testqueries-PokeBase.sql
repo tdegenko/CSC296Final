@@ -10,7 +10,7 @@ FROM (
 	FROM species
 	WHERE name = "Mewtwo") AS pokedex
 	JOIN
-	pokemon ON pokemon.pokedex)
+	pokemon ON pokemon.pokedex = pokedex.pokedex)
 WHERE genCaught = 1 AND genIn = 2;
 
 /*
