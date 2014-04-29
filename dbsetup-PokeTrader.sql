@@ -141,3 +141,13 @@ INSERT INTO pokemon(
 INSERT INTO knows(
 	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
 	VALUES (00000, "Giovanni", "Future Sight", "Psystrike", "Me First","Confusion");
+	
+	
+INSERT INTO pokemon(
+	ID, nickname, gender, lvl, happiness, ability, nature, shiny, HP, attack, defense, specialAttack,
+	specialDefense, speed, accuracy, evasion, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
+	VALUES (00001, "Mike", "F", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, 100, 100, "MikeyMike", "Master Ball", 2, 1, "Us", 399,"Eject Button");
+
+INSERT INTO knows(
+	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
+	VALUES (00001, "MikeyMike", "Surf", "Psystrike", "Me First","Confusion");

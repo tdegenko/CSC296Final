@@ -3,10 +3,13 @@
 * Query a: looking for a Mewtwo caught in gen 1, but currently
 * in gen 2
 */
-SELECT * FROM
-    ((SELECT pokedex FROM species
-    WHERE name = "Mewtwo") JOIN
-    pokemon ON pokedex)
+SELECT *
+FROM (
+	(SELECT pokedex
+	FROM species
+	WHERE name = "Mewtwo") AS pokedex
+	JOIN
+	pokemon ON pokemon.pokedex)
 WHERE genCaught = 1 AND genIn = 2;
 
 /*
