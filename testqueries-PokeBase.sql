@@ -6,7 +6,7 @@
 
 SELECT *
 FROM (
-	(SELECT pokedex
+	(SELECT pokedex, name
 	FROM species
 	WHERE name = "Mewtwo") AS pokedex
 	NATURAL JOIN pokemon)
@@ -19,7 +19,7 @@ SELECT *
 FROM (
 	(SELECT *
 	FROM (
-		(SELECT pokedex
+		(SELECT pokedex, name
 		FROM species
 		WHERE type1 =  "Dark"
 		OR type2 =  "Dark") AS spec
