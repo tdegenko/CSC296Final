@@ -139,5 +139,5 @@ INSERT INTO pokemon(
 	VALUES (00000, "Bob", "N", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, 100, 100, "Giovanni", "Master Ball", 2, 1, "Us", 150,"Eject Button");
 
 INSERT INTO knows(
-	PokemonID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
+	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
 	VALUES (00000, "Giovanni", "Future Sight", "Psystrike", "Me First","Confusion");
