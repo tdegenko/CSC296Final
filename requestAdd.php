@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<form action="add_pokemon.php" method="POST">
+<form action="add_Request.php" method="POST">
 <?php
 $select_query="SELECT pokedex, name FROM species";
 $select_query_run=mysql_query($select_query);
