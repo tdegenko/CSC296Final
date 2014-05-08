@@ -8,7 +8,7 @@ require_once 'dbsetup.php';
 
 class requests{
     //from user
-    private $ID, originalTrainer,moveName1, moveName2, moveName3, moveName4;
+    private $ID, $originalTrainer,$moveName1, $moveName2, $moveName3, $moveName4;
     static private $public_attrs=array("ID","originalTrainer","moveName1","moveName2","moveName3", "moveName4");
     
     //generic getter/setter method

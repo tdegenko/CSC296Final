@@ -6,10 +6,10 @@
 require_once 'dbsetup.php';
 //  private $address, $contact;
 
-class user{
+class users{
     //from user
     private $name, $address, $contact, $passwd;
-    static private $public_attrs=array("name","address", "contact","passwd");
+    static private $public_attrs=array("name","address", "contact");
     
 	static public function getRAttrs(){
         return self::$public_attrs;
@@ -26,7 +26,7 @@ class user{
                     $this->$var=$params[0];
                     $sql =  "UPDATE users
                              SET :attr=:val
-                             WHERE name=:n;"  
+                             WHERE name=:n";  
                     $stmt = $db->prepare($sql);
                     $params = array(
                         ":attr" => $var,
@@ -49,24 +49,32 @@ class user{
 	static public function findByName($name){
         try{
             global $db;
-            $sql = "SELECT * FROM users WHERE name=:name";
+            $sql = "SELECT name,address,contact FROM users WHERE name=:name";
 $stmt = $db->prepare($sql);
             $stmt->execute(array(":name" => $name));
-            return $stmt->fetchAll(PDO::FETCH_CLASS, "user");
+            return $stmt->fetchAll(PDO::FETCH_CLASS, "users");
         }catch(PDOException $ex) {
             echo("Could not find requested user.\n");
         }
     }
 	
-    static public function findByNameAndPasswd($name, $passwd){
+    static public function authFindByName($name){
         try{
             global $db;
-            $sql = "SELECT * FROM users WHERE name=:name AND passwd=:passwd";
+            $sql = "SELECT name,address,contact,passwd FROM users WHERE name=:name";
 			$stmt = $db->prepare($sql);
-            $stmt->execute(array(":name" => $name,":passwd" => $passwd));
-            return $stmt->fetchAll(PDO::FETCH_CLASS, "user");
+            $stmt->execute(array(":name" => $name));
+            return $stmt->fetchAll(PDO::FETCH_CLASS, "users");
         }catch(PDOException $ex) {
             echo("Could not find requested user.\n");
+        }
+    }
+    function verifyPasswd($pass){
+        if(password_verify($pass,$this->passwd)){
+            unset($this->passwd);
+            return true;
+        }else{
+            return false;
         }
     }
     
@@ -78,23 +86,34 @@ $stmt = $db->prepare($sql);
             global $db;
             foreach ($attrs as $key=>$value){
                 if(in_array($key,array_keys(get_object_vars($this))) and (!is_null($value)) and $value !=""){
-                    $this->$key=$value;
+                    if ($key=="passwd"){
+                        $this->$key=password_hash($value,PASSWORD_DEFAULT);
+                    }else{
+                        $this->$key=$value;
+                    }
                 }
             }
             $db->beginTransaction();
-            $sql="INSERT INTO users(name,address,contact,password) ".
+            $sql="INSERT INTO users(name,address,contact,passwd) ".
             "VALUES (
-:name,address,contact,password); ";
+:name,:address,:contact,:passwd); ";
             $params=array();
-            foreach(self::$poke_attrs as $key){
-                $params[$key]=$this->$key;
+            foreach(self::$public_attrs as $key){
+                if(is_null($this->$key)){
+                    $params[":".$key]="";
+                }else{
+                    $params[":".$key]=$this->$key;
+                }
             }
+            $params[':passwd']=$this->passwd;
             $stmt = $db->prepare($sql);
             if(!$stmt){
                 $db->rollBack();
                 $error = "Could not add user";
                  throw new Exception($error);
             }
+            echo "$sql\n";
+            print_r($params);
             if(!$stmt->execute($params)){
                 $db->rollBack();
                 $error = "Could not add user";
@@ -105,6 +124,7 @@ $stmt = $db->prepare($sql);
         }catch(PDOException $ex) {
             echo("Could not create user.\n");
         }
+    }
     
 }
 

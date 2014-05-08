@@ -7,6 +7,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
+<?php
+echo password_hash("aAa",PASSWORD_DEFAULT)."\n";
+echo password_hash("bBb",PASSWORD_DEFAULT)."\n";
+?>
 <form action="useCheck.php" method="POST">
 	<label for="name">Username</label>
 		<input type="text" name="trainerName" /><br>
