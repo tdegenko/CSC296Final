@@ -20,7 +20,7 @@ while   ($select_query_array=   mysql_fetch_array($select_query_run) )
 </select><br>
 		<label for="type1">Type</label>
 			<input type="text" name="type1" /><br>
-		<label for="nickname">Type</label>
+		<label for="type2">Type</label>
 			<input type="text" name="type2" /><br>
         <label for="number">ID</label>
 			<input type="number" name="ID" min="0" max="99999"/><br>
