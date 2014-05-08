@@ -8,9 +8,12 @@ require_once 'dbsetup.php';
 
 class user{
     //from user
-    private $name, $address, $contact, $password;
-    static private $public_attrs=array("name","address", "contact","password");
+    private $name, $address, $contact, $passwd;
+    static private $public_attrs=array("name","address", "contact","passwd");
     
+	static public function getRAttrs(){
+        return self::$public_attrs;
+    }
     //generic getter/setter method
     function __call($method, $params){
         $var = substr($method,3);
@@ -43,12 +46,24 @@ class user{
     
     //a more generic approach: pass an array of attributes
     //and add conditions to the query based on these attributes
-    static public function findByName($name){
+	static public function findByName($name){
         try{
             global $db;
             $sql = "SELECT * FROM users WHERE name=:name";
-			$stmt = $db->prepare($sql);
+$stmt = $db->prepare($sql);
             $stmt->execute(array(":name" => $name));
+            return $stmt->fetchAll(PDO::FETCH_CLASS, "user");
+        }catch(PDOException $ex) {
+            echo("Could not find requested user.\n");
+        }
+    }
+	
+    static public function findByNameAndPasswd($name, $passwd){
+        try{
+            global $db;
+            $sql = "SELECT * FROM users WHERE name=:name AND passwd=:passwd";
+			$stmt = $db->prepare($sql);
+            $stmt->execute(array(":name" => $name,":passwd" => $passwd));
             return $stmt->fetchAll(PDO::FETCH_CLASS, "user");
         }catch(PDOException $ex) {
             echo("Could not find requested user.\n");
