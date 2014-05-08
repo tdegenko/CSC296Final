@@ -33,6 +33,7 @@ CREATE TABLE pokemon (
 	FOREIGN KEY (itemName) REFERENCES items(name) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
+/*
 CREATE TRIGGER intCheck
 	BEFORE INSERT ON pokemon
 	REFERENCING NEW ROW AS newTuple
@@ -64,7 +65,7 @@ CREATE TRIGGER intUpCheck
 		END IF;
 	END;
 
-
+*/
 
 
 DROP TABLE IF EXISTS requests;
