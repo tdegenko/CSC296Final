@@ -1,6 +1,7 @@
 -- PokeTrade for CS296
 -- remember name on betaweb is cdiaz3
 -- remember to drop old tables (request)
+
 CREATE DATABASE IF NOT EXISTS poketrader;
 USE poketrader;
 
@@ -136,20 +137,20 @@ CREATE TABLE requests (
     
 ) ENGINE=INNODB;
 
--- here goes hoping it doesn't break anything
-DROP TRIGGER IF EXISTS intCheck;
-DROP TRIGGER IF EXISTS intUpCheck;
-
-
-CREATE TRIGGER `intCheck` BEFORE INSERT ON `pokemon`
- FOR EACH ROW IF (NEW.lvl < 1 or NEW.lvl > 100 or NEW.genIn < 1 or NEW.genIn > 6 or NEW.genCaught < 1 or NEW.genCaught > 6 or NEW.happiness < 1 or NEW.HP < 1 or NEW.attack < 1 or NEW.defense < 1 or NEW.specialAttack < 1 or NEW.specialDefense < 1 or NEW.speed < 1) THEN
-SIGNAL sqlstate '45000' SET message_text = "failed integer checks";
-END IF
-
-CREATE TRIGGER `intUpCheck` BEFORE UPDATE ON `pokemon`
- FOR EACH ROW IF (NEW.lvl < 1 or NEW.lvl > 100 or NEW.genIn < 1 or NEW.genIn > 6 or NEW.genCaught < 1 or NEW.genCaught > 6 or NEW.happiness < 1 or NEW.HP < 1 or NEW.attack < 1 or NEW.defense < 1 or NEW.specialAttack < 1 or NEW.specialDefense < 1 or NEW.speed < 1) THEN
-SIGNAL sqlstate '45000' SET message_text = "failed integer checks";
-END IF
+--  here goes hoping it doesn't break anything
+-- DROP TRIGGER IF EXISTS intCheck;
+-- DROP TRIGGER IF EXISTS intUpCheck;
+-- 
+-- 
+-- CREATE TRIGGER `intCheck` BEFORE INSERT ON `pokemon`
+--  FOR EACH ROW IF (NEW.lvl < 1 or NEW.lvl > 100 or NEW.genIn < 1 or NEW.genIn > 6 or NEW.genCaught < 1 or NEW.genCaught > 6 or NEW.happiness < 1 or NEW.HP < 1 or NEW.attack < 1 or NEW.defense < 1 or NEW.specialAttack < 1 or NEW.specialDefense < 1 or NEW.speed < 1) THEN
+-- SIGNAL sqlstate '45000' SET message_text = "failed integer checks";
+-- END IF
+-- 
+-- CREATE TRIGGER `intUpCheck` BEFORE UPDATE ON `pokemon`
+--  FOR EACH ROW IF (NEW.lvl < 1 or NEW.lvl > 100 or NEW.genIn < 1 or NEW.genIn > 6 or NEW.genCaught < 1 or NEW.genCaught > 6 or NEW.happiness < 1 or NEW.HP < 1 or NEW.attack < 1 or NEW.defense < 1 or NEW.specialAttack < 1 or NEW.specialDefense < 1 or NEW.speed < 1) THEN
+-- SIGNAL sqlstate '45000' SET message_text = "failed integer checks";
+-- END IF
 
 
 /*

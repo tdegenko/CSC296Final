@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<?php>
-require_once 'PokeDAL.php';
+<?php
+require_once 'include.php';
 ?>
 <head>
     <title>Add a pokemon!</title>
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeEdit.php">Edit a pokemon instead</a> 
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeSearch.php">Search for a pokemon instead</a> 
+	<a href="pokeEdit.php">Edit a pokemon instead</a> 
+	<a href="pokeSearch.php">Search for a pokemon instead</a> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>

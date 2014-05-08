@@ -63,8 +63,9 @@ $stmt = $db->prepare($sql);
             global $db;
             $sql = "SELECT name,address,contact,passwd FROM users WHERE name=:name";
 			$stmt = $db->prepare($sql);
+            $stmt->setFetchMode( PDO::FETCH_CLASS, 'users',NULL);
             $stmt->execute(array(":name" => $name));
-            return $stmt->fetchAll(PDO::FETCH_CLASS, "users");
+            return $stmt->fetch(PDO::FETCH_CLASS);
         }catch(PDOException $ex) {
             echo("Could not find requested user.\n");
         }
@@ -78,8 +79,8 @@ $stmt = $db->prepare($sql);
         }
     }
     
-	function __construct($attrs){
-        if(!isset($attrs)){
+	static public function addUser($attrs){
+        if(!is_null($attrs)){
             return;
         }
         try{

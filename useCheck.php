@@ -3,41 +3,33 @@
 <head>
     <title>Checking username and password</title>
 <?php
-require_once 'include.php';
+//require_once 'include.php';
+require_once('UserDAL.php');
 $name=$_POST["trainerName"];
 $passwd=$_POST["passwd"];
-$new_session=false;
-if(is_null($user)){
-    echo "Checking to see if account exists\n";
-    $user=users::authFindByName($name);;
-    $new_session=true;
+echo "Checking to see if account exists\n";
+$user=users::authFindByName($name);
+if($user)
+{
+    session_start();
+    echo "logging in";
+    if($user->verifyPasswd($passwd)){
+        header('location: pokeAdd.php');
+        $_SESSION["user"]=$user;
+    }else{
+#        header('location: main.php');
+        echo "bad passwd";
+#        echo '<meta http-equiv="refresh" content="2" URL=betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/main.php">
+#        <meta name="keywords" content="automatic redirection">';
+    }
 }
-	if($user)
-	{
-        if ($new_session){
-		    echo "logging in";
-            if($user->verifyPasswd($passwd)){
-                header('location: pokeAdd.php');
-                session_start();
-                $_SESSION["user"]=$user;
-            }else{
-                header('location: main.php');
-		        echo "bad passwd";
-		        echo '<meta http-equiv="refresh" content="2" URL=betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/main.php">
-		        <meta name="keywords" content="automatic redirection">';
-            }
-        }else{
-            echo "Already logged in\n";
-            header('location: pokeAdd.php');
-        }
-	}
-	else
-	{
-        header('location: main.php');
-		echo "no such user";
-		echo '<meta http-equiv="refresh" content="2" URL=betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/main.php">
-		<meta name="keywords" content="automatic redirection">';
-	}
+else
+{
+//        header('location: main.php');
+	echo "no such user";
+#	echo '<meta http-equiv="refresh" content="2" URL=betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/main.php">
+#	<meta name="keywords" content="automatic redirection">';
+}
 ?>
 	
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
