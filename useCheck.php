@@ -9,25 +9,24 @@ $name=$_POST["trainerName"];
 $passwd=$_POST["passwd"];
 echo "Checking to see if account exists\n";
 $user=users::authFindByName($name);
-print_r($user);
 if($user)
 {
     session_start();
     echo "logging in";
     if($user->verifyPasswd($passwd)){
-#        header('location: pokeAdd.php');
         $_SESSION["user"]=$user;
+        header('location: pokeAdd.php');
     }else{
-#        header('location: main.php');
         echo "bad passwd";
+        header('location: main.php');
 #        echo '<meta http-equiv="refresh" content="2" URL=betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/main.php">
 #        <meta name="keywords" content="automatic redirection">';
     }
 }
 else
 {
-//        header('location: main.php');
 	echo "no such user";
+    header('location: main.php');
 #	echo '<meta http-equiv="refresh" content="2" URL=betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/main.php">
 #	<meta name="keywords" content="automatic redirection">';
 }
