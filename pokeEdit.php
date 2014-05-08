@@ -2,19 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Edit your pokemon</title>
+	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeSearch.php">Search for a pokemon instead</a> 
+	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeAdd.php">Add a pokemon instead</a> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-	//action is name of result page
-    static private $rattrs=["egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4"];
-    <form action="edit_result.php" method="GET">
-		<label for="pokedex">Pokedex number</label>
-			<input type="number" name="pokedex" min="1" max="720"/><br>
+<form action="edit_result.php" method="POST">
+<?php
+$select_query="SELECT pokedex, name FROM species";
+$select_query_run=mysql_query($select_query);
+echo "<select name='pokedex'>";
+while   ($select_query_array=   mysql_fetch_array($select_query_run) )
+{
+        echo "<option value=".htmlspecialchars($select_query_array['pokedex']).">".htmlspecialchars($select_query_array['pokedex'])." ".htmlspecialchars($select_query_array['name'])."</option>";                        
+}
+?>
+</select><br>
 		<label for="type1">Type</label>
 			<input type="text" name="type1" /><br>
 		<label for="nickname">Type</label>
 			<input type="text" name="type2" /><br>
-        <label for="number">*ID</label>
+        <label for="number">ID</label>
 			<input type="number" name="ID" min="0" max="99999"/><br>
 		<label for="nickname">Nickname</label>
 			<input type="text" name="nickname" /><br>
@@ -46,7 +54,7 @@
 			<input type="number" name="specialDefense" min="1" max="99999"/><br>
 		<label for="speed">Speed</label>
 			<input type="number" name="speed" min="1" max="99999"/><br>
-		<label for="originalTrainer">*Original Trainer</label>
+		<label for="originalTrainer">Original Trainer</label>
 			<input type="text" name="originalTrainer" /><br>
 		<label for="pokebal">Pokeball caught in</label>
 			<input type="text" name="pokeball" /><br>
@@ -69,7 +77,6 @@
 		<label for="nickname">Egg Group</label>
 			<input egg_group="text" name="egg_group2" /><br>
         <input type="submit" value="Search" /><br>
-		*required field
     </form>
 </body>
 </html>
