@@ -1,37 +1,37 @@
 <?php
 //to do:use variables when DAL is complete
 require_once 'PokeDAL.php';
-$attrs=mapToAttrs($_GET);
+$attrs=mapToAttrs($_POST);
 $pkmn=Pokemon::findByAttrs($attrs);
 ?>
 
 <html>
-    <head>
-    <title>PokeTrader</title>
+<head>
+<title>PokeTrader</title>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeSearch.php">Search for another Pokemon?</a> 
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeEdit.php">Edit a Pokemon?</a> 
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeAdd.php">Add a Pokemon?</a> 
-    <style>
-        table{
-            border-collapse:collapse;
-        }
-        table, th, td{
-            border: 1px solid black;
-        }
-    </style>
-    </head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeSearch.php">Search for another Pokemon?</a>
+<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeEdit.php">Edit a Pokemon?</a>
+<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeAdd.php">Add a Pokemon?</a>
+<style>
+table{
+border-collapse:collapse;
+}
+table, th, td{
+border: 1px solid black;
+}
+</style>
+</head>
 
-    <body>
-    <h2><?=count($pkmn);?> Results</h2>
+<body>
+<h2><?=count($pkmn);?> Results</h2>
 
 <?php
 foreach($pkmn as $poke){
     printPoke($poke);
 }
 ?>
-    </body>
+</body>
 </html>
 <?php
 function mapToAttrs($in){
