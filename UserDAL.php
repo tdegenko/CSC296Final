@@ -71,14 +71,22 @@ $stmt = $db->prepare($sql);
         }
     }
     function verifyPasswd($pass){
-        if(password_verify($pass,$this->passwd)){
+        if(crypt($pass,$this->passwd)==$this->passwd){
             unset($this->passwd);
             return true;
         }else{
             return false;
         }
     }
-    
+    static private salt($length=22){
+        $CHARS='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789./';
+        $str = '';
+        $count = strlen($charset);
+        while ($length--) {
+            $str .= $charset[mt_rand(0, $count-1)];
+        }
+        return $str;
+        }
 	static public function addUser($attrs){
         if(!is_null($attrs)){
             return;
@@ -88,7 +96,11 @@ $stmt = $db->prepare($sql);
             foreach ($attrs as $key=>$value){
                 if(in_array($key,array_keys(get_object_vars($this))) and (!is_null($value)) and $value !=""){
                     if ($key=="passwd"){
-                        $this->$key=password_hash($value,PASSWORD_DEFAULT);
+                        if(CRYPT_BLOWFISH=1){
+                            $this->$key=crypt($value,'$2y$10$'.self::salt().'$');
+                        }else{
+                            $this->$key=crypt($value);;
+                        }
                     }else{
                         $this->$key=$value;
                     }
