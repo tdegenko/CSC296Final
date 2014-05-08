@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 require_once 'PokeDAL.php';
+require_once 'dbsetup.php';
 ?>
 <head>
     <title>Search for a pokemon!</title>
@@ -13,12 +14,15 @@ require_once 'PokeDAL.php';
 <body>
 <form action="search_result.php" method="POST">
 <?php
+global $db;
 $select_query="SELECT pokedex, name FROM species";
-$select_query_run=mysql_query($select_query);
+//$select_query_run=mysql_query($select_query);
+$stmt = $db->prepare($select_query);
+$stmt->execute();
 echo "<select name='pokedex'>";
-while   ($select_query_array=   mysql_fetch_array($select_query_run) )
+while   ($row=   $stmt->fetch(PDO::FETCH_ASSOC) )
 {
-        echo "<option value=".htmlspecialchars($select_query_array['pokedex']).">".htmlspecialchars($select_query_array['pokedex'])." ".htmlspecialchars($select_query_array['name'])."</option>";                        
+        echo '<option value= '.$row['pokedex'].'>'.$row['pokedex']. ' '.$row['name'].'</option>';                        
 }
 ?>
 </select><br>
