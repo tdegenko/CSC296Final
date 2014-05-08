@@ -130,7 +130,7 @@ CREATE TABLE knows(
 	FOREIGN KEY (moveName1) REFERENCES moves(name),
 	FOREIGN KEY (moveName2) REFERENCES moves(name),
 	FOREIGN KEY (moveName3) REFERENCES moves(name),
-	FOREIGN KEY (moveName4) REFERENCES moves(name),
+	FOREIGN KEY (moveName4) REFERENCES moves(name)
 ) ENGINE=INNODB;
 	
 
