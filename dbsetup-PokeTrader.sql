@@ -123,7 +123,7 @@ CREATE TABLE requests (
 	ID INTEGER,
 	originalTrainer CHAR(10),
 	trainerName CHAR(10),
-	dateCreated DATE,
+	dateCreated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	status CHAR(32),
 	PRIMARY KEY (ID, originalTrainer, trainerName),
 	
@@ -196,3 +196,5 @@ INSERT INTO knows(
 	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
 	VALUES (00002, "MikeyMike", "Surf", "Psystrike", "Me First","Confusion");
 	
+-- sample request: SomeDood requests Bob from Us
+INSERT INTO requests (ID, originalTrainer, trainerName, dateCreated, status) VALUES ('0', 'Giovanni', 'SomeDood', CURRENT_TIMESTAMP, 'Pending');
