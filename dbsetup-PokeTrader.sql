@@ -81,7 +81,8 @@ CREATE TABLE users(
 	name CHAR(32),
 	address CHAR(255),
 	contact CHAR(255),
-	PRIMARY KEY (name)
+	password CHAR(100),
+	PRIMARY KEY (name,password)
 ) ENGINE=INNODB;
 
 DROP TABLE IF EXISTS species;

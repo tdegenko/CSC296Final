@@ -8,8 +8,8 @@ require_once 'dbsetup.php';
 
 class user{
     //from user
-    private $name, $address, $contact;
-    static private $public_attrs=array("name","address", "contact");
+    private $name, $address, $contact, $password;
+    static private $public_attrs=array("name","address", "contact","password");
     
     //generic getter/setter method
     function __call($method, $params){
@@ -21,7 +21,7 @@ class user{
             if(in_array($var,self::$public_attrs) and count($params)==1){
                 try{
                     $this->$var=$params[0];
-                    $sql =  "UPDATE user
+                    $sql =  "UPDATE users
                              SET :attr=:val
                              WHERE name=:n;"  
                     $stmt = $db->prepare($sql);
@@ -46,7 +46,7 @@ class user{
     static public function findByName($name){
         try{
             global $db;
-            $sql = "SELECT * FROM user WHERE name=:name";
+            $sql = "SELECT * FROM users WHERE name=:name";
 			$stmt = $db->prepare($sql);
             $stmt->execute(array(":name" => $name));
             return $stmt->fetchAll(PDO::FETCH_CLASS, "user");
@@ -55,6 +55,41 @@ class user{
         }
     }
     
+	function __construct($attrs){
+        if(!isset($attrs)){
+            return;
+        }
+        try{
+            global $db;
+            foreach ($attrs as $key=>$value){
+                if(in_array($key,array_keys(get_object_vars($this))) and (!is_null($value)) and $value !=""){
+                    $this->$key=$value;
+                }
+            }
+            $db->beginTransaction();
+            $sql="INSERT INTO users(name,address,contact,password) ".
+            "VALUES (
+:name,address,contact,password); ";
+            $params=array();
+            foreach(self::$poke_attrs as $key){
+                $params[$key]=$this->$key;
+            }
+            $stmt = $db->prepare($sql);
+            if(!$stmt){
+                $db->rollBack();
+                $error = "Could not add user";
+                 throw new Exception($error);
+            }
+            if(!$stmt->execute($params)){
+                $db->rollBack();
+                $error = "Could not add user";
+                 throw new Exception($error);
+            }
+            
+            $db->commit();
+        }catch(PDOException $ex) {
+            echo("Could not create user.\n");
+        }
     
 }
 
