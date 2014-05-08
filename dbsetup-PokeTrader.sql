@@ -52,8 +52,8 @@ CREATE TABLE users(
 	name CHAR(32),
 	address CHAR(255),
 	contact CHAR(255),
-	passwd CHAR(100),
-	PRIMARY KEY (name)
+	passwd CHAR(225),
+	PRIMARY KEY (name)    
 ) ENGINE=INNODB;
 
 CREATE TABLE species(
@@ -97,7 +97,8 @@ CREATE TABLE pokemon (
 	PRIMARY KEY (ID, originalTrainer),
 	FOREIGN KEY (trainerName) REFERENCES users(name) ON DELETE CASCADE,
 	FOREIGN KEY (pokedex) REFERENCES species(pokedex) ON DELETE CASCADE,
-	FOREIGN KEY (itemName) REFERENCES items(name) ON DELETE CASCADE
+	FOREIGN KEY (itemName) REFERENCES items(name) ON DELETE CASCADE,
+    CHECK (lvl > 200)
 ) ENGINE=INNODB;
 
 CREATE TABLE knows(
@@ -157,13 +158,14 @@ END IF
 */
 
 -- two users
+-- pass=aAa
 INSERT INTO users(
-	name, address, contact)
-	VALUES ("Us", "300 Kendrick Road, Rochester, NY", "555-5555");
-	
+	name, passwd, address, contact)
+	VALUES ("Us", "$2y$10$IyGXiBnUZM0il5qY8kUSpOUciVxO2vlFlUtfm0lJdiAehl05.U4FW", "300 Kendrick Road, Rochester, NY", "555-5555");
+-- pass=bBb	
 INSERT INTO users(
-	name, address, contact)
-	VALUES ("SomeDood", "400 Kendrick Road, Rochester, NY", "333-3333");
+	name, passwd, address, contact)
+	VALUES ("SomeDood","$2y$10$GVpXFjnVPrW9XA.1utiSv.GclPHMdl3TnwNL2BfKixk5pOfgblhKe", "400 Kendrick Road, Rochester, NY", "333-3333");
 
 
 -- Mewtwo

@@ -1,6 +1,6 @@
 <?php
 //to do:use variables when DAL is complete
-require_once 'PokeDAL.php';
+require_once 'include.php';
 $attrs=mapToAttrs($_POST);
 ?>
 
