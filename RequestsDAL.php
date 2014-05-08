@@ -4,12 +4,13 @@
 * 
 */
 require_once 'dbsetup.php';
+require_once 'PokeDAL.php';
 //  private $ID, originalTrainer,moveName1, moveName2, moveName3, moveName4, 
 
 class requests{
     //from user
     private $ID, originalTrainer,moveName1, moveName2, moveName3, moveName4;
-    static private $public_attrs=array("ID","originalTrainer","moveName1","moveName2","moveName3", "moveName4");
+    static private $public_attrs=array("ID","originalTrainer","moveName1","moveName2","moveName3", "moveName4","status", "dateCreated");
     
     //generic getter/setter method
     function __call($method, $params){
@@ -57,5 +58,39 @@ class requests{
             echo("Could not find request.\n");
         }
     }
+	
+	function __construct($attrs){
+        if(!isset($attrs)){
+            return;
+        }
+        try{
+            global $db;
+            foreach ($attrs as $key=>$value){
+                if(in_array($key,array_keys(get_object_vars($this))) and (!is_null($value)) and $value !=""){
+                    $this->$key=$value;
+                }
+            }
+            $db->beginTransaction();
+            $sql="INSERT INTO requests(ID,originalTrainer,trainerName,status) ".
+            "VALUES (:ID,:originalTrainer,:trainerName,:status); ";
+            $params=array();
+            foreach(self::$public_attrs as $key){
+                $params[$key]=$this->$key;
+            }
+            $stmt = $db->prepare($sql);
+            if(!$stmt){
+                $db->rollBack();
+                $error = "Could not add pokemon";
+                 throw new Exception($error);
+            }
+            if(!$stmt->execute($params)){
+                $db->rollBack();
+                $error = "Could not add pokemon";
+                 throw new Exception($error);
+            }
+            setstatus("pending);
+        }catch(PDOException $ex) {
+            echo("Could not find requested pokemon.\n");
+        }
 }
 
