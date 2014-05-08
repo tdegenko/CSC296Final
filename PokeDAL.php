@@ -20,7 +20,7 @@ class Pokemon{
     private $ID, $originalTrainer, $nickname, $gender, $lvl, $trainerName, 
     $happiness, $ability, $nature, $shiny,  $HP, $attack, $defense, $specialAttack, $specialDefense, $speed, $accuracy, $evasion, $pokeball, $genIn, $genCaught, $itemName;
     
-    static private $poke_attrs=["ID", "originalTrainer", "nickname", "gender", "lvl", "trainerName", "happiness", "ability", "nature", "shiny", "HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "pokeball", "genIn", "genCaught", "pokedex", "itemName"];
+    static private $poke_attrs=array("ID", "originalTrainer", "nickname", "gender", "lvl", "trainerName", "happiness", "ability", "nature", "shiny", "HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "pokeball", "genIn", "genCaught", "pokedex", "itemName");
 
     //from knows
     private $moveName1, $moveName2, $moveName3, $moveName4;
@@ -28,11 +28,11 @@ class Pokemon{
     //from species
     private $pokedex, $name, $genus, $type1, $type2, $egg_group1, $egg_group2;
 
-    static private $public_attrs=["nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","genIn"];
-    static private $rattrs=["pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4"];
-    static private $type_rattrs=["type1","type2"];
-    static private $egg_rattrs=["egg_group1","egg_group2"];
-    static private $move_rattrs=["moveName1","moveName2","moveName3","moveName4"];
+    static private $public_attrs=array("nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","genIn");
+    static private $rattrs=array("pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4");
+    static private $type_rattrs=array("type1","type2");
+    static private $egg_rattrs=array("egg_group1","egg_group2");
+    static private $move_rattrs=array("moveName1","moveName2","moveName3","moveName4");
     
     //generic getter/setter method
     function __call($method, $params){
