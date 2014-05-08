@@ -5,23 +5,17 @@ CREATE DATABASE IF NOT EXISTS poketrader;
 USE poketrader;
 
 
-
 DROP TABLE IF EXISTS requests;
 
 DROP TABLE IF EXISTS knows;	
 
 DROP TABLE IF EXISTS pokemon;
 
-
-
-
 DROP TABLE IF EXISTS items;
 
 DROP TABLE IF EXISTS species;
 
-
 DROP TABLE IF EXISTS moves;
-
 
 DROP TABLE IF EXISTS users;
 
@@ -36,7 +30,6 @@ LOAD DATA LOCAL INFILE 'items.txt'
 	FIELDS TERMINATED BY '|'
 	IGNORE 1 LINES			-- CSV header
 ;
-
 
 CREATE TABLE moves(
 	name CHAR(15),
@@ -55,8 +48,6 @@ LOAD DATA LOCAL INFILE 'moves.txt'
 	IGNORE 1 LINES			-- CSV header
 ;
 
-
-
 CREATE TABLE users(
 	name CHAR(32),
 	address CHAR(255),
@@ -64,7 +55,6 @@ CREATE TABLE users(
 	passwd CHAR(100),
 	PRIMARY KEY (name)
 ) ENGINE=INNODB;
-
 
 CREATE TABLE species(
 	pokedex INTEGER,
@@ -81,18 +71,6 @@ LOAD DATA LOCAL INFILE 'species.txt'
 	INTO TABLE species
 	FIELDS TERMINATED BY '|'
 ;
-
-/*
-* Should be joins but data comes from users, so joins
-* are done in the DAL 
-*/
-
-
-/*
-CREATE TABLE knows AS
-	SELECT ID AS pokemonID FROM pokemon;
-ALTER TABLE knows ADD requestID INTEGER;
-*/
 
 CREATE TABLE pokemon (
 	ID INTEGER,
@@ -122,9 +100,6 @@ CREATE TABLE pokemon (
 	FOREIGN KEY (itemName) REFERENCES items(name) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
-
-
-
 CREATE TABLE knows(
 	ID INTEGER REFERENCES pokemon(ID),
 	originalTrainer CHAR(10),
@@ -143,10 +118,6 @@ CREATE TABLE knows(
 	FOREIGN KEY (moveName4) REFERENCES moves(name) ON DELETE CASCADE
     
 ) ENGINE=INNODB;
-	
-
-
-
 
 CREATE TABLE requests (
 	ID INTEGER,
@@ -163,6 +134,17 @@ CREATE TABLE requests (
 	FOREIGN KEY (trainerName) REFERENCES users(name) ON DELETE CASCADE
     
 ) ENGINE=INNODB;
+
+-- here goes hoping it doesn't break anything
+CREATE TRIGGER `intCheck` BEFORE INSERT ON `pokemon`
+ FOR EACH ROW IF (NEW.lvl < 1 or NEW.lvl > 100 or NEW.genIn < 1 or NEW.genIn > 6 or NEW.genCaught < 1 or NEW.genCaught > 6 or NEW.happiness < 1 or NEW.HP < 1 or NEW.attack < 1 or NEW.defense < 1 or NEW.specialAttack < 1 or NEW.specialDefense < 1 or NEW.speed < 1) THEN
+SIGNAL sqlstate '45000' SET message_text = "failed integer checks";
+END IF
+
+CREATE TRIGGER `intUpCheck` BEFORE UPDATE ON `pokemon`
+ FOR EACH ROW IF (NEW.lvl < 1 or NEW.lvl > 100 or NEW.genIn < 1 or NEW.genIn > 6 or NEW.genCaught < 1 or NEW.genCaught > 6 or NEW.happiness < 1 or NEW.HP < 1 or NEW.attack < 1 or NEW.defense < 1 or NEW.specialAttack < 1 or NEW.specialDefense < 1 or NEW.speed < 1) THEN
+SIGNAL sqlstate '45000' SET message_text = "failed integer checks";
+END IF
 
 
 /*
