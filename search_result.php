@@ -1,7 +1,7 @@
 <?php
 //to do:use variables when DAL is complete
 require_once 'PokeDAL.php';
-$attrs=mapToAttrs($_GET);
+$attrs=mapToAttrs($_POST);
 $pkmn=Pokemon::findByAttrs($attrs);
 ?>
 
