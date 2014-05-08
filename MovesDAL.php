@@ -1,7 +1,7 @@
 <?php 
 class Moves{
     private $name, $element, $typ, $pwr, $accuracy, $PP, $contest;
-    static private $rattrs=["name", "element", "typ", "pwr", "accuracy", "PP", "contest"];
+    static private $rattrs=array("name", "element", "typ", "pwr", "accuracy", "PP", "contest");
     
     //generic getter/setter method
     function __call($method, $params){

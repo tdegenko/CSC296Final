@@ -221,7 +221,7 @@ class Pokemon{
             }
             $stmt = $db->prepare($sql);
             $stmt->execute($params);
-            return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon",[NULL]);
+            return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon",array(NULL));
         }catch(PDOException $ex) {
             echo("Could not find requested pokemon.\n");
         }

@@ -9,7 +9,7 @@ require_once 'dbsetup.php';
 class user{
     //from user
     private $name, $address, $contact;
-    static private $public_attrs=["name","address", "contact"];
+    static private $public_attrs=array("name","address", "contact");
     
     //generic getter/setter method
     function __call($method, $params){
