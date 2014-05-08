@@ -28,10 +28,15 @@ CREATE TABLE pokemon (
 	pokedex INTEGER,
 	itemName CHAR(15),
 	PRIMARY KEY (ID, originalTrainer),
-	FOREIGN KEY (trainerName) REFERENCES users(name),
-	FOREIGN KEY (pokedex) REFERENCES species(pokedex),
-	FOREIGN KEY (itemName) REFERENCES items(name)
+	FOREIGN KEY (trainerName) REFERENCES users(name) ON DELETE CASCADE,
+	FOREIGN KEY (pokedex) REFERENCES species(pokedex) ON DELETE CASCADE,
+	FOREIGN KEY (itemName) REFERENCES items(name) ON DELETE CASCADE
 ) ENGINE=INNODB;
+
+CREATE TRIGGER 
+
+
+
 
 DROP TABLE IF EXISTS requests;
 
@@ -42,8 +47,8 @@ CREATE TABLE requests (
 	dateCreated DATE,
 	status CHAR(32),
 	PRIMARY KEY (ID, originalTrainer, trainerName),
-	FOREIGN KEY (originalTrainer) REFERENCES pokemon(originalTrainer),
-	FOREIGN KEY (trainerName) REFERENCES users(name)
+	FOREIGN KEY (originalTrainer) REFERENCES pokemon(originalTrainer) ON DELETE CASCADE,
+	FOREIGN KEY (trainerName) REFERENCES users(name) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
 DROP TABLE IF EXISTS items;
@@ -127,10 +132,10 @@ CREATE TABLE knows(
 	moveName3 CHAR(15),
 	moveName4 CHAR(15),
 	PRIMARY KEY(ID, originalTrainer),
-	FOREIGN KEY (moveName1) REFERENCES moves(name),
-	FOREIGN KEY (moveName2) REFERENCES moves(name),
-	FOREIGN KEY (moveName3) REFERENCES moves(name),
-	FOREIGN KEY (moveName4) REFERENCES moves(name)
+	FOREIGN KEY (moveName1) REFERENCES moves(name) ON DELETE CASCADE,
+	FOREIGN KEY (moveName2) REFERENCES moves(name) ON DELETE CASCADE,
+	FOREIGN KEY (moveName3) REFERENCES moves(name) ON DELETE CASCADE,
+	FOREIGN KEY (moveName4) REFERENCES moves(name) ON DELETE CASCADE
 ) ENGINE=INNODB;
 	
 
