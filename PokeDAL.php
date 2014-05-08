@@ -64,9 +64,6 @@ class Pokemon{
             }
         }
     }
-    static public function getAttrs(){
-        return self::$aattrs;
-    }
 	
 	static public function getRAttrs(){
         return self::$rattrs;
