@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 require_once 'include.php';
-?>
 <head>
     <title>Add a pokemon!</title>
 	<a href="pokeEdit.php">Edit a pokemon instead</a> 
