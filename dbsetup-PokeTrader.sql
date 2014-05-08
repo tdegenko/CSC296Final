@@ -1,9 +1,98 @@
 -- PokeTrade for CS296
 -- remember name on betaweb is cdiaz3
 -- remember to drop old tables (request)
+CREATE DATABASE IF NOT EXISTS poketrader;
 USE poketrader;
 
+
+
+DROP TABLE IF EXISTS requests;
+
+DROP TABLE IF EXISTS knows;	
+
 DROP TABLE IF EXISTS pokemon;
+
+
+
+
+DROP TABLE IF EXISTS items;
+
+DROP TABLE IF EXISTS species;
+
+
+DROP TABLE IF EXISTS moves;
+
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE items (
+	name CHAR(15),
+	effect CHAR(255),
+	PRIMARY KEY (name)
+) ENGINE=INNODB;
+/* REMEMBER TO CHANGE PATH*/
+LOAD DATA LOCAL INFILE 'c:/cs296/items.txt'
+	INTO TABLE items
+	FIELDS TERMINATED BY '|'
+	IGNORE 1 LINES			-- CSV header
+;
+
+
+CREATE TABLE moves(
+	name CHAR(15),
+	typ CHAR(10), 
+	element CHAR(8),
+	contest CHAR(6),
+	PP INTEGER,
+	pwr INTEGER,
+	accuracy INTEGER,
+	PRIMARY KEY (name)
+) ENGINE=INNODB;
+/*REMEMBER TO CHANGE PATH*/
+LOAD DATA LOCAL INFILE 'c:/cs296/moves.txt'
+	INTO TABLE moves
+	FIELDS TERMINATED BY '|'
+	IGNORE 1 LINES			-- CSV header
+;
+
+
+
+CREATE TABLE users(
+	name CHAR(32),
+	address CHAR(255),
+	contact CHAR(255),
+	passwd CHAR(100),
+	PRIMARY KEY (name)
+) ENGINE=INNODB;
+
+
+CREATE TABLE species(
+	pokedex INTEGER,
+	name CHAR(15),
+	genus CHAR(20),
+	type1 CHAR(8),
+	type2 CHAR(8),
+	egg_group1 CHAR(12),
+	egg_group2 CHAR(12),
+	PRIMARY KEY (pokedex)
+) ENGINE=INNODB;
+/*REMEMBER TO CHANGE PATH*/
+LOAD DATA LOCAL INFILE 'c:/cs296/species.txt'
+	INTO TABLE species
+	FIELDS TERMINATED BY '|'
+;
+
+/*
+* Should be joins but data comes from users, so joins
+* are done in the DAL 
+*/
+
+
+/*
+CREATE TABLE knows AS
+	SELECT ID AS pokemonID FROM pokemon;
+ALTER TABLE knows ADD requestID INTEGER;
+*/
 
 CREATE TABLE pokemon (
 	ID INTEGER,
@@ -23,7 +112,7 @@ CREATE TABLE pokemon (
 	originalTrainer CHAR(10),
 	pokeball CHAR(15),
 	genIn INTEGER,
-	genCaught INTEGER CHECK,
+	genCaught INTEGER,
 	trainerName CHAR(10),
 	pokedex INTEGER,
 	itemName CHAR(15),
@@ -33,142 +122,47 @@ CREATE TABLE pokemon (
 	FOREIGN KEY (itemName) REFERENCES items(name) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
-/*
-CREATE TRIGGER intCheck
-	BEFORE INSERT ON pokemon
-	REFERENCING NEW ROW AS newTuple
-	FOR EACH ROW
-	BEGIN
-		IF newTuple.lvl < 1 or newTuple.genIn < 1 or newTuple.genIn > 6 or newTuple.genCaught < 1
-			or newTuple.genCaught > 6 or newTuple.happiness < 1 or newTuple.HP < 1 or newTuple.attack < 1
-			or newTuple.defense < 1 or newTuple.specialAttack < 1 or newTuple.specialDefense < 1 or
-			newTuple.speed < 1
-		THEN
-			SIGNAL SQLSTATE '12345'
-				SET MESSAGE_TEXT := 'integer constraint failed';
-		END IF;
-	END;
-	
-	
-CREATE TRIGGER intUpCheck
-	BEFORE UPDATE ON pokemon
-	REFERENCING NEW ROW AS newTuple
-	FOR EACH ROW
-	BEGIN
-		IF newTuple.lvl < 1 or newTuple.genIn < 1 or newTuple.genIn > 6 or newTuple.genCaught < 1
-			or newTuple.genCaught > 6 or newTuple.happiness < 1 or newTuple.HP < 1 or newTuple.attack < 1
-			or newTuple.defense < 1 or newTuple.specialAttack < 1 or newTuple.specialDefense < 1 or
-			newTuple.speed < 1
-		THEN
-			SIGNAL SQLSTATE '12345'
-				SET MESSAGE_TEXT := 'integer constraint failed';
-		END IF;
-	END;
-
-*/
 
 
-DROP TABLE IF EXISTS requests;
 
-CREATE TABLE requests (
-	ID INTEGER REFERENCES pokemon(ID),
-	originalTrainer CHAR(10),
-	trainerName CHAR(10),
-	dateCreated DATE,
-	status CHAR(32),
-	PRIMARY KEY (ID, originalTrainer, trainerName),
-	FOREIGN KEY (originalTrainer) REFERENCES pokemon(originalTrainer) ON DELETE CASCADE,
-	FOREIGN KEY (trainerName) REFERENCES users(name) ON DELETE CASCADE
-) ENGINE=INNODB;
-
-DROP TABLE IF EXISTS items;
-
-CREATE TABLE items (
-	name CHAR(15),
-	effect CHAR(255),
-	PRIMARY KEY (name)
-) ENGINE=INNODB;
-/* REMEMBER TO CHANGE PATH*/
-LOAD DATA LOCAL INFILE 'items.txt'
-	INTO TABLE items
-	FIELDS TERMINATED BY '|'
-	IGNORE 1 LINES			-- CSV header
-;
-
-DROP TABLE IF EXISTS moves;
-
-CREATE TABLE moves(
-	name CHAR(15),
-	typ CHAR(10), 
-	element CHAR(8),
-	contest CHAR(6),
-	PP INTEGER,
-	pwr INTEGER,
-	accuracy INTEGER,
-	PRIMARY KEY (name)
-) ENGINE=INNODB;
-/*REMEMBER TO CHANGE PATH*/
-LOAD DATA LOCAL INFILE 'moves.txt'
-	INTO TABLE moves
-	FIELDS TERMINATED BY '|'
-	IGNORE 1 LINES			-- CSV header
-;
-
-
-DROP TABLE IF EXISTS users;
-
-CREATE TABLE users(
-	name CHAR(32),
-	address CHAR(255),
-	contact CHAR(255),
-	password CHAR(100),
-	PRIMARY KEY (name,password)
-) ENGINE=INNODB;
-
-DROP TABLE IF EXISTS species;
-
-CREATE TABLE species(
-	pokedex INTEGER,
-	name CHAR(15),
-	genus CHAR(20),
-	type1 CHAR(8),
-	type2 CHAR(8),
-	egg_group1 CHAR(12),
-	egg_group2 CHAR(12),
-	PRIMARY KEY (pokedex)
-) ENGINE=INNODB;
-/*REMEMBER TO CHANGE PATH*/
-LOAD DATA LOCAL INFILE 'species.txt'
-	INTO TABLE species
-	FIELDS TERMINATED BY '|'
-;
-
-/*
-* Should be joins but data comes from users, so joins
-* are done in the DAL 
-*/
-
-DROP TABLE IF EXISTS knows;
-
-/*
-CREATE TABLE knows AS
-	SELECT ID AS pokemonID FROM pokemon;
-ALTER TABLE knows ADD requestID INTEGER;
-*/
 CREATE TABLE knows(
 	ID INTEGER REFERENCES pokemon(ID),
-	originalTrainer CHAR(10) REFERENCES pokemon(originalTrainer),
+	originalTrainer CHAR(10),
 	moveName1 CHAR(15),
 	moveName2 CHAR(15),
 	moveName3 CHAR(15),
 	moveName4 CHAR(15),
 	PRIMARY KEY(ID, originalTrainer),
+    FOREIGN KEY (ID) REFERENCES pokemon(ID) ON DELETE CASCADE,
+    /*
+    FOREIGN KEY (originalTrainer) REFERENCES pokemon(originalTrainer) ON DELETE CASCADE,
+    */
 	FOREIGN KEY (moveName1) REFERENCES moves(name) ON DELETE CASCADE,
 	FOREIGN KEY (moveName2) REFERENCES moves(name) ON DELETE CASCADE,
 	FOREIGN KEY (moveName3) REFERENCES moves(name) ON DELETE CASCADE,
 	FOREIGN KEY (moveName4) REFERENCES moves(name) ON DELETE CASCADE
+    
 ) ENGINE=INNODB;
 	
+
+
+
+
+CREATE TABLE requests (
+	ID INTEGER,
+	originalTrainer CHAR(10),
+	trainerName CHAR(10),
+	dateCreated DATE,
+	status CHAR(32),
+	PRIMARY KEY (ID, originalTrainer, trainerName),
+	
+    FOREIGN KEY (ID) REFERENCES pokemon(ID) ON DELETE CASCADE,
+    /*
+	FOREIGN KEY (originalTrainer) REFERENCES pokemon(originalTrainer) ON DELETE CASCADE
+    */
+	FOREIGN KEY (trainerName) REFERENCES users(name) ON DELETE CASCADE
+    
+) ENGINE=INNODB;
 
 
 /*
