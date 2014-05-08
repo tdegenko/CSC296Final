@@ -31,7 +31,7 @@ CREATE TABLE items (
 	PRIMARY KEY (name)
 ) ENGINE=INNODB;
 /* REMEMBER TO CHANGE PATH*/
-LOAD DATA LOCAL INFILE 'c:/cs296/items.txt'
+LOAD DATA LOCAL INFILE 'items.txt'
 	INTO TABLE items
 	FIELDS TERMINATED BY '|'
 	IGNORE 1 LINES			-- CSV header
@@ -49,7 +49,7 @@ CREATE TABLE moves(
 	PRIMARY KEY (name)
 ) ENGINE=INNODB;
 /*REMEMBER TO CHANGE PATH*/
-LOAD DATA LOCAL INFILE 'c:/cs296/moves.txt'
+LOAD DATA LOCAL INFILE 'moves.txt'
 	INTO TABLE moves
 	FIELDS TERMINATED BY '|'
 	IGNORE 1 LINES			-- CSV header
@@ -77,7 +77,7 @@ CREATE TABLE species(
 	PRIMARY KEY (pokedex)
 ) ENGINE=INNODB;
 /*REMEMBER TO CHANGE PATH*/
-LOAD DATA LOCAL INFILE 'c:/cs296/species.txt'
+LOAD DATA LOCAL INFILE 'species.txt'
 	INTO TABLE species
 	FIELDS TERMINATED BY '|'
 ;
@@ -133,7 +133,7 @@ CREATE TABLE knows(
 	moveName3 CHAR(15),
 	moveName4 CHAR(15),
 	PRIMARY KEY(ID, originalTrainer),
-    FOREIGN KEY (ID) REFERENCES pokemon(ID) ON DELETE CASCADE,
+    FOREIGN KEY (ID,originalTrainer) REFERENCES pokemon(ID,originalTrainer) ON DELETE CASCADE,
     /*
     FOREIGN KEY (originalTrainer) REFERENCES pokemon(originalTrainer) ON DELETE CASCADE,
     */
@@ -156,7 +156,7 @@ CREATE TABLE requests (
 	status CHAR(32),
 	PRIMARY KEY (ID, originalTrainer, trainerName),
 	
-    FOREIGN KEY (ID) REFERENCES pokemon(ID) ON DELETE CASCADE,
+    FOREIGN KEY (ID,originalTrainer) REFERENCES pokemon(ID,originalTrainer) ON DELETE CASCADE,
     /*
 	FOREIGN KEY (originalTrainer) REFERENCES pokemon(originalTrainer) ON DELETE CASCADE
     */
