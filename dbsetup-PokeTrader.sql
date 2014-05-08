@@ -24,10 +24,10 @@ CREATE TABLE pokemon (
 	pokeball CHAR(15),
 	genIn INTEGER CHECK (genIn >= 1 and genIn <= 6),
 	genCaught INTEGER CHECK (genCaught >= 1 and genCaught <= 6),
-	trainerName CHAR(10) REFERENCES users(name),
-	pokedex INTEGER REFERENCES species(pokedex),
-	itemName CHAR(15) REFERENCES items(name),
-	PRIMARY KEY (ID, originalTrainer)
+	PRIMARY KEY (ID, originalTrainer),
+	FOREIGN KEY (trainerName) REFERENCES users(name),
+	FOREIGN KEY (pokedex) REFERENCES species(pokedex),
+	FOREIGN KEY (itemName) REFERENCES items(name),
 ) ENGINE=INNODB;
 
 DROP TABLE IF EXISTS requests;
