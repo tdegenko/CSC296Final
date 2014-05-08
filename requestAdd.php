@@ -1,21 +1,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<?php
+require_once 'include.php';
+?>
     <title>Request a pokemon!</title>
 <a href="yourRequests.php">Go back to your requests</a>
-<a href="requestAdd.php">Add another request</a>
-<a href="requestEdit.php">Edit a request</a>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
 <form action="add_Request.php" method="POST">
 <?php
+global $db;
 $select_query="SELECT pokedex, name FROM species";
-$select_query_run=mysql_query($select_query);
+//$select_query_run=mysql_query($select_query);
+$stmt = $db->prepare($select_query);
+$stmt->execute();
 echo "<select name='pokedex'>";
-while ($select_query_array= mysql_fetch_array($select_query_run) )
+while ($row= $stmt->fetch(PDO::FETCH_ASSOC) )
 {
-        echo "<option value=".htmlspecialchars($select_query_array['pokedex']).">".htmlspecialchars($select_query_array['pokedex'])." ".htmlspecialchars($select_query_array['name'])."</option>";
+        echo '<option value= '.$row['pokedex'].'>'.$row['pokedex']. ' '.$row['name'].'</option>';
 }
 ?>
 </select><br>
