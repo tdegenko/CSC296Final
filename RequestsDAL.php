@@ -4,6 +4,7 @@
 *
 */
 require_once 'dbsetup.php';
+require_once 'include.php';
 // private $ID, originalTrainer,moveName1, moveName2, moveName3, moveName4,
 
 class requests{
@@ -52,6 +53,30 @@ AND trainerName=:trainerName";
             $sql = "SELECT * FROM requests WHERE name=:name AND originalTrainer=:originalTrainer AND trainerName=:trainerName";
 $stmt = $db->prepare($sql);
             $stmt->execute(array(":name" => $name, ":originalTrainer" => $originalTrainer, ":trainerName" => $originalTrainer));
+            return $stmt->fetchAll(PDO::FETCH_CLASS, "requests");
+        }catch(PDOException $ex) {
+            echo("Could not find request.\n");
+        }
+    }
+	
+	static public function findRequested($trainerName){
+        try{
+            global $db;
+            $sql = "SELECT * FROM requests WHERE (SELECT trainerName FROM pokemon WHERE requests.ID=pokemon.ID AND requests.originalTrainer=pokemon.originalTrainer)=:trainerName";
+$stmt = $db->prepare($sql);
+            $stmt->execute(array(":trainerName" => $trainerName));
+            return $stmt->fetchAll(PDO::FETCH_CLASS, "requests");
+        }catch(PDOException $ex) {
+            echo("Could not find request.\n");
+        }
+    }
+	
+	static public function findMyRequests($trainerName){
+        try{
+            global $db;
+            $sql = "SELECT * FROM requests WHERE trainerName=:trainerName";
+$stmt = $db->prepare($sql);
+            $stmt->execute(array(":trainerName" => $trainerName));
             return $stmt->fetchAll(PDO::FETCH_CLASS, "requests");
         }catch(PDOException $ex) {
             echo("Could not find request.\n");
