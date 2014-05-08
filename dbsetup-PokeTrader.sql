@@ -24,21 +24,26 @@ CREATE TABLE pokemon (
 	pokeball CHAR(15),
 	genIn INTEGER CHECK (genIn >= 1 and genIn <= 6),
 	genCaught INTEGER CHECK (genCaught >= 1 and genCaught <= 6),
+	trainerName CHAR(10),
+	pokedex INTEGER,
+	itemName CHAR(15),
 	PRIMARY KEY (ID, originalTrainer),
 	FOREIGN KEY (trainerName) REFERENCES users(name),
 	FOREIGN KEY (pokedex) REFERENCES species(pokedex),
-	FOREIGN KEY (itemName) REFERENCES items(name),
+	FOREIGN KEY (itemName) REFERENCES items(name)
 ) ENGINE=INNODB;
 
 DROP TABLE IF EXISTS requests;
 
 CREATE TABLE requests (
 	ID INTEGER REFERENCES pokemon(ID),
-	originalTrainer CHAR(10) REFERENCES pokemon(originalTrainer),
-	trainerName CHAR(10) REFERENCES users(name),
+	originalTrainer CHAR(10),
+	trainerName CHAR(10),
 	dateCreated DATE,
 	status CHAR(32),
-	PRIMARY KEY (ID, originalTrainer, trainerName)
+	PRIMARY KEY (ID, originalTrainer, trainerName),
+	FOREIGN KEY (originalTrainer) REFERENCES pokemon(originalTrainer),
+	FOREIGN KEY (trainerName) REFERENCES users(name)
 ) ENGINE=INNODB;
 
 DROP TABLE IF EXISTS items;
@@ -117,11 +122,15 @@ ALTER TABLE knows ADD requestID INTEGER;
 CREATE TABLE knows(
 	ID INTEGER REFERENCES pokemon(ID),
 	originalTrainer CHAR(10) REFERENCES pokemon(originalTrainer),
-	moveName1 CHAR(15) REFERENCES moves(name),
-	moveName2 CHAR(15) REFERENCES moves(name),
-	moveName3 CHAR(15) REFERENCES moves(name),
-	moveName4 CHAR(15) REFERENCES moves(name),
-	PRIMARY KEY(ID, originalTrainer)
+	moveName1 CHAR(15),
+	moveName2 CHAR(15),
+	moveName3 CHAR(15),
+	moveName4 CHAR(15),
+	PRIMARY KEY(ID, originalTrainer),
+	FOREIGN KEY (moveName1) REFERENCES moves(name),
+	FOREIGN KEY (moveName2) REFERENCES moves(name),
+	FOREIGN KEY (moveName3) REFERENCES moves(name),
+	FOREIGN KEY (moveName4) REFERENCES moves(name),
 ) ENGINE=INNODB;
 	
 
