@@ -9,7 +9,7 @@ CREATE TABLE pokemon (
 	ID INTEGER,
 	nickname CHAR(10),
 	gender CHAR(1),
-	lvl INTEGER CHECK (lvl >= 1),
+	lvl INTEGER,
 	happiness INTEGER,
 	ability CHAR(15),
 	nature CHAR(15),
@@ -22,8 +22,8 @@ CREATE TABLE pokemon (
 	speed INTEGER,
 	originalTrainer CHAR(10),
 	pokeball CHAR(15),
-	genIn INTEGER CHECK (genIn >= 1 and genIn <= 6),
-	genCaught INTEGER CHECK (genCaught >= 1 and genCaught <= 6),
+	genIn INTEGER,
+	genCaught INTEGER CHECK,
 	trainerName CHAR(10),
 	pokedex INTEGER,
 	itemName CHAR(15),
@@ -32,6 +32,38 @@ CREATE TABLE pokemon (
 	FOREIGN KEY (pokedex) REFERENCES species(pokedex) ON DELETE CASCADE,
 	FOREIGN KEY (itemName) REFERENCES items(name) ON DELETE CASCADE
 ) ENGINE=INNODB;
+
+CREATE TRIGGER intCheck
+	BEFORE INSERT ON pokemon
+	REFERENCING NEW ROW AS newTuple
+	FOR EACH ROW
+	BEGIN
+		IF newTuple.lvl < 1 or newTuple.genIn < 1 or newTuple.genIn > 6 or newTuple.genCaught < 1
+			or newTuple.genCaught > 6 or newTuple.happiness < 1 or newTuple.HP < 1 or newTuple.attack < 1
+			or newTuple.defense < 1 or newTuple.specialAttack < 1 or newTuple.specialDefense < 1 or
+			newTuple.speed < 1
+		THEN
+			SIGNAL SQLSTATE '12345'
+				SET MESSAGE_TEXT := 'integer constraint failed';
+		END IF;
+	END;
+	
+	
+CREATE TRIGGER intUpCheck
+	BEFORE UPDATE ON pokemon
+	REFERENCING NEW ROW AS newTuple
+	FOR EACH ROW
+	BEGIN
+		IF newTuple.lvl < 1 or newTuple.genIn < 1 or newTuple.genIn > 6 or newTuple.genCaught < 1
+			or newTuple.genCaught > 6 or newTuple.happiness < 1 or newTuple.HP < 1 or newTuple.attack < 1
+			or newTuple.defense < 1 or newTuple.specialAttack < 1 or newTuple.specialDefense < 1 or
+			newTuple.speed < 1
+		THEN
+			SIGNAL SQLSTATE '12345'
+				SET MESSAGE_TEXT := 'integer constraint failed';
+		END IF;
+	END;
+
 
 
 
