@@ -9,7 +9,7 @@ require_once 'dbsetup.php';
 class users{
     //from user
     private $name, $address, $contact, $passwd;
-    static private $public_attrs=array("name","address", "contact");
+    static private $public_attrs=array("address", "contact");
     
 	static public function getRAttrs(){
         return self::$public_attrs;

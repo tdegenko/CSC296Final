@@ -69,12 +69,16 @@ function printReqs($req){
     // print column headers
     echo '<tr>' .
     '<td width=75><b>Requested By</b></td>' .
+	'<td width=75><b>Contact Information</b></td>' .
+    '<td width=75><b>Address</b></td>' .
 	'<td width=75><b>Date Created</b></td>' .
     '<td width=75><b>Status</b></td>' .
     '</tr>';
-    
+    $user = users::findByName($req->gettrainerName())[0];
     echo "<tr>" .
     "<td >{$req->gettrainerName()}</td>" .
+	"<td >{$user->getcontact()}</td>" .
+	"<td >{$user->getaddress()}</td>" .
     "<td >{$req->getdateCreated()}</td>" .
     "<td >{$req->getstatus()}</td>" .
     "</tr>";
