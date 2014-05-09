@@ -18,7 +18,6 @@ class requests{
             return $this->$var;
         }else{
                 return -1;
-            }
         }
     }
     
@@ -27,9 +26,9 @@ class requests{
     static public function findByFDs($ID, $originalTrainer, $trainerName){
         try{
             global $db;
-            $sql = "SELECT * FROM requests WHERE name=:name AND originalTrainer=:originalTrainer AND trainerName=:trainerName";
+            $sql = "SELECT * FROM requests WHERE ID=:ID AND originalTrainer=:originalTrainer AND trainerName=:trainerName";
 $stmt = $db->prepare($sql);
-            $stmt->execute(array(":name" => $name, ":originalTrainer" => $originalTrainer, ":trainerName" => $originalTrainer));
+            $stmt->execute(array(":ID" => $ID, ":originalTrainer" => $originalTrainer, ":trainerName" => $trainerName));
             return $stmt->fetchAll(PDO::FETCH_CLASS, "requests");
         }catch(PDOException $ex) {
             echo("Could not find request.\n");
@@ -59,6 +58,29 @@ $stmt = $db->prepare($sql);
             echo("Could not find request.\n");
         }
     }
+	
+public function updateStatus($newStatus){
+	try{
+			if($newStatus == "Accepted" or $newStatus == "Rejected" or $newStatus == "Pending"){
+				
+				global $db;
+				$sql = "UPDATE requests SET status=:newStatus WHERE ID = :ID AND originalTrainer = :originalTrainer";
+				$stmt = $db->prepare($sql);
+				$stmt->execute(array(":newStatus" => $newStatus, ":ID" => $this->ID, ":originalTrainer" => $this->originalTrainer));
+				return 0;
+			
+			}
+			else{
+				return -1;
+			}
+	
+            
+        }catch(PDOException $ex) {
+            echo("Could not update status.\n");
+        }
+
+
+}
 
 function __construct($attrs){
         if(!isset($attrs)){
@@ -71,27 +93,25 @@ function __construct($attrs){
                     $this->$key=$value;
                 }
             }
-            $db->beginTransaction();
             $sql="INSERT INTO requests(ID,originalTrainer,trainerName,status) ".
             "VALUES (:ID,:originalTrainer,:trainerName,:status); ";
+			$attrs=array("ID", "originalTrainer", "trainerName", "status");
             $params=array();
-            foreach(self::$public_attrs as $key){
+            foreach($attrs as $key){
                 $params[$key]=$this->$key;
             }
+			$params['status']="Pending";
             $stmt = $db->prepare($sql);
             if(!$stmt){
-                $db->rollBack();
-                $error = "Could not add pokemon";
+                $error = "Could not add request";
                  throw new Exception($error);
             }
             if(!$stmt->execute($params)){
-                $db->rollBack();
-                $error = "Could not add pokemon";
+                $error = "Could not add request";
                  throw new Exception($error);
             }
-            setstatus("pending");
         }catch(PDOException $ex) {
-            echo("Could not find requested pokemon.\n");
+            echo("Could not add request.\n");
         }
 }
 }

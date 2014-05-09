@@ -3,7 +3,7 @@
 <head>
     <title>Welcome to PokeTrader!</title>
 
-	
+	<h1>POKETRADER USER LOGIN</h1>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>

@@ -6,12 +6,13 @@ $user=$_SESSION["user"]->getname();
 
 <html>
 <head>
-<title>Your Requests!</title>
+<title>Your Pokemanz!</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <a href="pokeSearch.php">Search for a Pokemon?</a>
 <a href="pokeEdit.php">Edit a Pokemon?</a>
 <a href="pokeAdd.php">Add a Pokemon?</a>
+<a href="requestAdd.php">Request a Pokemon?</a>
 <style>
 table{
 border-collapse:collapse;
@@ -23,24 +24,14 @@ border: 1px solid black;
 </head>
 
 <body>
-<h2>Your Requests</h2>
+<h2>Your Pokemon</h2>
 
 <?php
 
 //print_r(requests::findMyRequests($user));
-$myrequests = requests::findMyRequests($user);
-foreach($myrequests as $req){
-    printReqs($req);
-}
-?>
-
-<h3>Requested of you</h3>
-<?php
-
-//print_r(requests::findRequested($user));
-$requested = requests::findRequested($user);
-foreach($requested as $req){
-    printWrap($req);
+$mymanz = pokemon::findByAttrs(array("trainerName"=>$user));
+foreach($mymanz as $man){
+    printWrap($man);
 }
 ?>
 
@@ -59,58 +50,38 @@ function mapToAttrs($in){
     return $atts;
 }
 
-function printWrap($req){
-	printReqs($req);
-	echo '<form method="post" action="update_request.php?user='.$req->gettrainerName().'&ID='.$req->getID().'&originalTrainer='.$req->getoriginalTrainer().'&action=Accepted">'.
-			'<button>Accept Request</button>'.
+function printWrap($man){
+	printManz($man);
+	echo '<form method="GET" action="pokeEdit.php?">
+			<input type="hidden" value="'.$man->getID().'" name="ID" />
+			<input type="hidden" value="'.$man->getoriginalTrainer().'" name="originalTrainer" />
+			<button>Edit</button>'.
 		'</form>';
-	echo '<form method="post" action="update_request.php?user='.$req->gettrainerName().'&ID='.$req->getID().'&originalTrainer='.$req->getoriginalTrainer().'&action=Rejected">'.
-		'<button>Reject Request</button>'.
-	'</form>';
-}
-
-function changeRequest($response){
-	
-	$ret = requests::updateStatus($response);
-	if($ret == -1){
-		echo "Failed to update status: bad input";
-	}
-	else{
-		echo "Status update successful!";
-		
-	}
 }
 
 
-function printReqs($req){
-	$pok=pokemon::findByAttrs(array("ID"=>$req->getID(), "originalTrainer"=>$req->getoriginalTrainer()))[0];
+function printManz($pok){
     echo '<table>';
     // print column headers
     echo '<tr>' .
-    '<td width=75><b>ID</b></td>' .
-    '<td width=75><b>originalTrainer</b></td>' .
-    '<td width=75><b>Requested By</b></td>' .
-	'<td width=75><b>Date Created</b></td>' .
-    '<td width=75><b>Status</b></td>' .
-	'<td width=150><b>Name</b></td>' .
+    '<td width=150><b>Name</b></td>' .
     '<td width=75><b>PokedexNum</b></td>' .
     '<td width=75><b>Type</b></td>' .
     '<td width=75><b>EggGroup1</b></td>' .
     '<td width=75><b>EggGroup2</b></td>' .
-	'<td width=75><b>Item</b></td>' .
+    '<td width=75><b>ID</b></td>' .
+    '<td width=75><b>originalTrainer</b></td>' .
+    '<td width=75><b>Item</b></td>' .
     '</tr>';
     
     echo "<tr>" .
-    "<td >{$req->getID()}</td>" .
-    "<td >{$req->getoriginalTrainer()}</td>" .
-    "<td >{$req->gettrainerName()}</td>" .
-    "<td >{$req->getdateCreated()}</td>" .
-    "<td >{$req->getstatus()}</td>" .
-	"<td >{$pok->getname()}</td>" .
+    "<td >{$pok->getname()}</td>" .
     "<td >{$pok->getpokedex()}</td>" .
     "<td >{$pok->gettype1()} {$pok->gettype2()}</td>" .
     "<td >{$pok->getegg_group1()}</td>" .
     "<td >{$pok->getegg_group2()}</td>" .
+    "<td >{$pok->getID()}</td>" .
+    "<td >{$pok->getoriginalTrainer()}</td>" .
     "<td >{$pok->getitemName()}</td>" .
     "</tr>";
     echo '</table>';

@@ -12,6 +12,7 @@ $attrs=mapToAttrs($_POST);
 	<a href="pokeAdd.php">Add another Pokemon?</a> 
 	<a href="pokeEdit.php">Edit a Pokemon?</a> 
 	<a href="pokeSearch.php">Search for a Pokemon?</a> 
+	<a href="yourRequests.php">Look at your requests?</a> 
     <style>
         table{
             border-collapse:collapse;

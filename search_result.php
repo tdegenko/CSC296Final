@@ -1,6 +1,6 @@
 <?php
 //to do:use variables when DAL is complete
-require_once 'PokeDAL.php';
+require_once 'include.php';
 $attrs=mapToAttrs($_POST);
 $pkmn=Pokemon::findByAttrs($attrs);
 $user=$_SESSION["user"]->getname();
@@ -11,9 +11,10 @@ $user=$_SESSION["user"]->getname();
 <title>PokeTrader</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeSearch.php">Search for another Pokemon?</a>
-<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeEdit.php">Edit a Pokemon?</a>
-<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeAdd.php">Add a Pokemon?</a>
+<a href="pokeSearch.php">Search for another Pokemon?</a>
+<a href="pokeEdit.php">Edit a Pokemon?</a>
+<a href="pokeAdd.php">Add a Pokemon?</a>
+<a href="yourRequests.php">Look at your requests?</a> 
 <style>
 table{
 border-collapse:collapse;
@@ -166,11 +167,11 @@ function printPoke($pok){
     }
     echo '</tr>'.
     '</table>';
-	echo '<button onclick="addRequest($pok->getID(),$pok->getoriginalTrainer(),$user)">Request Pokemon</button>';
-}
-
-function addRequest($ID, $originalTrainer, $trainerName){
-	new Requests(array("ID"=>$ID,"originalTrainer"=>$originalTrainer,"trainerName"=>$trainerName));
-	echo "request accepted!";
+	echo '<form action="req.php" method="POST">
+			<input type="hidden" value="'.$_SESSION["user"]->getname().'" name="trainerName" />
+			<input type="hidden" value="'.$pok->getID().'" name="ID" />
+			<input type="hidden" value="'.$pok->getoriginalTrainer().'" name="originalTrainer" />
+		<input type="submit" value="Request Pokemon" />
+	</form>';
 }
 ?>

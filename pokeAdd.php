@@ -2,11 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 require_once 'include.php';
+$user=$_SESSION["user"]->getname();
 ?>
 <head>
     <title>Add a pokemon!</title>
 	<a href="pokeEdit.php">Edit a pokemon instead</a> 
 	<a href="pokeSearch.php">Search for a pokemon instead</a> 
+	<a href="yourRequests.php">Look at your requests?</a> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
@@ -17,6 +19,7 @@ $select_query="SELECT pokedex, name FROM species";
 //$select_query_run=mysql_query($select_query);
 $stmt = $db->prepare($select_query);
 $stmt->execute();
+echo '<label for="pokedex">Pokemon</label>';
 echo "<select name='pokedex'>";
 while ($row= $stmt->fetch(PDO::FETCH_ASSOC) )
 {
@@ -24,11 +27,7 @@ while ($row= $stmt->fetch(PDO::FETCH_ASSOC) )
 }
 ?>
 </select><br>
-		<label for="type1">Type</label>
-			<input type="text" name="type1" /><br>
-		<label for="type2">Type</label>
-			<input type="text" name="type2" /><br>
-        <label for="number">ID</label>
+        <label for="number">*ID</label>
 			<input type="number" name="ID" min="0" max="99999"/><br>
 		<label for="nickname">Nickname</label>
 			<input type="text" name="nickname" /><br>
@@ -60,16 +59,16 @@ while ($row= $stmt->fetch(PDO::FETCH_ASSOC) )
 			<input type="number" name="specialDefense" min="1" max="99999"/><br>
 		<label for="speed">Speed</label>
 			<input type="number" name="speed" min="1" max="99999"/><br>
-		<label for="originalTrainer">Original Trainer</label>
+		<label for="originalTrainer">*Original Trainer</label>
 			<input type="text" name="originalTrainer" /><br>
 		<label for="pokebal">Pokeball caught in</label>
 			<input type="text" name="pokeball" /><br>
 		<label for="genIn">Generation game stored in</label>
 			<input type="number" name="genIn" min="1" max="6"/><br>
-		<label for="genCaught">Gerneration Caught in</label>
+		<label for="genCaught">Generation Caught in</label>
 			<input type="number" name="genCaught" min="1" max="6"/><br>
-		<label for="trainerName">Current Trainer Name</label>
-			<input type="text" name="trainerName" /><br>
+
+			<input type="hidden" value="<?=$user?>" name="trainerName" />
 		<label for="moveName1">Move</label>
 			<input type="text" name="moveName1"/><br>
 		<label for="moveName2">Move</label>
@@ -78,11 +77,11 @@ while ($row= $stmt->fetch(PDO::FETCH_ASSOC) )
 			<input type="text" name="moveName3"/><br>
 		<label for="moveName4">Move</label>
 			<input type="text" name="moveName4"/><br>
-		<label for="egg_group1">Egg Group</label>
-			<input egg_group="text" name="egg_group1" /><br>
-		<label for="nickname">Egg Group</label>
-			<input egg_group="text" name="egg_group2" /><br>
         <input type="submit" value="Add" /><br>
     </form>
+	<form action="delete.php" method="POST">
+		<input type="submit" value="Delete" /><br>
+	</form>
+	<p>* indicates required fields</p>
 </body>
 </html>
