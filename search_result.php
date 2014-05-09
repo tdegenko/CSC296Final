@@ -3,6 +3,7 @@
 require_once 'PokeDAL.php';
 $attrs=mapToAttrs($_POST);
 $pkmn=Pokemon::findByAttrs($attrs);
+$user=$_SESSION["user"]->getname();
 ?>
 
 <html>
@@ -165,5 +166,11 @@ function printPoke($pok){
     }
     echo '</tr>'.
     '</table>';
+	echo '<button onclick="addRequest($pok->getID(),$pok->getoriginalTrainer(),$user)">Request Pokemon</button>';
+}
+
+function addRequest($ID, $originalTrainer, $trainerName){
+	new Requests(array("ID"=>$ID,"originalTrainer"=>$originalTrainer,"trainerName"=>$trainerName));
+	echo "request accepted!";
 }
 ?>
