@@ -8,9 +8,9 @@ $pkmn=Pokemon::findByAttrs(array("ID"=>$_GET["ID"],"originalTrainer"=>$_GET["ori
     <head>
     <title>PokeTrader</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeEdit.php">Edit another Pokemon?</a> 
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeAdd.php">Add a Pokemon?</a> 
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeSearch.php">Search for a Pokemon?</a> 
+	<a href="pokeEdit.php">Edit another Pokemon?</a> 
+	<a href="pokeAdd.php">Add a Pokemon?</a> 
+	<a href="pokeSearch.php">Search for a Pokemon?</a> 
     <style>
         table{
             border-collapse:collapse;
