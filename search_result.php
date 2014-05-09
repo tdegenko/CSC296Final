@@ -33,8 +33,8 @@ foreach($pkmn as $poke){
     printPoke($poke);
 	echo '<form action="req.php" method="POST">
 		<input type="hidden" value="'.$_SESSION["user"]->getname().'" name="trainerName" />
-		<input type="hidden" value="'.$pok->getID().'" name="ID" />
-		<input type="hidden" value="'.$pok->getoriginalTrainer().'" name="originalTrainer" />
+		<input type="hidden" value="'.$poke->getID().'" name="ID" />
+		<input type="hidden" value="'.$poke->getoriginalTrainer().'" name="originalTrainer" />
 		<input type="submit" value="Request Pokemon" />
 	</form>';
 }
