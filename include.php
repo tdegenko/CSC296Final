@@ -47,6 +47,7 @@ function printPoke($pok){
     '<td width=150><b>Name</b></td>' .
     '<td width=75><b>PokedexNum</b></td>' .
     '<td width=75><b>Type</b></td>' .
+	'<td width=75><b>Level</b></td>' .
     '<td width=75><b>EggGroup1</b></td>' .
     '<td width=75><b>EggGroup2</b></td>' .
     '<td width=75><b>ID</b></td>' .
@@ -61,6 +62,7 @@ function printPoke($pok){
     "<td >{$pok->getname()}</td>" .
     "<td >{$pok->getpokedex()}</td>" .
     "<td >{$pok->gettype1()} {$pok->gettype2()}</td>" .
+	"<td >{$pok->getlvl()}</td>" .
     "<td >{$pok->getegg_group1()}</td>" .
     "<td >{$pok->getegg_group2()}</td>" .
     "<td >{$pok->getID()}</td>" .
