@@ -1,8 +1,7 @@
 <?php
 //to do:use variables when DAL is complete
 require_once 'include.php';
-$user=$_POST["trainerName"];
-$myReq=Requests::findByAttrs($attrs);
+$user=$_SESSION["user"]->getName();
 ?>
 
 <html>
@@ -10,9 +9,10 @@ $myReq=Requests::findByAttrs($attrs);
 <title>Your Requests!</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<a href="pokeSearch.php">Search for another Pokemon?</a>
+<a href="pokeSearch.php">Search for a Pokemon?</a>
 <a href="pokeEdit.php">Edit a Pokemon?</a>
 <a href="pokeAdd.php">Add a Pokemon?</a>
+<a href="requestAdd.php">Request a Pokemon?</a>
 <style>
 table{
 border-collapse:collapse;

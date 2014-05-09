@@ -111,9 +111,6 @@ CREATE TABLE knows(
 	moveName4 CHAR(15),
 	PRIMARY KEY(ID, originalTrainer),
     FOREIGN KEY (ID,originalTrainer) REFERENCES pokemon(ID,originalTrainer) ON DELETE CASCADE,
-    /*
-    FOREIGN KEY (originalTrainer) REFERENCES pokemon(originalTrainer) ON DELETE CASCADE,
-    */
 	FOREIGN KEY (moveName1) REFERENCES moves(name) ON DELETE CASCADE,
 	FOREIGN KEY (moveName2) REFERENCES moves(name) ON DELETE CASCADE,
 	FOREIGN KEY (moveName3) REFERENCES moves(name) ON DELETE CASCADE,
@@ -128,11 +125,7 @@ CREATE TABLE requests (
 	dateCreated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	status CHAR(32),
 	PRIMARY KEY (ID, originalTrainer, trainerName),
-	
     FOREIGN KEY (ID,originalTrainer) REFERENCES pokemon(ID,originalTrainer) ON DELETE CASCADE,
-    /*
-	FOREIGN KEY (originalTrainer) REFERENCES pokemon(originalTrainer) ON DELETE CASCADE
-    */
 	FOREIGN KEY (trainerName) REFERENCES users(name) ON DELETE CASCADE
     
 ) ENGINE=INNODB;
