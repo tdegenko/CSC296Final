@@ -137,6 +137,16 @@ CREATE TABLE requests (
     
 ) ENGINE=INNODB;
 
+DROP EVENT IF EXISTS clearRequest;
+
+CREATE EVENT clearRequest
+    ON SCHEDULE
+        EVERY 30 DAY
+COMMENT 'Clears Old Requests.'
+    DO
+        DELETE FROM requests WHERE dateCreated < DATE_SUB(NOW(), INTERVAL 30 DAY);
+SET GLOBAL event_scheduler = ON;
+
 --  here goes hoping it doesn't break anything
 -- DROP TRIGGER IF EXISTS intCheck;
 -- DROP TRIGGER IF EXISTS intUpCheck;
