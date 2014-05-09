@@ -166,11 +166,11 @@ function printPoke($pok){
     }
     echo '</tr>'.
     '</table>';
-	echo '<button onclick="addRequest($pok->getID(),$pok->getoriginalTrainer(),$user)">Request Pokemon</button>';
-}
-
-function addRequest($ID, $originalTrainer, $trainerName){
-	new Requests(array("ID"=>$ID,"originalTrainer"=>$originalTrainer,"trainerName"=>$trainerName));
-	echo "request accepted!";
+	echo '<form action="req.php" method="POST">
+			<input type="hidden" value=$user name="trainerName" />
+			<input type="hidden" value=$pok->getID() name="ID" />
+			<input type="hidden" value=$pok->getOriginalTrainer() name="originalTrainer" />
+		<input type="submit" value="Request Pokemon" />
+	</form>';
 }
 ?>
