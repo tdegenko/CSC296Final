@@ -41,7 +41,7 @@ foreach($myrequests as $req){
 //print_r(requests::findRequested($user));
 $requested = requests::findRequested($user);
 foreach($requested as $req){
-    printReqs($req);
+    printWrap($req);
 }
 ?>
 
@@ -61,8 +61,25 @@ function mapToAttrs($in){
 }
 
 function printWrap($req){
+	printReqs($req);
+	echo '<form method="post" action="update_request.php?user='.$req->gettrainerName().'&ID='.$req->getID().'&originalTrainer='.$req->getoriginalTrainer().'&action=Accepted">'.
+			'<button>Accept Request</button>'.
+		'</form>';
+	echo '<form method="post" action="update_request.php?user='.$req->gettrainerName().'&ID='.$req->getID().'&originalTrainer='.$req->getoriginalTrainer().'&action=Rejected">'.
+		'<button>Reject Request</button>'.
+	'</form>';
+}
 
-
+function changeRequest($response){
+	
+	$ret = requests::updateStatus($response);
+	if($ret == -1){
+		echo "Failed to update status: bad input";
+	}
+	else{
+		echo "Status update successful!";
+		
+	}
 }
 
 
