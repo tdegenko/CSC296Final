@@ -5,7 +5,6 @@ require_once ('include.php');
 
 <html>
     <head>
-	<meta http-equiv="Refresh" content="2; url=<?php echo $_SERVER['HTTP_REFERER'];?>">
     <title>PokeRequest</title>
 	
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

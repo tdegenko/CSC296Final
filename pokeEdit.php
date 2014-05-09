@@ -6,8 +6,8 @@ $user=$_SESSION["user"]->getname();
 ?>
 <head>
     <title>Edit your pokemon</title>
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeSearch.php">Search for a pokemon instead</a> 
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeAdd.php">Add a pokemon instead</a> 
+	<a href="pokeSearch.php">Search for a pokemon instead</a> 
+	<a href="pokeAdd.php">Add a pokemon instead</a> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
