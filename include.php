@@ -35,6 +35,7 @@ border: 1px solid black;
 <a href="myPoke.php">Edit/Delete a Pokemon?</a>
 <a href="pokeAdd.php">Add a Pokemon?</a>
 <a href="yourRequests.php">Look at your requests?</a>
+<a href="logout.php">Log Out</a>
 <h2><?=$page?></h2>
 <?php
 }
