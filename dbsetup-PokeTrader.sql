@@ -96,7 +96,7 @@ CREATE TABLE pokemon (
 	pokedex INTEGER,
 	itemName CHAR(15),
 	PRIMARY KEY (ID, originalTrainer),
-	FOREIGN KEY (trainerName) REFERENCES users(name) ON DELETE CASCADE,
+	FOREIGN KEY (trainerName) REFERENCES users(name) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (pokedex) REFERENCES species(pokedex) ON DELETE CASCADE,
 	FOREIGN KEY (itemName) REFERENCES items(name) ON DELETE CASCADE,
     CHECK (lvl > 200)
@@ -204,3 +204,6 @@ INSERT INTO knows(
 	
 -- sample request: SomeDood requests Bob from Us
 INSERT INTO requests (ID, originalTrainer, trainerName, dateCreated, status) VALUES ('0', 'Giovanni', 'SomeDood', CURRENT_TIMESTAMP, 'Pending');
+
+-- another
+INSERT INTO requests (ID, originalTrainer, trainerName, dateCreated, status) VALUES ('2', 'MikeyMike', 'Us', CURRENT_TIMESTAMP, 'Pending');
