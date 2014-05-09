@@ -204,3 +204,6 @@ INSERT INTO knows(
 	
 -- sample request: SomeDood requests Bob from Us
 INSERT INTO requests (ID, originalTrainer, trainerName, dateCreated, status) VALUES ('0', 'Giovanni', 'SomeDood', CURRENT_TIMESTAMP, 'Pending');
+
+-- another
+INSERT INTO requests (ID, originalTrainer, trainerName, dateCreated, status) VALUES ('2', 'MikeyMike', 'Us', CURRENT_TIMESTAMP, 'Pending');
