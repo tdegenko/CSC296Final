@@ -28,7 +28,7 @@ class Pokemon{
     //from species
     private $pokedex, $name, $genus, $type1, $type2, $egg_group1, $egg_group2;
 
-    static private $public_attrs=array("pokedex","nickname","name", "genus", "type1", "type2", "egg_group1", "egg_group2","lvl","ability","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","genIn","moveName1","moveName2","moveName3","moveName4");
+    static private $public_attrs=array("nickname","lvl","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","genIn","moveName1","moveName2","moveName3","moveName4");
     static private $rattrs=array("pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4");
     static private $type_rattrs=array("type1","type2");
     static private $egg_rattrs=array("egg_group1","egg_group2");
@@ -41,19 +41,22 @@ class Pokemon{
             return $this->$var;
         }
         if(strncasecmp($method,"set",3)==0){
+			global $db;
             if(in_array($var,self::$public_attrs) and count($params)==1){
                 try{
                     $this->$var=$params[0];
+					echo $var." ".$params[0]." ".$this->$var;
+					
                     $sql =  "UPDATE pokemon
-                             SET :attr=:val
+                             SET ".$var."=:val
                              WHERE originalTrainer=:ot AND ID=:id;"; 
                     $stmt = $db->prepare($sql);
                     $params = array(
-                        ":attr" => $var,
                         ":val"  => $this->$var,
                         ":ot"   => $this->originalTrainer,
                         ":id"   => $this->ID
                     );
+					print_r($params);
                     $stmt->execute($params);
                 }catch(PDOException $ex) {
                     echo("Could not update requested pokemon.\n");
@@ -102,28 +105,35 @@ class Pokemon{
                 }
             }
             $db->beginTransaction();
-            $sql="INSERT INTO pokemon(
-                    ID, nickname, gender, lvl, happiness, ability, nature, shiny, HP,
-                    attack, defense, specialAttack,specialDefense, speed, originalTrainer, 
-                    pokeball, genIn, genCaught, trainerName, pokedex, itemName) ".
-            "VALUES (
-                    :ID, :nickname, :gender, :lvl, :happiness, :ability, :nature, :shiny, :HP,
-                    :attack, :defense, :specialAttack, :specialDefense, :speed, :originalTrainer, 
-                    :pokeball, :genIn, :genCaught, :trainerName, :pokedex, :itemName
-            ); ";
+            $sql="INSERT INTO pokemon(";
+            $values="VALUES (";
             $params=array();
+			$any=false;
             foreach(self::$poke_attrs as $key){
-                $params[$key]=$this->$key;
+				if(isset($this->$key) and (!is_null($this->$key)) and $this->$key !=""){
+					$params[$key]=$this->$key;
+					if($any){
+						$sql.=", ";
+						$values.=", ";
+					}
+					$sql.=$key;
+					$values.=":".$key;
+					$any=true;
+				}
             }
+			$sql.=" ) ".$values.");";
             $stmt = $db->prepare($sql);
             if(!$stmt){
                 $db->rollBack();
-                $error = "Could not add pokemon";
+                $error = "Could not (prepare to) add pokemon";
+				echo $error;
                  throw new Exception($error);
             }
             if(!$stmt->execute($params)){
+				print_r ($db->errorInfo());
                 $db->rollBack();
                 $error = "Could not add pokemon";
+				echo $error;
                  throw new Exception($error);
             }
             $sql="INSERT INTO knows 
@@ -139,15 +149,24 @@ class Pokemon{
             $stmt = $db->prepare($sql);
             if(!$stmt){
                 $db->rollBack();
-                $error = "Could not add known moves";
+                $error = "Could not (prepare to) add known moves";
+				echo $error;
                 throw new Exception($error);
             }
             if(!$stmt->execute($params)){
                 $db->rollBack();
                 $error = "Could not add known moves";
+				echo $error;
                 throw new Exception($error);
             }
             $db->commit();
+			$sql = "SELECT * FROM species WHERE pokedex = :pokedex;";
+			$stmt=$db->prepare($sql);
+			$stmt->execute(array(":pokedex"=>$this->pokedex));
+			$spec=$stmt->fetch();
+			foreach($spec as $key=>$value){
+				$this->$key=$value;
+			}
         }catch(PDOException $ex) {
             echo("Could not find requested pokemon.\n");
         }

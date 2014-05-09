@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
-require_once 'PokeDAL.php';
+require_once 'include.php';
 $user=$_SESSION["user"]->getname();
 ?>
 <head>
@@ -14,76 +14,49 @@ $user=$_SESSION["user"]->getname();
 <form action="edit_result.php" method="POST">
 <?php
 global $db;
-$select_query="SELECT pokedex, name FROM species";
-//$select_query_run=mysql_query($select_query);
-$stmt = $db->prepare($select_query);
-$stmt->execute();
-echo "<select name='pokedex'>";
-while ($row= $stmt->fetch(PDO::FETCH_ASSOC) )
-{
-        echo '<option value= '.$row['pokedex'].'>'.$row['pokedex']. ' '.$row['name'].'</option>';
-}
+$pkmn=pokemon::findByAttrs($_GET);
+if(count($pkmn)==1){
+	$pkmn=$pkmn[0];
 ?>
-</select><br>
-		<label for="type1">Type</label>
-			<input type="text" name="type1" /><br>
-		<label for="type2">Type</label>
-			<input type="text" name="type2" /><br>
-        <label for="number">ID</label>
-			<input type="number" name="ID" min="0" max="99999"/><br>
+		<br>
 		<label for="nickname">Nickname</label>
-			<input type="text" name="nickname" /><br>
-		<label for="gender">Male</label>
-			<input type="radio" name="gender" value='male'/>
-		<label for="gender">Female</label>
-			<input type="radio" name="gender" value='female'/>
-		<label for="gender">Neither</label>
-			<input type="radio" name="gender" value='neither'/><br>
+			<input type="text" name="nickname" value="<?=$pkmn->getnickname()?>"/><br>
 		<label for="lvl">Level</label>
-			<input type="number" name="lvl" min="1" max="100"/><br>
+			<input type="number" name="lvl" min="1" max="100" value="<?=$pkmn->getlvl()?>"/><br>
 		<label for="happiness">Happiness</label>
-			<input type="number" name="happiness" min="0" max="255"/><br>
-		<label for="ability">Ability</label>
-			<input type="text" name="ability" /><br>
-		<label for="nature">Nature</label>
-			<input type="text" name="nature" /><br>
-		<label for="shiny">Shiny</label>
-			<input type="checkbox" name="shiny" /><br>
+			<input type="number" name="happiness" min="0" max="255"  value="<?=$pkmn->gethappiness()?>"/><br>
 		<label for="HP">HP</label>
-			<input type="number" name="HP" min="1" max="99999"/><br>
+			<input type="number" name="HP" min="1" max="99999"  value="<?=$pkmn->getHP()?>"/><br>
 		<label for="attack">Attack</label>
-			<input type="number" name="attack" min="1" max="99999"/><br>
+			<input type="number" name="attack" min="1" max="99999" value="<?=$pkmn->getattack()?>"/><br>
 		<label for="defense">Defense</label>
-			<input type="number" name="defense" min="1" max="99999"/><br>
+			<input type="number" name="defense" min="1" max="99999" value="<?=$pkmn->getdefense()?>"/><br>
 		<label for="specialAttack">Special Attack</label>
-			<input type="number" name="specialAttack" min="1" max="99999"/><br>
+			<input type="number" name="specialAttack" min="1" max="99999" value="<?=$pkmn->getspecialAttack()?>"/><br>
 		<label for="specialDeffense">Special Defense</label>
-			<input type="number" name="specialDefense" min="1" max="99999"/><br>
+			<input type="number" name="specialDefense" min="1" max="99999" value="<?=$pkmn->getspecialDeffense()?>"/><br>
 		<label for="speed">Speed</label>
-			<input type="number" name="speed" min="1" max="99999"/><br>
-		<label for="originalTrainer">Original Trainer</label>
-			<input type="text" name="originalTrainer" /><br>
-		<label for="pokebal">Pokeball caught in</label>
-			<input type="text" name="pokeball" /><br>
+			<input type="number" name="speed" min="1" max="99999" value="<?=$pkmn->getspeed()?>"/><br>
 		<label for="genIn">Generation game stored in</label>
-			<input type="number" name="genIn" min="1" max="6"/><br>
-		<label for="genCaught">Gerneration Caught in</label>
-			<input type="number" name="genCaught" min="1" max="6"/><br>
-
-			<input type="hidden" value=$user name="trainerName" />
+			<input type="number" name="genIn" min="1" max="6"  value="<?=$pkmn->getgenIn()?>"/><br>
 		<label for="moveName1">Move</label>
-			<input type="text" name="moveName1"/><br>
+			<input type="text" name="moveName1" value="<?=$pkmn->getmoveName1()?>"/><br>
 		<label for="moveName2">Move</label>
-			<input type="text" name="moveName2"/><br>
+			<input type="text" name="moveName2" value="<?=$pkmn->getmoveName2()?>"/><br>
 		<label for="moveName3">Move</label>
-			<input type="text" name="moveName3"/><br>
+			<input type="text" name="moveName3" value="<?=$pkmn->getmoveName3()?>"/><br>
 		<label for="moveName4">Move</label>
-			<input type="text" name="moveName4"/><br>
-		<label for="egg_group1">Egg Group</label>
-			<input egg_group="text" name="egg_group1" /><br>
-		<label for="nickname">Egg Group</label>
-			<input egg_group="text" name="egg_group2" /><br>
+			<input type="text" name="moveName4" value="<?=$pkmn->getmoveName4()?>"/><br>
+			<input type="hidden" value="<?=$pkmn->getID()?>" name="ID" />
+			<input type="hidden" value="<?=$pkmn->getoriginalTrainer()?>" name="originalTrainer" />
         <input type="submit" value="Edit" /><br>
     </form>
+<?php
+}else{
+?>
+	<h2> Could not find Pokemon <h2>
+<?php
+}
+?>
 </body>
 </html>

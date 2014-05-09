@@ -70,7 +70,7 @@ while ($row= $stmt->fetch(PDO::FETCH_ASSOC) )
 		<label for="genCaught">Generation Caught in</label>
 			<input type="number" name="genCaught" min="1" max="6"/><br>
 
-			<input type="hidden" value=$user name="trainerName" />
+			<input type="hidden" value="<?=$user?>" name="trainerName" />
 		<label for="moveName1">Move</label>
 			<input type="text" name="moveName1"/><br>
 		<label for="moveName2">Move</label>

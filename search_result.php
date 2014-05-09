@@ -1,6 +1,6 @@
 <?php
 //to do:use variables when DAL is complete
-require_once 'PokeDAL.php';
+require_once 'include.php';
 $attrs=mapToAttrs($_POST);
 $pkmn=Pokemon::findByAttrs($attrs);
 $user=$_SESSION["user"]->getname();
@@ -167,9 +167,9 @@ function printPoke($pok){
     echo '</tr>'.
     '</table>';
 	echo '<form action="req.php" method="POST">
-			<input type="hidden" value=$user name="trainerName" />
-			<input type="hidden" value=$pok->getID() name="ID" />
-			<input type="hidden" value=$pok->getOriginalTrainer() name="originalTrainer" />
+			<input type="hidden" value="'.$_SESSION["user"]->getname().'" name="trainerName" />
+			<input type="hidden" value="'.$pok->getID().'" name="ID" />
+			<input type="hidden" value="'.$pok->getoriginalTrainer().'" name="originalTrainer" />
 		<input type="submit" value="Request Pokemon" />
 	</form>';
 }

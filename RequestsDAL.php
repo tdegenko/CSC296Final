@@ -61,7 +61,7 @@ $stmt = $db->prepare($sql);
 	
 public function updateStatus($newStatus){
 	try{
-			if($newStatus == "Accepted" or $newStatus == "Rejected"){
+			if($newStatus == "Accepted" or $newStatus == "Rejected" or $newStatus == "Pending"){
 				
 				global $db;
 				$sql = "UPDATE requests SET status=:newStatus WHERE ID = :ID AND originalTrainer = :originalTrainer";
@@ -93,27 +93,25 @@ function __construct($attrs){
                     $this->$key=$value;
                 }
             }
-            $db->beginTransaction();
             $sql="INSERT INTO requests(ID,originalTrainer,trainerName,status) ".
             "VALUES (:ID,:originalTrainer,:trainerName,:status); ";
+			$attrs=array("ID", "originalTrainer", "trainerName", "status");
             $params=array();
-            foreach(self::$public_attrs as $key){
+            foreach($attrs as $key){
                 $params[$key]=$this->$key;
             }
+			$params['status']="Pending";
             $stmt = $db->prepare($sql);
             if(!$stmt){
-                $db->rollBack();
-                $error = "Could not add pokemon";
+                $error = "Could not add request";
                  throw new Exception($error);
             }
             if(!$stmt->execute($params)){
-                $db->rollBack();
-                $error = "Could not add pokemon";
+                $error = "Could not add request";
                  throw new Exception($error);
             }
-            setstatus("pending");
         }catch(PDOException $ex) {
-            echo("Could not find requested pokemon.\n");
+            echo("Could not add request.\n");
         }
 }
 }

@@ -5,7 +5,6 @@ require_once ('include.php');
 
 <html>
     <head>
-	<meta http-equiv="Refresh" content="2; url=<?php echo $_SERVER['HTTP_REFERER'];?>">
     <title>PokeRequest</title>
 	
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,12 +24,11 @@ require_once ('include.php');
     <body>
 <?php
 try{
-	printPoke($pkmn);
 ?>
     <h2>Pokemon Requested</h2>
 
 <?php
-   addRequest($_POST["ID"],$_POST["originalTrainer"],$_POST["trainerName"],);
+   addRequest($_POST["ID"],$_POST["originalTrainer"],$_POST["trainerName"]);
 } catch (Exception $e) {
     echo 'Could not request pokemon';
 }

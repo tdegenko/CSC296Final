@@ -1,64 +1,66 @@
 <?php
 //to do:use variables when DAL is complete
 require_once 'include.php';
-$pkmn=Pokemon::findByAttrs(array("ID"=>$_POST["ID"],"originalTrainer"=>$_POST["originalTrainer"]));
+$user=$_SESSION["user"]->getname();
 ?>
 
 <html>
-    <head>
-    <title>PokeTrader</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeEdit.php">Edit another Pokemon?</a> 
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeAdd.php">Add a Pokemon?</a> 
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeSearch.php">Search for a Pokemon?</a> 
-    <style>
-        table{
-            border-collapse:collapse;
-        }
-        table, th, td{
-            border: 1px solid black;
-        }
-    </style>
-    </head>
+<head>
+<title>Your Pokemanz!</title>
 
-    <body>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<a href="pokeSearch.php">Search for a Pokemon?</a>
+<a href="pokeEdit.php">Edit a Pokemon?</a>
+<a href="pokeAdd.php">Add a Pokemon?</a>
+<a href="requestAdd.php">Request a Pokemon?</a>
+<style>
+table{
+border-collapse:collapse;
+}
+table, th, td{
+border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+<h2>Your Pokemon</h2>
 
 <?php
-if(count($pkmn)==1){
-	$poke=$pkmn[0];
-	if($poke->gettrainerName()==$_SESSION['user']->getname()){
-		$attrs=changePoke($_POST,$poke);
-		printPoke($poke);
-	}else{
-		echo "<h2>Not your Pokemon... tsk,tsk...</h2>";
-	}
-}else{
-?>
-		<h2>No uniquely identified pokemon</h2>
-<?php
+
+//print_r(requests::findMyRequests($user));
+$mymanz = pokemon::findByAttrs(array("trainerName"=>$user));
+foreach($mymanz as $man){
+    printWrap($man);
 }
 ?>
-    </body>
+
+</body>
 </html>
 <?php
-function changePoke($in,$pkmn){
+function mapToAttrs($in){
     $atts=array();
     foreach ($in as $key=>$value){
         if(!is_null($value) and $value != ""){
-            if(in_array($key,Pokemon::getAttrs())){
-				$set="set".$key;
-				if($pkmn->$set($value)==-1){
-					echo "<p>Could not set ".$key.".</p>";
-				}else{
-					echo "<p>Set ".$key." to ".$value."</p>";
-				}
+            if(in_array($key,Pokemon::getRAttrs())){
+                $atts[$key]=$value;
             }
         }
     }
     return $atts;
 }
 
-function printPoke($pok){
+function printWrap($man){
+	printManz($man);
+	echo '<form method="GET" action="pokeEdit.php?">
+			<input type="hidden" value="'.$man->getID().'" name="ID" />
+			<input type="hidden" value="'.$man->getoriginalTrainer().'" name="originalTrainer" />
+			<button>Edit</button>'.
+		'</form>';
+}
+
+
+function printManz($pok){
     echo '<table>';
     // print column headers
     echo '<tr>' .
@@ -179,4 +181,5 @@ function printPoke($pok){
     echo '</tr>'.
     '</table>';
 }
+
 ?>
