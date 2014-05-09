@@ -2,7 +2,6 @@
 //to do:use variables when DAL is complete
 require_once 'include.php';
 $user=$_SESSION["user"]->getName();
-$myReq=Requests::findByAttrs($attrs);
 ?>
 
 <html>
