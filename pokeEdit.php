@@ -19,6 +19,7 @@ $select_query="SELECT pokedex, name FROM species";
 //$select_query_run=mysql_query($select_query);
 $stmt = $db->prepare($select_query);
 $stmt->execute();
+echo '<label for="pokedex">Pokemon</label>';
 echo "<select name='pokedex'>";
 while ($row= $stmt->fetch(PDO::FETCH_ASSOC) )
 {
@@ -26,10 +27,6 @@ while ($row= $stmt->fetch(PDO::FETCH_ASSOC) )
 }
 ?>
 </select><br>
-		<label for="type1">Type</label>
-			<input type="text" name="type1" /><br>
-		<label for="type2">Type</label>
-			<input type="text" name="type2" /><br>
         <label for="number">ID</label>
 			<input type="number" name="ID" min="0" max="99999"/><br>
 		<label for="nickname">Nickname</label>
@@ -80,10 +77,6 @@ while ($row= $stmt->fetch(PDO::FETCH_ASSOC) )
 			<input type="text" name="moveName3"/><br>
 		<label for="moveName4">Move</label>
 			<input type="text" name="moveName4"/><br>
-		<label for="egg_group1">Egg Group</label>
-			<input egg_group="text" name="egg_group1" /><br>
-		<label for="nickname">Egg Group</label>
-			<input egg_group="text" name="egg_group2" /><br>
         <input type="submit" value="Edit" /><br>
     </form>
 </body>
