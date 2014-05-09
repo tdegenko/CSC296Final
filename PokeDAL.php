@@ -59,6 +59,23 @@ class Pokemon{
                     echo("Could not update requested pokemon.\n");
                 }
                 
+            }else if(in_array($var, self::$move_rattrs) and count($params)==1){
+                try{
+                    $this->$var=$params[0];
+                    $sql =  "UPDATE knows
+                             SET :attr=:val
+                             WHERE originalTrainer=:ot AND ID=:id;"; 
+                    $stmt = $db->prepare($sql);
+                    $params = array(
+                        ":attr" => $var,
+                        ":val"  => $this->$var,
+                        ":ot"   => $this->originalTrainer,
+                        ":id"   => $this->ID
+                    );
+                    $stmt->execute($params);
+                }catch(PDOException $ex) {
+                    echo("Could not update requested moves.\n");
+                }
             }else{
                 return -1;
             }
