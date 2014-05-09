@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 require_once 'PokeDAL.php';
+$user=$_SESSION["user"]->getname();
 ?>
 <head>
     <title>Edit your pokemon</title>
@@ -68,8 +69,8 @@ while ($row= $stmt->fetch(PDO::FETCH_ASSOC) )
 			<input type="number" name="genIn" min="1" max="6"/><br>
 		<label for="genCaught">Gerneration Caught in</label>
 			<input type="number" name="genCaught" min="1" max="6"/><br>
-		<label for="trainerName">Current Trainer Name</label>
-			<input type="text" name="trainerName" /><br>
+
+			<input type="hidden" value=$user name="trainerName" />
 		<label for="moveName1">Move</label>
 			<input type="text" name="moveName1"/><br>
 		<label for="moveName2">Move</label>
