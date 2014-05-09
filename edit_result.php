@@ -5,26 +5,8 @@ $pkmn=Pokemon::findByAttrs(array("ID"=>$_POST["ID"],"originalTrainer"=>$_POST["o
 ?>
 
 <html>
-    <head>
-    <title>PokeTrader</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<a href="pokeEdit.php">Edit another Pokemon?</a> 
-	<a href="pokeAdd.php">Add a Pokemon?</a> 
-	<a href="pokeSearch.php">Search for a Pokemon?</a> 
-	<a href="yourRequests.php">Look at your requests?</a> 
-    <style>
-        table{
-            border-collapse:collapse;
-        }
-        table, th, td{
-            border: 1px solid black;
-        }
-    </style>
-    </head>
-
-    <body>
-
 <?php
+printHead("Applying Edit");
 if(count($pkmn)==1){
 	$poke=$pkmn[0];
 	if($poke->gettrainerName()==$_SESSION['user']->getname()){

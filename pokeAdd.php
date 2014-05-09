@@ -3,15 +3,8 @@
 <?php
 require_once 'include.php';
 $user=$_SESSION["user"]->getname();
+printHead("Add Pokemon");
 ?>
-<head>
-    <title>Add a pokemon!</title>
-	<a href="pokeEdit.php">Edit a pokemon instead</a> 
-	<a href="pokeSearch.php">Search for a pokemon instead</a> 
-	<a href="yourRequests.php">Look at your requests?</a> 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<body>
 <form action="add_pokemon.php" method="POST">
 <?php
 global $db;

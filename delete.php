@@ -6,35 +6,24 @@ $pkmn=Pokemon::findByAttrs($attrs);
 ?>
 
 <html>
-    <head>
-    <title>PokeDeleted</title>
-	
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<a href="pokeAdd.php">Add/delete another Pokemon?</a> 
-	<a href="pokeEdit.php">Edit a Pokemon?</a> 
-	<a href="pokeSearch.php">Search for a Pokemon?</a> 
-	<a href="yourRequests.php">Look at your requests?</a> 
-    <style>
-        table{
-            border-collapse:collapse;
-        }
-        table, th, td{
-            border: 1px solid black;
-        }
-    </style>
-    </head>
-
-    <body>
 <?php
-try{
-	printPoke($pkmn);
+printHead("Deleting Pokemon");
+if(count($pkmn)==1){
+	$poke=$pkmn[0];
+	if($poke->gettrainerName()==$_SESSION['user']->getname()){
+		if($poke->delete()==0){
+			echo "<h2>Deleted</h2>";
+		}else{
+			echo '<h2>Could not delete pokemon</h2>';
+		}
+		printPoke($poke);
+	}else{
+		echo "<h2>Not your Pokemon... tsk,tsk...</h2>";
+	}
+}else{
 ?>
-    <h2>Pokemon Deleted</h2>
-
+		<h2>No uniquely identified pokemon</h2>
 <?php
-   Pokemon::delete($attrs);
-} catch (Exception $e) {
-    echo 'Could not delete pokemon';
 }
 ?>
     </body>

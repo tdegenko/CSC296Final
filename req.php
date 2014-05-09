@@ -4,26 +4,9 @@ require_once ('include.php');
 ?>
 
 <html>
-    <head>
-    <title>PokeRequest</title>
-	
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<a href="pokeAdd.php">Add/delete a Pokemon?</a> 
-	<a href="pokeEdit.php">Edit a Pokemon?</a> 
-	<a href="pokeSearch.php">Search for a Pokemon?</a> 
-	<a href="yourRequests.php">Look at your requests?</a> 
-    <style>
-        table{
-            border-collapse:collapse;
-        }
-        table, th, td{
-            border: 1px solid black;
-        }
-    </style>
-    </head>
 
-    <body>
 <?php
+printHead("Requesting Pokemon");
 try{
 ?>
     <h2>Pokemon Requested</h2>

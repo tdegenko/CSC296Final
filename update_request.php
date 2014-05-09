@@ -1,24 +1,8 @@
 <html>
-<head>
-<title>Updating Requests!</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<a href="pokeSearch.php">Search for a Pokemon?</a>
-<a href="pokeEdit.php">Edit a Pokemon?</a>
-<a href="pokeAdd.php">Add a Pokemon?</a>
-<a href="requestAdd.php">Request a Pokemon?</a>
-<style>
-table{
-border-collapse:collapse;
-}
-table, th, td{
-border: 1px solid black;
-}
-</style>
-</head>
 
-<body>
 <?php
 require_once 'include.php';
+printHead("Updateing Request");
 
 if(isset($_GET['ID'],$_GET['originalTrainer'],$_GET['action'])){
 	$pkm = pokemon::findByAttrs(array("ID" => $_GET['ID'], "originalTrainer" => $_GET['originalTrainer']));

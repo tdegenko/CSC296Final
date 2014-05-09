@@ -5,28 +5,9 @@ $user=$_SESSION["user"]->getname();
 ?>
 
 <html>
-<head>
-<title>Your Requests!</title>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<a href="pokeSearch.php">Search for a Pokemon?</a>
-<a href="pokeEdit.php">Edit a Pokemon?</a>
-<a href="pokeAdd.php">Add a Pokemon?</a>
-<style>
-table{
-border-collapse:collapse;
-}
-table, th, td{
-border: 1px solid black;
-}
-</style>
-</head>
-
-<body>
-<h2>Your Requests</h2>
 
 <?php
-
+printHead("Your Requests");
 //print_r(requests::findMyRequests($user));
 $myrequests = requests::findMyRequests($user);
 foreach($myrequests as $req){

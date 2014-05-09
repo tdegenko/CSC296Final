@@ -3,20 +3,9 @@
 ?>
 
 <html>
-    <head>
-    <title>User Info</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <style>
-        table{
-            border-collapse:collapse;
-        }
-        table, th, td{
-            border: 1px solid black;
-        }
-    </style>
-    </head>
-
-    <body>
+<?php
+printHead("COMPLEXITY!");
+?>
     <h2>User Test</h2>
 
     <?php

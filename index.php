@@ -3,24 +3,10 @@
 ?>
 
 <html>
-    <head>
-    <title>PokeTrader</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <style>
-        table{
-            border-collapse:collapse;
-        }
-        table, th, td{
-            border: 1px solid black;
-        }
-    </style>
-    </head>
-
-    <body>
-    <h2>Pokemon Test</h2>
 
     <?php
     require_once 'PokeDAL.php';
+	printHead("PokeTests");
 
     try {
         echo '<p>Looking for a Mewtwo that was caught in Gen 1 and is in Gen 2...</p>';

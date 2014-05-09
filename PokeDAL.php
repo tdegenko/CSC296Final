@@ -174,96 +174,20 @@ class Pokemon{
 
     }
 	
-	function delete($attrs){
-        if(!isset($attrs)){
-            return;
-        }
+	function delete(){
         try{
             global $db;
-            foreach ($attrs as $key=>$value){
-                if(in_array($key,array_keys(get_object_vars($this))) and (!is_null($value)) and $value !=""){
-                    $this->$key=$value;
-                }
-            }
-            $db->beginTransaction();
-            $sql="DELETE FROM pokemon";
-            $where="WHERE ";
-            $any=false;
-            $params=array();
-            foreach ($attrs as $key=>$value){
-                if(in_array($key,self::$rattrs) and !(in_array($key,self::$move_rattrs)) and (!is_null($value)) and $value !=""){
-                    if($any){
-                        $where.=" AND ";
-                    }
-                    if(in_array($key,self::$type_rattrs)){
-                        $where.="(";
-                        $first=true;
-                        foreach(self::$type_rattrs as $rkey){
-                            if(!$first){
-                                $where.=" OR ";
-                            }else{
-                                $first=false;
-                            }
-                            $where.=$rkey."=:".$key;
-                            $params[":".$key]=$value;
-                        }
-                        $where.=")";
-                    }elseif(in_array($key,self::$egg_rattrs)){
-                        $where.="(";
-                        $first=true;
-                        foreach(self::$egg_rattrs as $rkey){
-                            if(!$first){
-                                $where.=" OR ";
-                            }else{
-                                $first=false;
-                            }
-                            $where.=$rkey."=:".$key;
-                            $params[":".$key]=$value;
-                        }
-                        $where.=")";
-                    }else{
-                        $where.=$key."=:".$key;
-                        $params[":".$key]=$value;
-                    }
-                    $any=true;
-                }
-            }
-            
-            if ($any) {
-                $sql.=$where;
-            }
-            $sql.=") AS sel JOIN knows ON sel.ID=knows.ID AND sel.originalTrainer=knows.originalTrainer ";
-            $where="WHERE ";
-            $any=false;
-            foreach ($attrs as $key=>$value){
-                if(in_array($key,self::$rattrs) and (in_array($key,self::$move_rattrs)) and (!is_null($value)) and $value !=""){
-                    if($any){
-                        $where.=" AND ";
-                    }
-                    if(in_array($key,self::$move_rattrs)){
-                        $where.="(";
-                        $first=true;
-                        foreach(self::$move_rattrs as $rkey){
-                            if(!$first){
-                                $where.=" OR ";
-                            }else{
-                                $first=false;
-                            }
-                            $where.=$rkey."=:".$key;
-                            $params[":".$key]=$value;
-                        }
-                        $where.=")";
-                    }
-                    $any=true;
-                }
-            }
-            
-            if ($any) {
-                $sql.=$where;
-            }
-            $db->commit();
+            $sql="DELETE FROM pokemon WHERE ID=:ID AND originalTrainer=:originalTrainer; ";
+			$stmt = $db->prepare($sql);
+			$params=array(":ID"=>$this->ID,":originalTrainer"=>$this->originalTrainer);
+            if($stmt->execute($params)){
+				return 0;
+			}else{
+				return -1;
+			}
         }catch(PDOException $ex) {
-            echo("Could not find requested pokemon.\n");
+            echo("Could not delete requested pokemon.\n");
+			return -1;
         }
         
 
