@@ -28,7 +28,7 @@ class Pokemon{
     //from species
     private $pokedex, $name, $genus, $type1, $type2, $egg_group1, $egg_group2;
 
-    static private $public_attrs=array("nickname","lvl","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","genIn");
+    static private $public_attrs=array("pokedex","nickname","name", "genus", "type1", "type2", "egg_group1", "egg_group2","lvl","ability","trainerName","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","genIn","moveName1","moveName2","moveName3","moveName4");
     static private $rattrs=array("pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4");
     static private $type_rattrs=array("type1","type2");
     static private $egg_rattrs=array("egg_group1","egg_group2");
@@ -63,6 +63,10 @@ class Pokemon{
                 return -1;
             }
         }
+    }
+	
+	static public function getAttrs(){
+        return self::$public_attrs;
     }
 	
 	static public function getRAttrs(){
@@ -125,6 +129,101 @@ class Pokemon{
                 $db->rollBack();
                 $error = "Could not add known moves";
                 throw new Exception($error);
+            }
+            $db->commit();
+        }catch(PDOException $ex) {
+            echo("Could not find requested pokemon.\n");
+        }
+        
+
+    }
+	
+	function delete($attrs){
+        if(!isset($attrs)){
+            return;
+        }
+        try{
+            global $db;
+            foreach ($attrs as $key=>$value){
+                if(in_array($key,array_keys(get_object_vars($this))) and (!is_null($value)) and $value !=""){
+                    $this->$key=$value;
+                }
+            }
+            $db->beginTransaction();
+            $sql="DELETE FROM pokemon";
+            $where="WHERE ";
+            $any=false;
+            $params=array();
+            foreach ($attrs as $key=>$value){
+                if(in_array($key,self::$rattrs) and !(in_array($key,self::$move_rattrs)) and (!is_null($value)) and $value !=""){
+                    if($any){
+                        $where.=" AND ";
+                    }
+                    if(in_array($key,self::$type_rattrs)){
+                        $where.="(";
+                        $first=true;
+                        foreach(self::$type_rattrs as $rkey){
+                            if(!$first){
+                                $where.=" OR ";
+                            }else{
+                                $first=false;
+                            }
+                            $where.=$rkey."=:".$key;
+                            $params[":".$key]=$value;
+                        }
+                        $where.=")";
+                    }elseif(in_array($key,self::$egg_rattrs)){
+                        $where.="(";
+                        $first=true;
+                        foreach(self::$egg_rattrs as $rkey){
+                            if(!$first){
+                                $where.=" OR ";
+                            }else{
+                                $first=false;
+                            }
+                            $where.=$rkey."=:".$key;
+                            $params[":".$key]=$value;
+                        }
+                        $where.=")";
+                    }else{
+                        $where.=$key."=:".$key;
+                        $params[":".$key]=$value;
+                    }
+                    $any=true;
+                }
+            }
+            
+            if ($any) {
+                $sql.=$where;
+            }
+            $sql.=") AS sel JOIN knows ON sel.ID=knows.ID AND sel.originalTrainer=knows.originalTrainer ";
+            $where="WHERE ";
+            $any=false;
+            foreach ($attrs as $key=>$value){
+                if(in_array($key,self::$rattrs) and (in_array($key,self::$move_rattrs)) and (!is_null($value)) and $value !=""){
+                    if($any){
+                        $where.=" AND ";
+                    }
+                    if(in_array($key,self::$move_rattrs)){
+                        $where.="(";
+                        $first=true;
+                        foreach(self::$move_rattrs as $rkey){
+                            if(!$first){
+                                $where.=" OR ";
+                            }else{
+                                $first=false;
+                            }
+                            $where.=$rkey."=:".$key;
+                            $params[":".$key]=$value;
+                        }
+                        $where.=")";
+                    }
+                    $any=true;
+                }
+            }
+            
+            if ($any) {
+                $sql.=$where;
             }
             $db->commit();
         }catch(PDOException $ex) {
@@ -224,7 +323,3 @@ class Pokemon{
         }
     }
 }
-//$tmp=pokemon::findByPokename("Ho-Oh")[0];
-//$tmp=pokemon::findByAttrs(array("name"=>"Ho-Oh"))[0];
-//print_r($tmp);
-//echo $tmp->getname();
