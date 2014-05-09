@@ -12,7 +12,6 @@ $user=$_SESSION["user"]->getname();
 <a href="pokeSearch.php">Search for a Pokemon?</a>
 <a href="pokeEdit.php">Edit a Pokemon?</a>
 <a href="pokeAdd.php">Add a Pokemon?</a>
-<a href="requestAdd.php">Request a Pokemon?</a>
 <style>
 table{
 border-collapse:collapse;

@@ -8,6 +8,7 @@ $user=$_SESSION["user"]->getname();
     <title>Edit your pokemon</title>
 	<a href="pokeSearch.php">Search for a pokemon instead</a> 
 	<a href="pokeAdd.php">Add a pokemon instead</a> 
+	<a href="yourRequests.php">Look at your requests?</a> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
