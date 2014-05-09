@@ -18,7 +18,7 @@ class Pokemon{
 
     //from pokemon
     private $ID, $originalTrainer, $nickname, $gender, $lvl, $trainerName, 
-    $happiness, $ability, $nature, $shiny,  $HP, $attack, $defense, $specialAttack, $specialDefense, $speed, $accuracy, $evasion, $pokeball, $genIn, $genCaught, $itemName;
+    $happiness, $ability, $nature, $shiny,  $HP, $attack, $defense, $specialAttack, $specialDefense, $speed, $pokeball, $genIn, $genCaught, $itemName;
     
     static private $poke_attrs=array("ID", "originalTrainer", "nickname", "gender", "lvl", "trainerName", "happiness", "ability", "nature", "shiny", "HP", "attack", "defense", "specialAttack", "specialDefense", "speed", "pokeball", "genIn", "genCaught", "pokedex", "itemName");
 

@@ -25,11 +25,11 @@ while   ($row=   $stmt->fetch(PDO::FETCH_ASSOC) )
 		<label for="nickname">Nickname</label>
 			<input type="text" name="nickname" /><br>
 		<label for="gender">Male</label>
-			<input type="radio" name="gender" value='male'/>
+			<input type="radio" name="gender" value='m'/>
 		<label for="gender">Female</label>
-			<input type="radio" name="gender" value='female'/>
+			<input type="radio" name="gender" value='f'/>
 		<label for="gender">Neither</label>
-			<input type="radio" name="gender" value='neither'/><br>
+			<input type="radio" name="gender" value='n'/><br>
 		<label for="lvl">Level</label>
 			<input type="number" name="lvl" min="1" max="100"/><br>
 		<label for="happiness">Happiness</label>

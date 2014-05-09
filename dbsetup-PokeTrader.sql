@@ -176,7 +176,7 @@ INSERT INTO users(
 INSERT INTO pokemon(
 	ID, nickname, gender, lvl, happiness, ability, nature, shiny, HP, attack, defense, specialAttack,
 	specialDefense, speed, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
-	VALUES (00000, "Bob", "N", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, "Giovanni", "Master Ball", 2, 1, "Us", 150,"Eject Button");
+	VALUES (00000, "Bob", "n", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, "Giovanni", "Master Ball", 2, 1, "Us", 150,"Eject Button");
 
 INSERT INTO knows(
 	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
@@ -186,7 +186,7 @@ INSERT INTO knows(
 INSERT INTO pokemon(
 	ID, nickname, gender, lvl, happiness, ability, nature, shiny, HP, attack, defense, specialAttack,
 	specialDefense, speed, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
-	VALUES (00001, "Mike", "F", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, "MikeyMike", "Master Ball", 3, 1, "Us", 399,"Eject Button");
+	VALUES (00001, "Mike", "f", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, "MikeyMike", "Master Ball", 3, 1, "Us", 399,"Eject Button");
 
 INSERT INTO knows(
 	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
@@ -196,7 +196,7 @@ INSERT INTO knows(
 INSERT INTO pokemon(
 	ID, nickname, gender, lvl, happiness, ability, nature, shiny, HP, attack, defense, specialAttack,
 	specialDefense, speed, originalTrainer, pokeball, genIn, genCaught, trainerName, pokedex, itemName)
-	VALUES (00002, "Umbie", "F", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, "MikeyMike", "Master Ball", 2, 1, "SomeDood", 197,"Eject Button");
+	VALUES (00002, "Umbie", "f", 100, 2, "Sandstorm", "Shy", "Y", 100, 100, 100, 100, 100, 100, "MikeyMike", "Master Ball", 2, 1, "SomeDood", 197,"Eject Button");
 
 INSERT INTO knows(
 	ID, originalTrainer, moveName1, moveName2,moveName3,moveName4)
