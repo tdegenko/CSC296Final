@@ -11,9 +11,10 @@ $user=$_SESSION["user"]->getname();
 <title>PokeTrader</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeSearch.php">Search for another Pokemon?</a>
-<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeEdit.php">Edit a Pokemon?</a>
-<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeAdd.php">Add a Pokemon?</a>
+<a href="pokeSearch.php">Search for another Pokemon?</a>
+<a href="pokeEdit.php">Edit a Pokemon?</a>
+<a href="pokeAdd.php">Add a Pokemon?</a>
+<a href="yourRequests.php">Look at your requests?</a> 
 <style>
 table{
 border-collapse:collapse;

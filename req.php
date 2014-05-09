@@ -8,9 +8,10 @@ require_once ('include.php');
     <title>PokeRequest</title>
 	
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<a href="pokeAdd.php">Add/delete another Pokemon?</a> 
+	<a href="pokeAdd.php">Add/delete a Pokemon?</a> 
 	<a href="pokeEdit.php">Edit a Pokemon?</a> 
 	<a href="pokeSearch.php">Search for a Pokemon?</a> 
+	<a href="yourRequests.php">Look at your requests?</a> 
     <style>
         table{
             border-collapse:collapse;
