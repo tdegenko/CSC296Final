@@ -1,7 +1,7 @@
 <?php
 //to do:use variables when DAL is complete
 require_once 'include.php';
-$user=$_SESSION["user"]->getName();
+$user=$_SESSION["user"]->getname();
 ?>
 
 <html>
@@ -27,16 +27,16 @@ border: 1px solid black;
 <h2>Your Requests</h2>
 
 <?php
-foreach($pkmn as $poke){
-    findMyRequests($user);
-}
+
+print_r(requests::findMyRequests($user));
+
 ?>
 
 <h3>Requested of you</h3>
 <?php
-foreach($pkmn as $poke){
-    findRequested($user);
-}
+
+print_r(requests::findRequested($user));
+
 ?>
 
 </body>
