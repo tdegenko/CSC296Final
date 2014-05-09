@@ -28,7 +28,7 @@ class Pokemon{
     //from species
     private $pokedex, $name, $genus, $type1, $type2, $egg_group1, $egg_group2;
 
-    static private $public_attrs=array("nickname","lvl","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","genIn","moveName1","moveName2","moveName3","moveName4");
+    static private $public_attrs=array("nickname","lvl","happiness","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","genIn","moveName1","moveName2","moveName3","moveName4","itemName");
     static private $rattrs=array("pokedex", "name", "genus", "type1", "type2", "egg_group1", "egg_group2", "ID","originalTrainer","nickname","gender","lvl","trainerName","happiness","ability","nature","shiny","HP", "attack", "defense", "specialAttack", "specialDefense", "speed","pokeball","genIn","genCaught","itemName","moveName1","moveName2","moveName3","moveName4");
     static private $type_rattrs=array("type1","type2");
     static private $egg_rattrs=array("egg_group1","egg_group2");
@@ -43,24 +43,26 @@ class Pokemon{
         if(strncasecmp($method,"set",3)==0){
 			global $db;
             if(in_array($var,self::$public_attrs) and count($params)==1){
-                try{
-                    $this->$var=$params[0];
-					echo $var." ".$params[0]." ".$this->$var;
-					
-                    $sql =  "UPDATE pokemon
-                             SET ".$var."=:val
-                             WHERE originalTrainer=:ot AND ID=:id;"; 
-                    $stmt = $db->prepare($sql);
-                    $params = array(
-                        ":val"  => $this->$var,
-                        ":ot"   => $this->originalTrainer,
-                        ":id"   => $this->ID
-                    );
-					print_r($params);
-                    $stmt->execute($params);
-                }catch(PDOException $ex) {
-                    echo("Could not update requested pokemon.\n");
-                }
+				if($this->$var!=$params[0]){
+					try{
+						$this->$var=$params[0];
+						
+						$sql =  "UPDATE pokemon
+								SET ".$var."=:val
+								WHERE originalTrainer=:ot AND ID=:id;"; 
+						$stmt = $db->prepare($sql);
+						$params = array(
+							":val"  => $this->$var,
+							":ot"   => $this->originalTrainer,
+							":id"   => $this->ID
+						);
+						$stmt->execute($params);
+					}catch(PDOException $ex) {
+						echo("Could not update requested pokemon.\n");
+					}
+				}else{
+					return 1;
+				}
                 
             }else if(in_array($var, self::$move_rattrs) and count($params)==1){
                 try{

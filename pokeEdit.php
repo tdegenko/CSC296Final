@@ -41,6 +41,8 @@ if(count($pkmn)==1){
 			<input type="text" name="moveName3" value="<?=$pkmn->getmoveName3()?>"/><br>
 		<label for="moveName4">Move</label>
 			<input type="text" name="moveName4" value="<?=$pkmn->getmoveName4()?>"/><br>
+		<label for="itemName">Item</label>
+			<input type="text" name="itemName"/><br>
 			<input type="hidden" value="<?=$pkmn->getID()?>" name="ID" />
 			<input type="hidden" value="<?=$pkmn->getoriginalTrainer()?>" name="originalTrainer" />
         <input type="submit" value="Edit" /><br>

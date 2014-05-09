@@ -69,6 +69,8 @@ while   ($row=   $stmt->fetch(PDO::FETCH_ASSOC) )
 			<input type="text" name="moveName3"/><br>
 		<label for="moveName4">Move</label>
 			<input type="text" name="moveName4"/><br>
+		<label for="itemName">Item</label>
+			<input type="text" name="itemName"/><br>
         <input type="submit" value="Search" /><br>
     </form>
 </body>

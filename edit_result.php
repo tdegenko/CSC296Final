@@ -30,10 +30,14 @@ function changePoke($in,$pkmn){
         if(!is_null($value) and $value != ""){
             if(in_array($key,Pokemon::getAttrs())){
 				$set="set".$key;
-				if($pkmn->$set($value)==-1){
+				$suc=$pkmn->$set($value);
+				if($suc==-1){
 					echo "<p>Could not set ".$key.".</p>";
 				}else{
-					echo "<p>Set ".$key." to ".$value."</p>";
+					if($suc==1){
+					}else{
+						echo "<p>Set ".$key." to ".$value."</p>";
+					}
 				}
             }
         }
