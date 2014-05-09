@@ -6,8 +6,8 @@ require_once 'dbsetup.php';
 ?>
 <head>
     <title>Search for a pokemon!</title>
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeEdit.php">Edit a pokemon instead</a> 
-	<a href="betaweb.csug.rochester.edu/~cdiaz3/Poke_Base/pokeAdd.php">Add a pokemon instead</a> 
+	<a href="pokeEdit.php">Edit a pokemon instead</a> 
+	<a href="pokeAdd.php">Add a pokemon instead</a> 
 	
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
