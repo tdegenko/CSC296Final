@@ -13,6 +13,7 @@ $stmt = $db->prepare($select_query);
 $stmt->execute();
 echo '<label for="pokedex">Pokemon</label>';
 echo "<select name='pokedex'>";
+echo '<option value="" >-- Any</option>';
 while   ($row=   $stmt->fetch(PDO::FETCH_ASSOC) )
 {
         echo '<option value= '.$row['pokedex'].'>'.$row['pokedex']. ' '.$row['name'].'</option>';                        
