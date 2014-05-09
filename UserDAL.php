@@ -18,7 +18,9 @@ class users{
     function __call($method, $params){
         $var = substr($method,3);
         if(strncasecmp($method,"get",3)==0){
-            return $this->$var;
+            if ($var!="passwd"){
+                return $this->$var;
+            }
         }
         if(strncasecmp($method,"set",3)==0){
             if(in_array($var,self::$public_attrs) and count($params)==1){
